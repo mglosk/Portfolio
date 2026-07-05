@@ -91,7 +91,7 @@ export default function Home() {
         </div>
 
         {/* Right — sticky photo */}
-        <div className="hidden lg:block flex-1 sticky top-16 h-[calc(100vh-4rem)] self-start overflow-hidden">
+        <div className="hidden lg:block flex-1 sticky top-24 h-[calc(100vh-6rem)] self-start overflow-hidden">
           <motion.img
             src={imgMandy}
             alt="Mandy Losk"

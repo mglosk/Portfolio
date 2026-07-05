@@ -157,7 +157,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Sub-nav ───────────────────────────────────────────────── */}
-      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-16 z-30 overflow-x-auto">
+      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-24 z-30 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex min-w-max">
             {phases.map(({ id, phase, label }, i) => {

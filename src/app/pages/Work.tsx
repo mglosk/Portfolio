@@ -84,7 +84,7 @@ export default function Work() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#fcfbf4] pt-16">
+    <div className="min-h-screen bg-[#fcfbf4] pt-24">
 
       {/* ── Header ────────────────────────────────────────────────── */}
       <section className="px-10 py-20 border-b border-[#343a3e]/10">
