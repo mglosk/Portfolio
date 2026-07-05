@@ -606,65 +606,76 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Category Representation Ideas ────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>03 — Ideation</SectionLabel>
-            <SectionH2>Category Representation Ideas</SectionH2>
-          </div>
 
-          <motion.p
+          {/* Heading + body */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, ease }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)] max-w-[560px] mb-12"
+            className="mb-16"
           >
-            To find the right approach for Rabanne's category pages, I explored several visual and interaction models — each with distinct trade-offs between brand expression and browsing efficiency.
-          </motion.p>
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-6">
+              Category Representation Ideas
+            </h2>
+            <div className="max-w-3xl flex flex-col gap-4">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+                {"Rabanne's product ecosystem needed to be easy to scan while still feeling distinctive. I explored multiple ways of representing categories, from simple tile systems to more editorial and image-led interactions."}
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+                The goal was to compare how each pattern supported different user needs: quick scanning, visual inspiration, category comprehension, and a more memorable brand experience.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+                Conclusion: choose patterns that balance clarity, luxury, and scalability.
+              </p>
+            </div>
+          </motion.div>
 
-          {/* Table */}
-          <div className="overflow-x-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.75, ease }}
-            >
-              {/* Header row */}
-              <div className="grid grid-cols-5 gap-4 mb-4">
-                <div />
-                {["Concept", "Strength", "Risk"].map((h) => (
-                  <p key={h} className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[2.4px] uppercase text-[#ac4e76]">{h}</p>
+          {/* Comparison table — labels column + 4 concept columns */}
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="flex gap-4 items-stretch"
+          >
+            {/* Row labels */}
+            <motion.div variants={cardItem} className="flex flex-col justify-between w-16 flex-shrink-0 pb-1">
+              {/* spacer for image row */}
+              <div className="flex-1" />
+              <div className="flex flex-col gap-0" style={{ paddingBottom: "0px" }}>
+                {["Concept", "Strength", "Risk"].map((label) => (
+                  <p key={label} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#ac4e76] py-2 border-t border-[#ac4e76]/20">
+                    {label}
+                  </p>
                 ))}
-                <div />
               </div>
-
-              {/* Data rows */}
-              <motion.div
-                variants={listContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-20px" }}
-                className="flex flex-col gap-3"
-              >
-                {[
-                  { img: imgCS1439, concept: "Tiles",             strength: "Fast to scan",            risk: "Less distinctive" },
-                  { img: imgCS1435, concept: "Scroll-in cards",   strength: "Memorable, dynamic",      risk: "Could slow browsing" },
-                  { img: imgCS1437, concept: "Stacked list",      strength: "Compact, efficient",      risk: "Less visual impact" },
-                  { img: imgCS1436, concept: "Image + tabs",      strength: "Premium, brand-led",      risk: "Needs strong imagery" },
-                ].map(({ img, concept, strength, risk }) => (
-                  <motion.div key={concept} variants={listItem} className="grid grid-cols-5 gap-4 items-center">
-                    <img src={img} alt={concept} className="w-full aspect-video object-cover" />
-                    <p className="font-['Mulish',sans-serif] font-semibold text-[14px] text-[#151515]">{concept}</p>
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] text-[rgba(52,58,62,0.8)]">{strength}</p>
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] text-[rgba(52,58,62,0.6)]">{risk}</p>
-                    <div />
-                  </motion.div>
-                ))}
-              </motion.div>
             </motion.div>
-          </div>
+
+            {/* Concept columns */}
+            {[
+              { img: imgCS1439, concept: "Tiles",           strength: "Fast to scan",       risk: "Less distinctive" },
+              { img: imgCS1435, concept: "Scroll-in cards", strength: "Memorable, dynamic", risk: "Could slow browsing" },
+              { img: imgCS1437, concept: "Stacked list",    strength: "Compact, efficient", risk: "Less visual impact" },
+              { img: imgCS1436, concept: "Image + tabs",    strength: "Premium, brand-led", risk: "Needs strong imagery" },
+            ].map(({ img, concept, strength, risk }) => (
+              <motion.div key={concept} variants={cardItem} className="flex flex-col flex-1 min-w-0">
+                <div className="w-full overflow-hidden mb-4" style={{ aspectRatio: "2/1" }}>
+                  <img src={img} alt={concept} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex flex-col">
+                  {[concept, strength, risk].map((val) => (
+                    <p key={val} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#151515] py-2 border-t border-[#343a3e]/10">
+                      {val}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </section>
 
