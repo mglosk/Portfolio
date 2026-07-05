@@ -179,26 +179,18 @@ function Footer() {
           </p>
           <div className="flex flex-col gap-3">
             <a
-              href="mailto:hello@example.com"
+              href="mailto:mglosk100@gmail.com"
               className="font-['Inter',sans-serif] text-sm text-[#eee5d4]/70 hover:text-[#d4af37] transition-colors duration-200"
             >
-              hello@designer.com
+              mglosk100@gmail.com
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mandylosk/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-['Inter',sans-serif] text-sm text-[#eee5d4]/70 hover:text-[#d4af37] transition-colors duration-200"
             >
               LinkedIn
-            </a>
-            <a
-              href="https://behance.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-['Inter',sans-serif] text-sm text-[#eee5d4]/70 hover:text-[#d4af37] transition-colors duration-200"
-            >
-              Behance
             </a>
           </div>
         </div>
