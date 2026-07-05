@@ -26,7 +26,7 @@ import imgCS1439           from "@/imports/RabanneCaseStudy-1/55900a17788a7acce2
 import imgCS1435           from "@/imports/RabanneCaseStudy-1/143729eedc1616f92b17a7eff926ad7ef5bbe6e0.png";
 import imgCS1436           from "@/imports/RabanneCaseStudy-1/8bc828e68f81d84174252f84c159e642c8705318.png";
 import imgCS1437           from "@/imports/RabanneCaseStudy-1/5d5f37675508e1f9344a15feb784c455d2f93fe1.png";
-import imgHdWireframeMakeup from "@/imports/RabanneCaseStudy-1/hd-wireframe-makeup.png";
+import imgHdWireframeMakeup from "@/imports/RabanneCaseStudy-1/hd-wireframe-makeup.gif";
 import imgImage1428        from "@/imports/Rabanne/c2f988974bf75d5fd6c8b0ea95c503b25f677586.png";
 import imgImage1429        from "@/imports/Rabanne/138f3cbba608c0611712d286c558913cc6943e94.png";
 
