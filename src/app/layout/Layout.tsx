@@ -77,11 +77,11 @@ function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-14">
+            <NavLink to="/" end className={({ isActive }) => navLinkClass(isActive)}>
+              Home
+            </NavLink>
             <NavLink to="/work" className={({ isActive }) => navLinkClass(isActive)}>
               Work
-            </NavLink>
-            <NavLink to="/" end className={({ isActive }) => navLinkClass(isActive)}>
-              About
             </NavLink>
             <Link
               to="/contact"

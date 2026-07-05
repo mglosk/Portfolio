@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 import { FadeIn } from "@/app/components/FadeIn";
 
-import imgCaseStudyHero    from "@/imports/RabanneCaseStudy-1/288247995274c7358e07cee74fbaa83ac30ead7a.png";
+import imgHeroPerfume      from "@/imports/RabanneCaseStudy-1/hero-perfume-bottle.png";
 import imgBgImage11        from "@/imports/RabanneCaseStudy-1/546240953078fa93ba80c93c962140564896d099.png";
 import imgBgImage12        from "@/imports/RabanneCaseStudy-1/6b032040bd20a4efc1863f95a026c61365f6b758.png";
 import imgCS1425           from "@/imports/RabanneCaseStudy-1/ede5ad2dd15e183b6507e986d591a314da49370c.png";
@@ -116,21 +116,14 @@ export default function RabanneCaseStudy() {
     <div className="min-h-screen bg-[#fcfbf4]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#151515] overflow-hidden" style={{ height: "454px" }}>
-        <motion.div
-          className="absolute right-0 top-0 h-full w-[55%] overflow-hidden"
-          style={{ y: heroImgY }}
-        >
-          <img src={imgCaseStudyHero} alt="" className="w-full h-full object-cover" style={{ objectPosition: "top center" }} />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#151515] via-[#151515]/60 to-transparent" />
-        </motion.div>
-
-        <div className="relative z-10 h-full flex flex-col justify-end px-10 pb-10 max-w-7xl">
+      <section ref={heroRef} className="relative bg-[#f3f3f3] overflow-hidden" style={{ height: 540 }}>
+        {/* Left — text, pinned to bottom */}
+        <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-10 pb-14 w-[52%]">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[1.8px] uppercase text-[#ac4e76] mb-5"
+            className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[1.8px] uppercase text-[#ac4e76] mb-5"
           >
             Case Study — Luxury E-Commerce
           </motion.p>
@@ -139,7 +132,7 @@ export default function RabanneCaseStudy() {
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease }}
+              transition={{ duration: 0.85, delay: 0.18, ease }}
             >
               <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b7885]">Rabanne.com</p>
               <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#343a3e]">Redesign</p>
@@ -165,6 +158,21 @@ export default function RabanneCaseStudy() {
             ))}
           </motion.div>
         </div>
+
+        {/* Right — perfume bottle with parallax */}
+        <motion.div
+          className="absolute right-0 top-0 h-full w-[52%] flex items-end justify-center overflow-hidden"
+          style={{ y: heroImgY }}
+        >
+          <motion.img
+            src={imgHeroPerfume}
+            alt="Rabanne Fame perfume"
+            className="h-[115%] w-auto object-contain object-bottom"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.25, ease }}
+          />
+        </motion.div>
       </section>
 
       {/* ── Process phases bar ────────────────────────────────────────── */}
