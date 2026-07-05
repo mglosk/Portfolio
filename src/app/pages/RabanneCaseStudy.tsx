@@ -680,46 +680,48 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Mapping Checkout Complexity ───────────────────────────────── */}
-      <section className="py-24 border-b border-[#343a3e]/10">
+      <section className="border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-14">
-            <SectionLabel>03 — Wireframing</SectionLabel>
-            <SectionH2>Mapping Checkout Complexity</SectionH2>
-          </div>
+          <div className="flex items-start gap-16 lg:gap-24">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="flex flex-col gap-5">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease }}
-              >
-                <img src={imgImage1428} alt="Checkout wireframe" className="w-full shadow-md" />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease, delay: 0.12 }}
-              >
-                <img src={imgImage1429} alt="Checkout wireframe detail" className="w-full shadow-md" />
-              </motion.div>
+            {/* Left — sticky text */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="w-full lg:w-[42%] flex-shrink-0 sticky top-24 self-start py-24"
+            >
+              <SectionLabel>03 — Wireframing</SectionLabel>
+              <div className="mt-3 mb-8"><SectionH2>Mapping Checkout Complexity</SectionH2></div>
+              <div className="flex flex-col gap-5">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+                  I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right — scrolling wireframes */}
+            <div className="flex-1 flex flex-col gap-6 py-24">
+              {[
+                { src: imgImage1428, alt: "My bag page wireframe" },
+                { src: imgImage1429, alt: "Checkout step 2 wireframe" },
+              ].map(({ src, alt }, i) => (
+                <motion.div
+                  key={alt}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.9, ease, delay: i * 0.12 }}
+                >
+                  <img src={src} alt={alt} className="w-full shadow-sm border border-[#343a3e]/8" />
+                </motion.div>
+              ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease, delay: 0.1 }}
-            >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)] mb-6">
-                Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.6)]">
-                I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
-              </p>
-            </motion.div>
           </div>
         </div>
       </section>
