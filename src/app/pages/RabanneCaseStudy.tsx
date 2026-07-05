@@ -7,10 +7,10 @@ import imgHeroPerfume      from "@/imports/RabanneCaseStudy-1/hero-perfume-bottl
 import imgBgImage11        from "@/imports/RabanneCaseStudy-1/546240953078fa93ba80c93c962140564896d099.png";
 import imgBgImage12        from "@/imports/RabanneCaseStudy-1/6b032040bd20a4efc1863f95a026c61365f6b758.png";
 import imgApproachBottle   from "@/imports/RabanneCaseStudy-1/approach-perfume-bottle.png";
-import imgCS1425           from "@/imports/RabanneCaseStudy-1/ede5ad2dd15e183b6507e986d591a314da49370c.png";
-import imgCS1423           from "@/imports/RabanneCaseStudy-1/422f8ea5f7f2a52dfc8cfb81d4ccb7f6d0c8190a.png";
-import imgCS1422           from "@/imports/RabanneCaseStudy-1/ddcc5c15b2558bd0d9e2edf94f5e25968b7d46be.png";
-import imgCS1426           from "@/imports/RabanneCaseStudy-1/572c2494955af4e0d05ea35012fafbb2f8325abd.png";
+import imgCASplitScreen       from "@/imports/RabanneCaseStudy-1/ca-split-screen.png";
+import imgCAScrollBehavior    from "@/imports/RabanneCaseStudy-1/ca-scroll-behavior.png";
+import imgCAFullBleed         from "@/imports/RabanneCaseStudy-1/ca-full-bleed.png";
+import imgCAPlayful           from "@/imports/RabanneCaseStudy-1/ca-playful-interactions.png";
 import imgCSFrame080       from "@/imports/RabanneCaseStudy-1/8cffbdddfbacf177c61272bec19de3d3d086ac47.png";
 import imgCSFrame081       from "@/imports/RabanneCaseStudy-1/5c4cff87082fdbb08d2091b86856a7d50d02f149.png";
 import imgCSFrame082       from "@/imports/RabanneCaseStudy-1/d8d56e32224f0d250ec2d3eb7d25a213616f95c9.png";
@@ -380,21 +380,23 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 02 — Research / Competitive Analysis ──────────────────────── */}
-      <section id="work-research" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>02 — Research</SectionLabel>
-            <SectionH2>Competitive Analysis</SectionH2>
-          </div>
+      <section id="work-research" className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="flex items-start px-10 py-16 gap-16 max-w-7xl mx-auto">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
-            <div>
+          {/* Left — sticky text panel */}
+          <div className="w-[38%] flex-shrink-0 sticky top-24 self-start flex flex-col gap-16">
+            <div className="flex flex-col gap-3">
+              <SectionLabel>02 — Research</SectionLabel>
+              <SectionH2>Competitive Analysis</SectionH2>
+            </div>
+
+            <div className="flex flex-col gap-11">
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-8 max-w-[444px]"
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
               >
                 I started with exploring how luxury beauty, fashion, and lifestyle brands balance immersive brand storytelling with practical shopping journeys. I especially focused on how they executed:
               </motion.p>
@@ -404,80 +406,79 @@ export default function RabanneCaseStudy() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-20px" }}
+                className="flex flex-col gap-9"
               >
-                {[
-                  "Brand storytelling",
-                  "Product discovery",
-                  "Editorial commerce",
-                  "Loyalty entry points",
-                  "Checkout friction",
-                  "Service reassurance",
-                ].map((item) => (
-                  <motion.div key={item} variants={listItem} className="flex items-center gap-4 py-3 border-b border-[rgba(52,58,62,0.1)] max-w-[443px]">
+                {["Brand storytelling", "Product discovery", "Editorial commerce"].map((item) => (
+                  <motion.div key={item} variants={listItem} className="flex items-center gap-4">
                     <span className="w-[6px] h-[6px] bg-[#ac4e76] rounded-full flex-shrink-0" />
-                    <span className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[24px] text-[rgba(52,58,62,0.8)]">{item}</span>
+                    <span className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
 
-            <div className="flex flex-col gap-4">
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease, delay: 0.1 }}
-                className="flex flex-col gap-1.5"
-              >
-                <img src={imgCS1425} alt="Split screen scroll behaviour" className="w-full object-cover" style={{ aspectRatio: "2040/1127" }} />
-                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Split screen scroll behavior were popular to balance beautiful imagery and informative content</p>
-              </motion.div>
-
-              <div className="grid grid-cols-2 gap-4 mt-2">
-                <motion.div
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.85, ease, delay: 0.18 }}
-                  className="flex flex-col gap-1.5"
-                >
-                  <img src={imgCS1426} alt="Playful interactions" className="w-full object-cover" style={{ aspectRatio: "2404/1688" }} />
-                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Playful interactions make distinct impressions</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.85, ease, delay: 0.26 }}
-                  className="flex flex-col gap-1.5"
-                >
-                  <img src={imgCS1422} alt="Full-bleed imagery" className="w-full h-48 object-cover" />
-                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Full-bleed images gave visual breadth</p>
-                </motion.div>
-              </div>
-
-              <motion.div
+              <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.85, ease, delay: 0.32 }}
-                className="flex flex-col gap-1.5 mt-2"
+                transition={{ duration: 0.85, ease, delay: 0.1 }}
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
               >
-                <img src={imgCS1423} alt="Unique scroll behavior" className="w-full h-48 object-cover" />
-                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Moments of unique scroll behavior catch attention</p>
-              </motion.div>
+                This helped me understand which patterns felt premium, which patterns helped users shop faster, and where luxury sites often create friction by prioritizing aesthetics over usability.
+              </motion.p>
             </div>
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.85, ease, delay: 0.1 }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px]"
-          >
-            This helped me understand which patterns felt premium, which patterns helped users shop faster, and where luxury sites often create friction by prioritising beauty over clarity.
-          </motion.p>
+          {/* Right — scrolling image collage */}
+          <div className="flex-1 flex flex-col gap-8 py-16">
+            {/* Image 1 — split screen, wide */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease }}
+              className="flex flex-col gap-2"
+            >
+              <img src={imgCASplitScreen} alt="Split screen scroll UI" className="w-full object-cover" style={{ aspectRatio: "2040/1127" }} />
+              <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Split screen scroll behavior were popular to balance beautiful imagery and informative content</p>
+            </motion.div>
+
+            {/* Images 2 + 3 — side by side */}
+            <div className="grid grid-cols-2 gap-5">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease, delay: 0.1 }}
+                className="flex flex-col gap-2"
+              >
+                <img src={imgCAPlayful} alt="Playful interactions" className="w-full object-cover" style={{ aspectRatio: "2404/1688" }} />
+                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Playful interactions keep make distinct impressions</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease, delay: 0.18 }}
+                className="flex flex-col gap-2"
+              >
+                <img src={imgCAFullBleed} alt="Full-bleed imagery" className="w-full object-cover" style={{ aspectRatio: "3/2" }} />
+                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Full-bleed images gave visual breadth</p>
+              </motion.div>
+            </div>
+
+            {/* Image 4 — scroll behavior, portrait-ish, centred */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease, delay: 0.12 }}
+              className="flex flex-col gap-2 w-[57%]"
+            >
+              <img src={imgCAScrollBehavior} alt="Unique scroll behavior" className="w-full object-cover" style={{ aspectRatio: "292/309" }} />
+              <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Moments of unique scroll behavior catches attention</p>
+            </motion.div>
+          </div>
+
         </div>
       </section>
 
