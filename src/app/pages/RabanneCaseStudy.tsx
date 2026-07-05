@@ -1,0 +1,1007 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
+import { FadeIn } from "@/app/components/FadeIn";
+
+import imgCaseStudyHero    from "@/imports/RabanneCaseStudy-1/288247995274c7358e07cee74fbaa83ac30ead7a.png";
+import imgBgImage11        from "@/imports/RabanneCaseStudy-1/546240953078fa93ba80c93c962140564896d099.png";
+import imgBgImage12        from "@/imports/RabanneCaseStudy-1/6b032040bd20a4efc1863f95a026c61365f6b758.png";
+import imgCS1425           from "@/imports/RabanneCaseStudy-1/ede5ad2dd15e183b6507e986d591a314da49370c.png";
+import imgCS1423           from "@/imports/RabanneCaseStudy-1/422f8ea5f7f2a52dfc8cfb81d4ccb7f6d0c8190a.png";
+import imgCS1422           from "@/imports/RabanneCaseStudy-1/ddcc5c15b2558bd0d9e2edf94f5e25968b7d46be.png";
+import imgCS1426           from "@/imports/RabanneCaseStudy-1/572c2494955af4e0d05ea35012fafbb2f8325abd.png";
+import imgCSFrame080       from "@/imports/RabanneCaseStudy-1/8cffbdddfbacf177c61272bec19de3d3d086ac47.png";
+import imgCSFrame081       from "@/imports/RabanneCaseStudy-1/5c4cff87082fdbb08d2091b86856a7d50d02f149.png";
+import imgCSFrame082       from "@/imports/RabanneCaseStudy-1/d8d56e32224f0d250ec2d3eb7d25a213616f95c9.png";
+import imgCSProto          from "@/imports/RabanneCaseStudy-1/7cfff702d6d84c90baed3bf70b77aa24968567cf.png";
+import imgCS1440           from "@/imports/RabanneCaseStudy-1/a00f357fe9226ca38a98b039cb6559b4e302543e.png";
+import imgCS1441           from "@/imports/RabanneCaseStudy-1/550d2cf30d6351ddd1c18e3c24e957652d580d93.png";
+import imgCSImage20        from "@/imports/RabanneCaseStudy-1/6423dad5b41857a5797ff17172d5b5a71d3b9729.png";
+import imgCSImage25        from "@/imports/RabanneCaseStudy-1/457292327ac368e9cadc43ed4914b485aa44abc9.png";
+import imgCS1117           from "@/imports/RabanneCaseStudy-1/7953439d76b19e75653ee7d6e127494e66f389aa.png";
+import imgCSDeodorant      from "@/imports/RabanneCaseStudy-1/ad366e3cc2fc4f54d8de9086747b14e8298bf69c.png";
+import imgCSScreenshotPm1  from "@/imports/RabanneCaseStudy-1/f0f05ed2926473531af3c45b06624e8bca9951ed.png";
+import imgCS1439           from "@/imports/RabanneCaseStudy-1/55900a17788a7acce2fa311142cd0f162be44688.png";
+import imgCS1435           from "@/imports/RabanneCaseStudy-1/143729eedc1616f92b17a7eff926ad7ef5bbe6e0.png";
+import imgCS1436           from "@/imports/RabanneCaseStudy-1/8bc828e68f81d84174252f84c159e642c8705318.png";
+import imgCS1437           from "@/imports/RabanneCaseStudy-1/5d5f37675508e1f9344a15feb784c455d2f93fe1.png";
+import imgHdWireframeMacbook from "@/imports/RabanneCaseStudy-1/figma-hd-wireframe-macbook.png";
+import imgImage1428        from "@/imports/Rabanne/c2f988974bf75d5fd6c8b0ea95c503b25f677586.png";
+import imgImage1429        from "@/imports/Rabanne/138f3cbba608c0611712d286c558913cc6943e94.png";
+
+/* ─────────────────────────────────────────────────────────────
+   Shared easing — expressive ease-out, feels premium
+───────────────────────────────────────────────────────────── */
+const ease = [0.16, 1, 0.3, 1] as const;
+
+/* Slide-in variants for staggered lists */
+const listContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+const listItem = {
+  hidden: { opacity: 0, y: 14 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
+};
+
+/* Card grid stagger */
+const cardContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+const cardItem = {
+  hidden: { opacity: 0, y: 12 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
+};
+
+/* ─────────────────────────────────────────────────────────────
+   SectionLabel — overline label that slides in from the left
+───────────────────────────────────────────────────────────── */
+function SectionLabel({ children }: { children: string }) {
+  return (
+    <motion.p
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.9, ease }}
+      className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]"
+    >
+      {children}
+    </motion.p>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SectionH2 — heading that rises into place
+───────────────────────────────────────────────────────────── */
+function SectionH2({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <motion.h2
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.8, ease, delay: 0.08 }}
+      className={`font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase ${light ? "text-white" : "text-[#151515]"}`}
+    >
+      {children}
+    </motion.h2>
+  );
+}
+
+export default function RabanneCaseStudy() {
+  const [activePhase, setActivePhase] = useState<string>("work-background");
+
+  useEffect(() => {
+    const ids = ["work-background", "work-research", "work-ideation", "work-production", "work-delivery"];
+    const observers: IntersectionObserver[] = [];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => { if (e.isIntersecting) setActivePhase(id); },
+        { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  /* Parallax on hero image */
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImgY = useTransform(heroScroll, [0, 1], ["0%", "20%"]);
+
+  return (
+    <div className="min-h-screen bg-[#fcfbf4]">
+
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      <section ref={heroRef} className="relative bg-[#151515] overflow-hidden" style={{ height: "454px" }}>
+        <motion.div
+          className="absolute right-0 top-0 h-full w-[55%] overflow-hidden"
+          style={{ y: heroImgY }}
+        >
+          <img src={imgCaseStudyHero} alt="" className="w-full h-full object-cover" style={{ objectPosition: "top center" }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151515] via-[#151515]/60 to-transparent" />
+        </motion.div>
+
+        <div className="relative z-10 h-full flex flex-col justify-end px-10 pb-10 max-w-7xl">
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease }}
+            className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[1.8px] uppercase text-[#ac4e76] mb-5"
+          >
+            Case Study — Luxury E-Commerce
+          </motion.p>
+
+          <div className="overflow-hidden mb-8">
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease }}
+            >
+              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b7885]">Rabanne.com</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#343a3e]">Redesign</p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.65, ease }}
+            className="flex flex-wrap gap-3"
+          >
+            {["Research", "Wireframing", "Prototyping", "Design System"].map((tag, i) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 + i * 0.1, ease }}
+                className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase border border-[#ac4e76] text-[#ac4e76] px-[17px] py-[9px]"
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Process phases bar ────────────────────────────────────────── */}
+      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-16 z-30 overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex min-w-max">
+            {(
+              [
+                { id: "work-background", phase: "01", label: "Background" },
+                { id: "work-research",   phase: "02", label: "Research"   },
+                { id: "work-ideation",   phase: "03", label: "Ideation"   },
+                { id: "work-production", phase: "04", label: "Production" },
+                { id: "work-delivery",   phase: "05", label: "Delivery"   },
+              ] as const
+            ).map(({ id, phase, label }, i, arr) => {
+              const phaseIds   = arr.map(p => p.id);
+              const activeIdx  = phaseIds.indexOf(activePhase as typeof phaseIds[number]);
+              const isActive   = activePhase === id;
+              const isPast     = activeIdx > i;
+              return (
+                <button
+                  key={id}
+                  onClick={() => {
+                    const el = document.getElementById(id);
+                    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 128, behavior: "smooth" });
+                  }}
+                  className={`group relative flex items-center gap-3 px-6 py-4 transition-colors duration-300 focus-visible:outline-none ${
+                    i < arr.length - 1 ? "border-r border-[#343a3e]/10" : ""
+                  } ${isActive ? "bg-[#ac4e76]/8" : "hover:bg-[#343a3e]/5"}`}
+                >
+                  <span className={`absolute inset-x-0 bottom-0 h-[2px] transition-all duration-500 ${isActive ? "bg-[#ac4e76]" : isPast ? "bg-[#ac4e76]/25" : "bg-transparent"}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "bg-[#ac4e76] scale-125" : isPast ? "bg-[#ac4e76]/40" : "bg-[#343a3e]/20 group-hover:bg-[#343a3e]/40"}`} />
+                  <span className={`font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300 ${isActive ? "text-[#ac4e76]" : "text-[#343a3e]/35"}`}>{phase}</span>
+                  <span className={`font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? "text-[#151515]" : isPast ? "text-[#343a3e]/50" : "text-[#343a3e]/35 group-hover:text-[#343a3e]/60"}`}>{label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ── 01 — Background ──────────────────────────────────────────── */}
+      <section id="work-background" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-10">
+          <div className="flex flex-col gap-2 mb-16">
+            <SectionLabel>01 — Background</SectionLabel>
+            <SectionH2>Background</SectionH2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease }}
+            >
+              <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[444px]">
+                Rabanne is a Parisian luxury fashion house best known for its bold, avant-garde aesthetic. As the brand expanded its direct-to-consumer strategy — including a new loyalty program — the digital experience needed to evolve. The redesign had to balance brand prestige with practical e-commerce performance across fragrance, fashion, and beauty categories.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.75, ease, delay: 0.12 }}
+              className="relative"
+            >
+              <img src={imgBgImage12} alt="Rabanne product" className="w-[288px] h-[360px] object-cover" />
+              <motion.img
+                src={imgBgImage11}
+                alt="Rabanne campaign"
+                className="absolute top-[90px] left-[189px] w-[308px] h-[257px] object-cover"
+                initial={{ opacity: 0, x: 20, y: 10 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.95, ease, delay: 0.28 }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Brief / Central Task ──────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-10">
+          <div className="flex flex-col gap-2 mb-8">
+            <SectionLabel>The Brief</SectionLabel>
+            <SectionH2>The central task</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease, delay: 0.08 }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[#343a3e]/80 mb-10"
+          >
+            {"Rabanne's digital experience had to serve two roles at once:"}
+          </motion.p>
+
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="flex flex-col gap-[18px] max-w-[925px]"
+          >
+            <motion.div variants={cardItem}>
+              <div className="border border-[#4c657e]/30 bg-[#f7f3ea]">
+                <div className="flex flex-col gap-3 p-6">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] tracking-[-0.64px] uppercase leading-[1.2] text-[#616d79]">1</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[18px] text-[#616d79]">A premium brand destination</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#616d79] max-w-[392px]">Inspire desire, express the brand world, create a luxury experience</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={cardItem}>
+              <div className="border border-[#4c657e]/30 bg-[#f7f3ea]">
+                <div className="flex flex-col gap-3 p-6">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] tracking-[-0.64px] uppercase leading-[1.2] text-[#616d79]">2</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[18px] text-[#616d79]">A high-performing e-commerce platform.</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#616d79] max-w-[264px]">Support browsing, product discovery, loyalty, and checkout</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={cardItem}>
+              <div className="bg-[#343a3e] p-8">
+                <p className="font-['Mulish',sans-serif] text-[12px] tracking-[2.4px] uppercase text-[#fabdb9] mb-6">My Core Challenge</p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(238,229,212,0.8)]">
+                  {"The challenge was not choosing between inspiration and conversion. It was designing an experience where both could "}
+                  <span className="font-bold text-[rgba(238,229,212,0.9)]">work together.</span>
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 02 — Goals ────────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-16">
+            <SectionLabel>02 — Goals</SectionLabel>
+            <SectionH2>Goals</SectionH2>
+          </div>
+
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              { bg: "#dc9660", title: "Maintain Brand integrity",   desc: "Create a premium experience without slowing down shopping." },
+              { bg: "#c1d5cf", title: "Optimize Product discovery", desc: "Allow users to browse Rabanne's worlds while still finding products quickly." },
+              { bg: "#e6e4de", title: "Support conversion",         desc: "Make checkout easy while creating thoughtful opportunities for account creation and loyalty." },
+              { bg: "#dde9f8", title: "Design for personalization", desc: "Make users feel recognized and catered to across the journey, especially through loyalty and custom shopping moments." },
+            ].map(({ bg, title, desc }) => (
+              <motion.div key={title} variants={cardItem}>
+                <div className="flex flex-col gap-8 p-6 h-[234px]" style={{ backgroundColor: bg }}>
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] leading-none uppercase text-black">{title}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[18px] text-[#151515]">{desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── My Approach ───────────────────────────────────────────────── */}
+      <section className="py-24 bg-white border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-70px" }}
+            transition={{ duration: 0.75, ease }}
+          >
+            <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-none uppercase text-[#1c1f23] mb-8">
+              My approach:
+            </p>
+            <p className="font-['Mulish',sans-serif] font-normal text-[32px] leading-[1.25] tracking-[-0.704px] text-[#151515] max-w-[921px]">
+              I prioritised understanding what makes luxury e-commerce different — balancing brand prestige with usability, and designing for sophisticated customers who expect both beauty and ease.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 02 — Research / Competitive Analysis ──────────────────────── */}
+      <section id="work-research" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>02 — Research</SectionLabel>
+            <SectionH2>Competitive Analysis</SectionH2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease }}
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-8 max-w-[444px]"
+              >
+                I started with exploring how luxury beauty, fashion, and lifestyle brands balance immersive brand storytelling with practical shopping journeys. I especially focused on how they executed:
+              </motion.p>
+
+              <motion.div
+                variants={listContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-20px" }}
+              >
+                {[
+                  "Brand storytelling",
+                  "Product discovery",
+                  "Editorial commerce",
+                  "Loyalty entry points",
+                  "Checkout friction",
+                  "Service reassurance",
+                ].map((item) => (
+                  <motion.div key={item} variants={listItem} className="flex items-center gap-4 py-3 border-b border-[rgba(52,58,62,0.1)] max-w-[443px]">
+                    <span className="w-[6px] h-[6px] bg-[#ac4e76] rounded-full flex-shrink-0" />
+                    <span className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[24px] text-[rgba(52,58,62,0.8)]">{item}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease, delay: 0.1 }}
+                className="flex flex-col gap-1.5"
+              >
+                <img src={imgCS1425} alt="Split screen scroll behaviour" className="w-full object-cover" style={{ aspectRatio: "2040/1127" }} />
+                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Split screen scroll behavior were popular to balance beautiful imagery and informative content</p>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-4 mt-2">
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.85, ease, delay: 0.18 }}
+                  className="flex flex-col gap-1.5"
+                >
+                  <img src={imgCS1426} alt="Playful interactions" className="w-full object-cover" style={{ aspectRatio: "2404/1688" }} />
+                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Playful interactions make distinct impressions</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.85, ease, delay: 0.26 }}
+                  className="flex flex-col gap-1.5"
+                >
+                  <img src={imgCS1422} alt="Full-bleed imagery" className="w-full h-48 object-cover" />
+                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Full-bleed images gave visual breadth</p>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease, delay: 0.32 }}
+                className="flex flex-col gap-1.5 mt-2"
+              >
+                <img src={imgCS1423} alt="Unique scroll behavior" className="w-full h-48 object-cover" />
+                <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Moments of unique scroll behavior catch attention</p>
+              </motion.div>
+            </div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease, delay: 0.1 }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px]"
+          >
+            This helped me understand which patterns felt premium, which patterns helped users shop faster, and where luxury sites often create friction by prioritising beauty over clarity.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── Key Insights ─────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-8">
+            <SectionLabel>02 — Insights</SectionLabel>
+            <SectionH2>Key Insights</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease, delay: 0.08 }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-3xl mb-10"
+          >
+            Across the luxury e-commerce space, I saw a few patterns that supported the same goals Rabanne was trying to achieve.
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease }}
+            >
+              <div className="border border-[#343a3e]/40 p-8 h-full">
+                <p className="font-['Mulish',sans-serif] font-bold text-base uppercase text-[#1c1f23] mb-4">Patterns that worked:</p>
+                <ul className="space-y-2">
+                  {[
+                    "Product imagery carried the first impression",
+                    "Navigation stayed minimal and focused",
+                    "Micro-interactions added polish without getting in the way",
+                    "Trust signals appeared close to decision points",
+                    "Service benefits were visible before and during checkout",
+                  ].map((item) => (
+                    <li key={item} className="font-['Helvetica_Neue',sans-serif] font-medium text-base text-[#343a3e]/70 leading-relaxed list-disc list-outside ml-5">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.08 }}
+            >
+              <div className="border border-[#343a3e]/40 p-8 h-full">
+                <p className="font-['Mulish',sans-serif] font-bold text-base uppercase text-[#1c1f23] mb-4">Identified challenge</p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-base text-[#343a3e]/70 leading-relaxed mb-4">
+                  Many luxury sites leaned too far in one direction. Some prioritised storytelling and became harder to shop. Others prioritised conversion and started to feel generic.
+                </p>
+                <p className="font-['Mulish',sans-serif] font-bold text-base text-[#1c1f23]">Rabanne needed both.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 03 — Ideation / HD Wireframes ────────────────────────────── */}
+      <section id="work-ideation" className="py-24 bg-[#f2f2f5] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-6 items-center">
+
+            <div className="flex flex-col gap-[80px] lg:w-[48%] flex-shrink-0">
+              <div className="flex flex-col gap-3">
+                <SectionLabel>03 — Ideation</SectionLabel>
+                <SectionH2>High-Definition wireframes</SectionH2>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease, delay: 0.1 }}
+                className="flex flex-col gap-6"
+              >
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]">
+                  Because the client was less familiar with digital production processes, I used high-fidelity wireframes instead of loose sketches. This helped stakeholders understand the proposed experience more quickly while still leaving room to iterate on structure, hierarchy, and flow. High-fidelity wireframes helped us:
+                </p>
+                <motion.div
+                  variants={listContainer}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-20px" }}
+                  className="flex flex-col gap-4"
+                >
+                  {[
+                    "Make page layouts and interactions easier to understand",
+                    "Get faster stakeholder buy-in",
+                    "Reduce confusion around structure and intent",
+                    "Keep the process moving without jumping straight into final visuals",
+                  ].map((item) => (
+                    <motion.div key={item} variants={listItem} className="flex items-center gap-3">
+                      <span className="w-[4px] h-[4px] rounded-full bg-[#ac4e76] flex-shrink-0" />
+                      <p className="font-['Mulish',sans-serif] font-normal text-[14px] leading-5 text-[rgba(52,58,62,0.7)]">{item}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.8, ease, delay: 0.15 }}
+              className="lg:w-[52%] flex flex-col gap-3"
+            >
+              <img
+                src={imgHdWireframeMacbook}
+                alt="High-definition wireframe displayed in a MacBook mockup"
+                className="w-full"
+                style={{ filter: "drop-shadow(0 0 2px rgba(0,21,64,0.14)) drop-shadow(0 2px 4px rgba(0,21,64,0.05)) drop-shadow(13px 37px 48px rgba(0,0,0,0.22))" }}
+              />
+              <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">A high-definition wireframe for the makeup homepage</p>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Category Representation Ideas ────────────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>03 — Ideation</SectionLabel>
+            <SectionH2>Category Representation Ideas</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)] max-w-[560px] mb-12"
+          >
+            To find the right approach for Rabanne's category pages, I explored several visual and interaction models — each with distinct trade-offs between brand expression and browsing efficiency.
+          </motion.p>
+
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.75, ease }}
+            >
+              {/* Header row */}
+              <div className="grid grid-cols-5 gap-4 mb-4">
+                <div />
+                {["Concept", "Strength", "Risk"].map((h) => (
+                  <p key={h} className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[2.4px] uppercase text-[#ac4e76]">{h}</p>
+                ))}
+                <div />
+              </div>
+
+              {/* Data rows */}
+              <motion.div
+                variants={listContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-20px" }}
+                className="flex flex-col gap-3"
+              >
+                {[
+                  { img: imgCS1439, concept: "Tiles",             strength: "Fast to scan",            risk: "Less distinctive" },
+                  { img: imgCS1435, concept: "Scroll-in cards",   strength: "Memorable, dynamic",      risk: "Could slow browsing" },
+                  { img: imgCS1437, concept: "Stacked list",      strength: "Compact, efficient",      risk: "Less visual impact" },
+                  { img: imgCS1436, concept: "Image + tabs",      strength: "Premium, brand-led",      risk: "Needs strong imagery" },
+                ].map(({ img, concept, strength, risk }) => (
+                  <motion.div key={concept} variants={listItem} className="grid grid-cols-5 gap-4 items-center">
+                    <img src={img} alt={concept} className="w-full aspect-video object-cover" />
+                    <p className="font-['Mulish',sans-serif] font-semibold text-[14px] text-[#151515]">{concept}</p>
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] text-[rgba(52,58,62,0.8)]">{strength}</p>
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] text-[rgba(52,58,62,0.6)]">{risk}</p>
+                    <div />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Mapping Checkout Complexity ───────────────────────────────── */}
+      <section className="py-24 border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-14">
+            <SectionLabel>03 — Wireframing</SectionLabel>
+            <SectionH2>Mapping Checkout Complexity</SectionH2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col gap-5">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease }}
+              >
+                <img src={imgImage1428} alt="Checkout wireframe" className="w-full shadow-md" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease, delay: 0.12 }}
+              >
+                <img src={imgImage1429} alt="Checkout wireframe detail" className="w-full shadow-md" />
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.1 }}
+            >
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)] mb-6">
+                Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.6)]">
+                I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Other Considerations ──────────────────────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>03 — Responsive & Accessibility</SectionLabel>
+            <SectionH2>Other Considerations</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
+          >
+            Responsive design and accessibility were built into the process from the start — not added afterwards. Every layout was designed across desktop, tablet, and mobile, with WCAG AA compliance checked throughout.
+          </motion.p>
+
+          {/* Device grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[imgCSFrame080, imgCSFrame081, imgCSFrame082].map((src, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease, delay: i * 0.1 }}
+              >
+                <img src={src} alt="Wireframe" className="w-full shadow-sm" />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease, delay: 0.1 }}
+            className="flex flex-col gap-3 max-w-[561px]"
+          >
+            <img src={imgCSScreenshotPm1} alt="Accessibility controls example" className="w-full shadow-sm" />
+            <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">
+              Accessibility controls — pause and mute options built into video elements to meet WCAG AA guidelines
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── 04 — Production / Prototyping ────────────────────────────── */}
+      <section id="work-production" className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>04 — Production</SectionLabel>
+            <SectionH2>Prototyping</SectionH2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease }}
+              className="flex flex-col gap-4"
+            >
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                For complex journeys, I prototyped key parts of the experience so the team could evaluate flow logic, transitions, and edge cases before development.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                The prototypes helped make abstract flow decisions easier to discuss and gave the team a clearer sense of how users would move through the shopping journey.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.12 }}
+            >
+              <img src={imgCSProto} alt="Prototype screen" className="w-full shadow-lg" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 05 — Testing / Header Usability Test ──────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>05 — Testing</SectionLabel>
+            <SectionH2>Header Usability Test</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
+          >
+            Navigation was one of the most complex challenges. Rabanne's site spans fragrance, makeup, fashion, gifting, editorial content, and loyalty. I tested two header structures to understand how users navigated between brand worlds and product categories.
+          </motion.p>
+
+          {/* Two nav images with "vs" */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease }}
+            >
+              <img src={imgCS1440} alt="Navigation option A" className="w-full shadow-md" />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.75, ease, delay: 0.1 }}
+              className="flex items-center justify-center px-4"
+            >
+              <span className="font-['Mulish',sans-serif] font-bold text-[18px] text-[#ac4e76] tracking-widest">VS</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease }}
+            >
+              <img src={imgCS1441} alt="Navigation option B" className="w-full shadow-md" />
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease, delay: 0.1 }}
+            className="max-w-[561px]"
+          >
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">
+              Testing revealed that users responded better to a structure that separated commercial and editorial navigation — allowing them to enter product worlds without losing their browsing context. The header had to do more than organize links. It had to guide users through Rabanne's commercial and brand universe.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Design System & Handover ──────────────────────────────────── */}
+      <section id="work-delivery" className="py-24 border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <SectionLabel>05 — Delivery</SectionLabel>
+            <SectionH2>Design System & Handover</SectionH2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="flex flex-col gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease }}
+              >
+                <img src={imgCSDeodorant} alt="Design system components" className="w-full shadow-sm" />
+              </motion.div>
+              <div className="grid grid-cols-2 gap-4">
+                {[imgCS1117, imgCSImage20].map((src, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ duration: 0.85, ease, delay: 0.1 + i * 0.08 }}
+                  >
+                    <img src={src} alt="Component" className="w-full h-48 object-cover shadow-sm" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.12 }}
+              className="flex flex-col gap-6"
+            >
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]">
+                A well-documented design system was essential to the success of this project. Every component, spacing token, color variable, and typography style was annotated for developer handover — ensuring the design intent survived implementation intact.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.6)]">
+                Because the redesign covered a large e-commerce ecosystem, reusable patterns were essential. A modular component library ensured every page type — homepage, PDP, PLP, checkout, editorial — could be assembled consistently and handed to development with confidence.
+              </p>
+              <motion.div
+                variants={cardContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-20px" }}
+                className="grid grid-cols-2 gap-4"
+              >
+                {["Colour tokens", "Type scale", "Component variants", "Motion specs"].map((item) => (
+                  <motion.div key={item} variants={cardItem} className="border border-[#343a3e]/15 p-4">
+                    <p className="font-['Mulish',sans-serif] font-bold text-sm tracking-[0.1em] uppercase text-[#343a3e]">{item}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <div className="mt-16 flex flex-col gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease }}
+            >
+              <img src={imgCSImage25} alt="Design handover documentation" className="w-full shadow-sm" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Key Takeaway ─────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col gap-2 mb-6">
+            <SectionLabel>Outcome</SectionLabel>
+            <SectionH2>Key Takeaway</SectionH2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease, delay: 0.06 }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
+          >
+            Luxury e-commerce is a delicate balance. This project reinforced four things I'll carry into every future engagement.
+          </motion.p>
+
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          >
+            {[
+              { n: "1", title: "Luxury needs emotion and efficiency",       body: "Prestige without usability frustrates high-value customers. Both must be true simultaneously — not sequentially." },
+              { n: "2", title: "Navigation is part of conversion",          body: "How a user moves through a site shapes how they feel about the brand. A confused navigation is a brand problem, not just a UX problem." },
+              { n: "3", title: "Checkout is where brand trust becomes practical", body: "Users are most attentive — and most vulnerable — at checkout. Every decision point here carries brand weight." },
+              { n: "4", title: "Scalable components protect quality",       body: "A strong design system is the difference between a coherent redesign and a fragmented one. Consistency at scale is only possible through shared components." },
+            ].map(({ n, title, body }) => (
+              <motion.div key={n} variants={cardItem}>
+                <div className="border border-[#343a3e]/30 p-8 h-full flex flex-col gap-4">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-none text-[#ac4e76]/30">{n}</p>
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] uppercase leading-[1.3] text-[#151515]">{title}</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[22px] text-[rgba(52,58,62,0.7)]">{body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Reflection ───────────────────────────────────────────────── */}
+      <section className="py-24 bg-[#343a3e]">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease }}
+            className="flex flex-col gap-3 mb-16"
+          >
+            <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]">Reflection</p>
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase text-white">
+              What I learned
+            </h2>
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(238,229,212,0.7)] max-w-[561px] mt-4">
+              This project reinforced how important it is to hold brand and commercial goals together without compromise — and how much early documentation, thorough wireframing, and a well-structured design system determines the quality of what gets built.
+            </p>
+          </motion.div>
+
+          {/* Next case study cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { label: "Next case study", title: "Greenswan AI", href: "#" },
+              { label: "Next case study", title: "Impossible Foods", href: "#" },
+            ].map(({ label, title }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease, delay: i * 0.1 }}
+              >
+                <div className="bg-[#2a2f32] p-8 flex flex-col gap-6 group cursor-pointer hover:bg-[#252a2d] transition-colors duration-300">
+                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]">{label}</p>
+                  <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase leading-none text-white">{title}</p>
+                  <div className="flex items-center gap-2 text-[#ac4e76] group-hover:gap-4 transition-all duration-300">
+                    <span className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase">Go to case study</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#ac4e76" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
