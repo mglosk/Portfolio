@@ -4,8 +4,9 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { FadeIn } from "@/app/components/FadeIn";
 
 import imgHeroPerfume      from "@/imports/RabanneCaseStudy-1/hero-perfume-bottle.png";
-import imgBgImage11        from "@/imports/RabanneCaseStudy-1/546240953078fa93ba80c93c962140564896d099.png";
-import imgBgImage12        from "@/imports/RabanneCaseStudy-1/6b032040bd20a4efc1863f95a026c61365f6b758.png";
+import imgBgModelPortrait  from "@/imports/RabanneCaseStudy-1/bg-model-portrait.png";
+import imgBgLipsCloseup    from "@/imports/RabanneCaseStudy-1/bg-lips-closeup.png";
+import imgBgLipstick       from "@/imports/RabanneCaseStudy-1/bg-lipstick-product.png";
 import imgCS1425           from "@/imports/RabanneCaseStudy-1/ede5ad2dd15e183b6507e986d591a314da49370c.png";
 import imgCS1423           from "@/imports/RabanneCaseStudy-1/422f8ea5f7f2a52dfc8cfb81d4ccb7f6d0c8190a.png";
 import imgCS1422           from "@/imports/RabanneCaseStudy-1/ddcc5c15b2558bd0d9e2edf94f5e25968b7d46be.png";
@@ -215,44 +216,64 @@ export default function RabanneCaseStudy() {
       </div>
 
       {/* ── 01 — Background ──────────────────────────────────────────── */}
-      <section id="work-background" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-16">
+      {/*
+        Layout mirrors the Figma: three images placed absolutely around
+        a centred text block. Heights are fixed to match the Figma frame
+        proportions; the section is tall enough to contain the tallest image.
+      */}
+      <section id="work-background" className="relative bg-[#f3f3f3] border-b border-[#343a3e]/10 overflow-hidden" style={{ height: 640 }}>
+
+        {/* Top-left — model portrait */}
+        <motion.img
+          src={imgBgModelPortrait}
+          alt=""
+          className="absolute object-cover"
+          style={{ left: "5%", top: 0, width: "20%", height: 360 }}
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.95, ease }}
+        />
+
+        {/* Bottom-left — lipstick product, bleeds from left edge */}
+        <motion.img
+          src={imgBgLipstick}
+          alt=""
+          className="absolute object-cover"
+          style={{ left: 0, top: 382, width: "17%", height: 257 }}
+          initial={{ opacity: 0, x: -16 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.95, ease, delay: 0.15 }}
+        />
+
+        {/* Right — lips close-up */}
+        <motion.img
+          src={imgBgLipsCloseup}
+          alt=""
+          className="absolute object-cover"
+          style={{ right: "2%", top: 160, width: "16%", height: 288 }}
+          initial={{ opacity: 0, x: 16 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.95, ease, delay: 0.1 }}
+        />
+
+        {/* Centre — label + heading + body */}
+        <div className="absolute flex flex-col gap-16" style={{ left: "30%", top: 236, width: "35%" }}>
+          <div className="flex flex-col gap-4 uppercase">
             <SectionLabel>01 — Background</SectionLabel>
             <SectionH2>Background</SectionH2>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease }}
-            >
-              <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[444px]">
-                Rabanne is a Parisian luxury fashion house best known for its bold, avant-garde aesthetic. As the brand expanded its direct-to-consumer strategy — including a new loyalty program — the digital experience needed to evolve. The redesign had to balance brand prestige with practical e-commerce performance across fragrance, fashion, and beauty categories.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.75, ease, delay: 0.12 }}
-              className="relative"
-            >
-              <img src={imgBgImage12} alt="Rabanne product" className="w-[288px] h-[360px] object-cover" />
-              <motion.img
-                src={imgBgImage11}
-                alt="Rabanne campaign"
-                className="absolute top-[90px] left-[189px] w-[308px] h-[257px] object-cover"
-                initial={{ opacity: 0, x: 20, y: 10 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.95, ease, delay: 0.28 }}
-              />
-            </motion.div>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease, delay: 0.12 }}
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
+          >
+            Rabanne was revamping its e-commerce ecosystem as part of a broader direct-to-consumer push. With a new loyalty program launching, the site needed to do more than showcase products. It had to help users discover products, move through shopping journeys, and feel invited into the Rabanne brand world.
+          </motion.p>
         </div>
       </section>
 
