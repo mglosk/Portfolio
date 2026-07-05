@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 110 52.5245" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Buttons">
+<path id="Power" fill-rule="evenodd" clip-rule="evenodd" d="M109.227 21.2168H109.485C109.769 21.2168 110 21.4485 110 21.7343V46.5734C110 46.8592 109.769 47.0909 109.485 47.0909H109.227V21.2168Z" fill="var(--fill-0, #151515)"/>
+<path id="Volume Down" fill-rule="evenodd" clip-rule="evenodd" d="M0 36.7413C0 36.4555 0.230673 36.2238 0.515222 36.2238H0.772834V52.5245H0.515222C0.230673 52.5245 0 52.2928 0 52.007V36.7413Z" fill="var(--fill-0, #151515)"/>
+<path id="Volume Up" fill-rule="evenodd" clip-rule="evenodd" d="M0 16.3007C0 16.0149 0.230673 15.7832 0.515222 15.7832H0.772834V32.0839H0.515222C0.230673 32.0839 0 31.8522 0 31.5664V16.3007Z" fill="var(--fill-0, #151515)"/>
+<path id="Mute Switch" fill-rule="evenodd" clip-rule="evenodd" d="M0 0.517483C0 0.231685 0.230673 0 0.515222 0H0.772834V8.53846H0.515222C0.230673 8.53846 0 8.30678 0 8.02098V0.517483Z" fill="var(--fill-0, #151515)"/>
+</g>
+</svg>

@@ -29,6 +29,11 @@ import imgCS1437           from "@/imports/RabanneCaseStudy-1/5d5f37675508e1f934
 import imgHdWireframeMakeup from "@/imports/RabanneCaseStudy-1/hd-wireframe-makeup.gif";
 import imgImage1428        from "@/imports/RabanneCaseStudy-1/checkout-my-bag.png";
 import imgImage1429        from "@/imports/RabanneCaseStudy-1/checkout-step2.png";
+import imgOcMacbookFrame   from "@/imports/RabanneCaseStudy-1/oc-macbook-frame.png";
+import imgOcMacbookGif     from "@/imports/RabanneCaseStudy-1/oc-macbook-screen.gif";
+import imgOcIphoneFrame    from "@/imports/RabanneCaseStudy-1/oc-iphone-frame.png";
+import imgOcIphoneGif      from "@/imports/RabanneCaseStudy-1/oc-iphone-screen.gif";
+import imgOcAccessibility  from "@/imports/RabanneCaseStudy-1/oc-accessibility.png";
 
 /* ─────────────────────────────────────────────────────────────
    Shared easing — expressive ease-out, feels premium
@@ -727,50 +732,121 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Other Considerations ──────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>03 — Responsive & Accessibility</SectionLabel>
-            <SectionH2>Other Considerations</SectionH2>
-          </div>
 
-          <motion.p
+          {/* Heading */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, ease }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
+            className="mb-16"
           >
-            Responsive design and accessibility were built into the process from the start — not added afterwards. Every layout was designed across desktop, tablet, and mobile, with WCAG AA compliance checked throughout.
-          </motion.p>
-
-          {/* Device grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[imgCSFrame080, imgCSFrame081, imgCSFrame082].map((src, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.85, ease, delay: i * 0.1 }}
-              >
-                <img src={src} alt="Wireframe" className="w-full shadow-sm" />
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.85, ease, delay: 0.1 }}
-            className="flex flex-col gap-3 max-w-[561px]"
-          >
-            <img src={imgCSScreenshotPm1} alt="Accessibility controls example" className="w-full shadow-sm" />
-            <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">
-              Accessibility controls — pause and mute options built into video elements to meet WCAG AA guidelines
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
+              Other Considerations
+            </h2>
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+              Throughout wireframing, I kept two practical constraints in mind.
             </p>
           </motion.div>
+
+          {/* Row 1 — Responsive design */}
+          <div className="flex items-end gap-5 mb-[120px]">
+
+            {/* MacBook mockup with animated GIF screen */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease }}
+              className="flex flex-col gap-4 flex-shrink-0 w-[52%]"
+            >
+              {/* Device frame + GIF overlay */}
+              <div className="relative" style={{ aspectRatio: "520/299" }}>
+                {/* Animated GIF — screen area: top 5.7%, left/right 11.59%, bottom 10.88% */}
+                <img
+                  src={imgOcMacbookGif}
+                  alt=""
+                  className="absolute object-cover"
+                  style={{ top: "5.7%", left: "11.59%", right: "11.59%", bottom: "10.88%" }}
+                />
+                {/* Device chrome on top */}
+                <img
+                  src={imgOcMacbookFrame}
+                  alt="MacBook frame"
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                />
+              </div>
+              <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">
+                Desktop version of the fragrance homepage
+              </p>
+            </motion.div>
+
+            {/* Text + iPhone */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease, delay: 0.1 }}
+              className="flex flex-col gap-5 items-end flex-1"
+            >
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)] self-stretch">
+                <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Responsive design</span>
+                The experience needed to work across desktop, tablet, and mobile, especially for shopping, navigation, mini bag, and checkout flows.
+              </p>
+
+              {/* iPhone mockup with animated GIF screen */}
+              <div className="flex flex-col gap-3 items-start w-[110px]">
+                <div className="relative w-[110px]" style={{ aspectRatio: "110/222" }}>
+                  {/* Animated GIF — screen area: top/bottom 2.68%, left/right 6.09% */}
+                  <img
+                    src={imgOcIphoneGif}
+                    alt=""
+                    className="absolute object-cover"
+                    style={{ top: "2.68%", left: "6.09%", right: "6.09%", bottom: "2.68%" }}
+                  />
+                  {/* Device chrome on top */}
+                  <img
+                    src={imgOcIphoneFrame}
+                    alt="iPhone frame"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                  />
+                </div>
+                <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black w-[152px]">
+                  Mobile version of the fragrance homepage
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Row 2 — Accessibility */}
+          <div className="flex gap-24 items-start">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)] w-[263px] flex-shrink-0"
+            >
+              <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Accessibility</span>
+              Layouts, interactions, contrast, form states, and navigation patterns needed to support accessibility expectations, including AA-level considerations
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.9, ease, delay: 0.1 }}
+              className="flex flex-col gap-5 flex-1"
+            >
+              <img src={imgOcAccessibility} alt="Accessibility controls on hero video" className="w-full" />
+              <p className="font-['Mulish',sans-serif] font-normal text-[20px] leading-none text-black">
+                example: placing pause and mute buttons in the hero video to be mindful of cognitive sensitivities
+              </p>
+            </motion.div>
+          </div>
+
         </div>
       </section>
 
