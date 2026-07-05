@@ -26,7 +26,7 @@ import imgCS1439           from "@/imports/RabanneCaseStudy-1/55900a17788a7acce2
 import imgCS1435           from "@/imports/RabanneCaseStudy-1/143729eedc1616f92b17a7eff926ad7ef5bbe6e0.png";
 import imgCS1436           from "@/imports/RabanneCaseStudy-1/8bc828e68f81d84174252f84c159e642c8705318.png";
 import imgCS1437           from "@/imports/RabanneCaseStudy-1/5d5f37675508e1f9344a15feb784c455d2f93fe1.png";
-import imgHdWireframeMacbook from "@/imports/RabanneCaseStudy-1/figma-hd-wireframe-macbook.png";
+import imgHdWireframeMakeup from "@/imports/RabanneCaseStudy-1/hd-wireframe-makeup.png";
 import imgImage1428        from "@/imports/Rabanne/c2f988974bf75d5fd6c8b0ea95c503b25f677586.png";
 import imgImage1429        from "@/imports/Rabanne/138f3cbba608c0611712d286c558913cc6943e94.png";
 
@@ -542,65 +542,66 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 03 — Ideation / HD Wireframes ────────────────────────────── */}
-      <section id="work-ideation" className="py-24 bg-[#f2f2f5] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-6 items-center">
+      <section id="work-ideation" className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 px-10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 items-center">
 
-            <div className="flex flex-col gap-[80px] lg:w-[48%] flex-shrink-0">
-              <div className="flex flex-col gap-3">
-                <SectionLabel>03 — Ideation</SectionLabel>
-                <SectionH2>High-Definition wireframes</SectionH2>
-              </div>
+          {/* Left — text */}
+          <div className="flex flex-col gap-16 lg:w-[42%] flex-shrink-0">
+            <div className="flex flex-col gap-3">
+              <SectionLabel>03 — Ideation</SectionLabel>
+              <SectionH2>High-Definition wireframes</SectionH2>
+            </div>
 
-              <motion.div
+            <div className="flex flex-col gap-6 w-[448px] max-w-full">
+              <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease, delay: 0.1 }}
-                className="flex flex-col gap-6"
+                transition={{ duration: 0.85, ease }}
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
               >
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]">
-                  Because the client was less familiar with digital production processes, I used high-fidelity wireframes instead of loose sketches. This helped stakeholders understand the proposed experience more quickly while still leaving room to iterate on structure, hierarchy, and flow. High-fidelity wireframes helped us:
-                </p>
-                <motion.div
-                  variants={listContainer}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, margin: "-20px" }}
-                  className="flex flex-col gap-4"
-                >
-                  {[
-                    "Make page layouts and interactions easier to understand",
-                    "Get faster stakeholder buy-in",
-                    "Reduce confusion around structure and intent",
-                    "Keep the process moving without jumping straight into final visuals",
-                  ].map((item) => (
-                    <motion.div key={item} variants={listItem} className="flex items-center gap-3">
-                      <span className="w-[4px] h-[4px] rounded-full bg-[#ac4e76] flex-shrink-0" />
-                      <p className="font-['Mulish',sans-serif] font-normal text-[14px] leading-5 text-[rgba(52,58,62,0.7)]">{item}</p>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                Because the client was less familiar with digital production processes, I used high-fidelity wireframes instead of loose sketches. This helped stakeholders understand the proposed experience more quickly while still leaving room to iterate on structure, hierarchy, and flow. High-fidelity wireframes helped us:
+              </motion.p>
+
+              <motion.div
+                variants={listContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-20px" }}
+                className="flex flex-col gap-4"
+              >
+                {[
+                  "Make page layouts and interactions easier to understand",
+                  "Get faster stakeholder buy-in",
+                  "Reduce confusion around structure and intent",
+                  "Keep the process moving without jumping straight into final visuals",
+                ].map((item) => (
+                  <motion.div key={item} variants={listItem} className="flex items-center gap-3">
+                    <span className="w-[4px] h-[4px] rounded-full bg-[#ac4e76] flex-shrink-0" />
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">{item}</p>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.8, ease, delay: 0.15 }}
-              className="lg:w-[52%] flex flex-col gap-3"
-            >
-              <img
-                src={imgHdWireframeMacbook}
-                alt="High-definition wireframe displayed in a MacBook mockup"
-                className="w-full"
-                style={{ filter: "drop-shadow(0 0 2px rgba(0,21,64,0.14)) drop-shadow(0 2px 4px rgba(0,21,64,0.05)) drop-shadow(13px 37px 48px rgba(0,0,0,0.22))" }}
-              />
-              <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">A high-definition wireframe for the makeup homepage</p>
-            </motion.div>
-
           </div>
+
+          {/* Right — wireframe image */}
+          <motion.div
+            initial={{ opacity: 0, x: 18 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.9, ease, delay: 0.12 }}
+            className="flex-1 flex flex-col gap-3"
+          >
+            <img
+              src={imgHdWireframeMakeup}
+              alt="High-definition wireframe for the makeup homepage"
+              className="w-full object-cover"
+              style={{ aspectRatio: "1564/1172" }}
+            />
+            <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">A high-definition wireframe for the makeup homepage</p>
+          </motion.div>
+
         </div>
       </section>
 
