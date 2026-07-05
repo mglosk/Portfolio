@@ -6,6 +6,7 @@ import { FadeIn } from "@/app/components/FadeIn";
 import imgHeroPerfume      from "@/imports/RabanneCaseStudy-1/hero-perfume-bottle.png";
 import imgBgImage11        from "@/imports/RabanneCaseStudy-1/546240953078fa93ba80c93c962140564896d099.png";
 import imgBgImage12        from "@/imports/RabanneCaseStudy-1/6b032040bd20a4efc1863f95a026c61365f6b758.png";
+import imgApproachBottle   from "@/imports/RabanneCaseStudy-1/approach-perfume-bottle.png";
 import imgCS1425           from "@/imports/RabanneCaseStudy-1/ede5ad2dd15e183b6507e986d591a314da49370c.png";
 import imgCS1423           from "@/imports/RabanneCaseStudy-1/422f8ea5f7f2a52dfc8cfb81d4ccb7f6d0c8190a.png";
 import imgCS1422           from "@/imports/RabanneCaseStudy-1/ddcc5c15b2558bd0d9e2edf94f5e25968b7d46be.png";
@@ -345,22 +346,37 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── My Approach ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-white border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-70px" }}
-            transition={{ duration: 0.75, ease }}
-          >
-            <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-none uppercase text-[#1c1f23] mb-8">
-              My approach:
-            </p>
-            <p className="font-['Mulish',sans-serif] font-normal text-[32px] leading-[1.25] tracking-[-0.704px] text-[#151515] max-w-[921px]">
-              I prioritised understanding what makes luxury e-commerce different — balancing brand prestige with usability, and designing for sophisticated customers who expect both beauty and ease.
-            </p>
-          </motion.div>
-        </div>
+      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 flex flex-col items-center gap-8 px-10">
+        {/* Bottle floats in from above */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.95, ease }}
+          className="w-[200px] h-[260px] flex items-end justify-center overflow-hidden"
+        >
+          <img
+            src={imgApproachBottle}
+            alt="Rabanne perfume"
+            className="h-full w-auto object-contain object-bottom"
+          />
+        </motion.div>
+
+        {/* Heading + body centred beneath */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.85, ease, delay: 0.12 }}
+          className="flex flex-col gap-4 items-center text-center max-w-[504px]"
+        >
+          <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[1.2] uppercase text-[#1c1f23]">
+            My approach:
+          </p>
+          <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+            I prioritized understanding what makes luxury e-commerce different, balancing brand prestige with usability, and designing for sophisticated customers who expect both beauty and ease.
+          </p>
+        </motion.div>
       </section>
 
       {/* ── 02 — Research / Competitive Analysis ──────────────────────── */}
