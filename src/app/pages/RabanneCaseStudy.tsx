@@ -27,8 +27,10 @@ import imgCS1435           from "@/imports/RabanneCaseStudy-1/143729eedc1616f92b
 import imgCS1436           from "@/imports/RabanneCaseStudy-1/8bc828e68f81d84174252f84c159e642c8705318.png";
 import imgCS1437           from "@/imports/RabanneCaseStudy-1/5d5f37675508e1f9344a15feb784c455d2f93fe1.png";
 import imgHdWireframeMakeup from "@/imports/RabanneCaseStudy-1/hd-wireframe-makeup.gif";
-import imgImage1428        from "@/imports/RabanneCaseStudy-1/checkout-my-bag.png";
-import imgImage1429        from "@/imports/RabanneCaseStudy-1/checkout-step2.png";
+import imgCheckout1        from "@/imports/RabanneCaseStudy-1/checkout-screen-1.png";
+import imgCheckout2        from "@/imports/RabanneCaseStudy-1/checkout-screen-2.png";
+import imgCheckout3        from "@/imports/RabanneCaseStudy-1/checkout-screen-3.png";
+import imgCheckout4        from "@/imports/RabanneCaseStudy-1/checkout-screen-4.png";
 import imgOcMacbookFrame   from "@/imports/RabanneCaseStudy-1/oc-macbook-frame.png";
 import imgOcMacbookGif     from "@/imports/RabanneCaseStudy-1/oc-macbook-screen.gif";
 import imgOcIphoneFrame    from "@/imports/RabanneCaseStudy-1/oc-iphone-frame.png";
@@ -685,49 +687,61 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Mapping Checkout Complexity ───────────────────────────────── */}
-      <section className="border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex items-start gap-16 lg:gap-24">
 
-            {/* Left — sticky text */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.85, ease }}
-              className="w-full lg:w-[42%] flex-shrink-0 sticky top-24 self-start py-24"
-            >
-              <SectionLabel>03 — Wireframing</SectionLabel>
-              <div className="mt-3 mb-8"><SectionH2>Mapping Checkout Complexity</SectionH2></div>
-              <div className="flex flex-col gap-5">
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
-                  Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
-                </p>
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
-                  I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
-                </p>
-              </div>
-            </motion.div>
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8"
+          >
+            <SectionLabel>03 — Wireframing</SectionLabel>
+            <div className="mt-3"><SectionH2>Mapping Checkout Complexity</SectionH2></div>
+          </motion.div>
 
-            {/* Right — scrolling wireframes */}
-            <div className="flex-1 flex flex-col gap-6 py-24">
-              {[
-                { src: imgImage1428, alt: "My bag page wireframe" },
-                { src: imgImage1429, alt: "Checkout step 2 wireframe" },
-              ].map(({ src, alt }, i) => (
-                <motion.div
-                  key={alt}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.9, ease, delay: i * 0.12 }}
-                >
-                  <img src={src} alt={alt} className="w-full shadow-sm border border-[#343a3e]/8" />
-                </motion.div>
-              ))}
-            </div>
+          {/* Body text */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease, delay: 0.08 }}
+            className="flex flex-col gap-6 mb-10 max-w-3xl"
+          >
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+              Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
+            </p>
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)] max-w-md">
+              I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
+            </p>
+          </motion.div>
 
-          </div>
+          {/* 4 checkout wireframe screens */}
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="flex gap-8 h-[263px] overflow-hidden"
+          >
+            {[
+              { src: imgCheckout1, alt: "Checkout step 1 — login" },
+              { src: imgCheckout2, alt: "Checkout step 2 — shipping" },
+              { src: imgCheckout3, alt: "Checkout step 3 — payment" },
+              { src: imgCheckout4, alt: "Checkout confirmation" },
+            ].map(({ src, alt }) => (
+              <motion.div
+                key={alt}
+                variants={cardItem}
+                className="flex-1 bg-white overflow-hidden flex items-start"
+              >
+                <img src={src} alt={alt} className="w-full object-cover object-top" />
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </section>
 
