@@ -762,17 +762,20 @@ export default function RabanneCaseStudy() {
               transition={{ duration: 0.9, ease }}
               className="flex flex-col gap-4 flex-shrink-0 w-[52%]"
             >
-              {/* Device frame + GIF overlay */}
-              <div className="relative overflow-hidden" style={{ aspectRatio: "520/299" }}>
-                {/* GIF clipped to screen area */}
+              <div className="relative" style={{ aspectRatio: "520/299" }}>
+                {/* GIF fills screen area, clipped */}
                 <div className="absolute overflow-hidden" style={{ top: "5.7%", left: "11.59%", right: "11.59%", bottom: "10.88%" }}>
                   <img src={imgOcMacbookGif} alt="" className="w-full h-full object-cover" />
                 </div>
-                {/* Device chrome on top */}
+                {/* Device frame with screen punched out via SVG mask */}
                 <img
                   src={imgOcMacbookFrame}
                   alt="MacBook frame"
                   className="absolute inset-0 w-full h-full pointer-events-none"
+                  style={{
+                    maskImage: "url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><rect width='100' height='100' fill='white'/><rect x='11.59' y='5.7' width='76.82' height='83.42' fill='black'/></svg>\")",
+                    WebkitMaskImage: "url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><rect width='100' height='100' fill='white'/><rect x='11.59' y='5.7' width='76.82' height='83.42' fill='black'/></svg>\")",
+                  }}
                 />
               </div>
               <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">
@@ -794,17 +797,21 @@ export default function RabanneCaseStudy() {
               </p>
 
               {/* iPhone mockup with animated GIF screen */}
-              <div className="flex flex-col gap-3 items-start w-[110px]">
-                <div className="relative overflow-hidden w-[110px]" style={{ aspectRatio: "110/222" }}>
-                  {/* GIF clipped to screen area */}
+              <div className="flex flex-col gap-3 items-start">
+                <div className="relative w-[110px]" style={{ aspectRatio: "110/222" }}>
+                  {/* GIF fills screen area, clipped */}
                   <div className="absolute overflow-hidden" style={{ top: "2.68%", left: "6.09%", right: "6.09%", bottom: "2.68%" }}>
                     <img src={imgOcIphoneGif} alt="" className="w-full h-full object-cover" />
                   </div>
-                  {/* Device chrome on top */}
+                  {/* Device frame with screen punched out via SVG mask */}
                   <img
                     src={imgOcIphoneFrame}
                     alt="iPhone frame"
                     className="absolute inset-0 w-full h-full pointer-events-none"
+                    style={{
+                      maskImage: "url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><rect width='100' height='100' fill='white'/><rect x='6.09' y='2.68' width='87.82' height='94.64' fill='black'/></svg>\")",
+                      WebkitMaskImage: "url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><rect width='100' height='100' fill='white'/><rect x='6.09' y='2.68' width='87.82' height='94.64' fill='black'/></svg>\")",
+                    }}
                   />
                 </div>
                 <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black w-[152px]">
