@@ -36,6 +36,9 @@ import imgOcMacbookGif     from "@/imports/RabanneCaseStudy-1/oc-macbook-screen.
 import imgOcIphoneFrame    from "@/imports/RabanneCaseStudy-1/oc-iphone-frame.png";
 import imgOcIphoneGif      from "@/imports/RabanneCaseStudy-1/oc-iphone-screen.gif";
 import imgOcAccessibility  from "@/imports/RabanneCaseStudy-1/oc-accessibility.png";
+import imgDfgWireframes    from "@/imports/RabanneCaseStudy-1/dfg-wireframes.png";
+import imgProtoDetail      from "@/imports/RabanneCaseStudy-1/proto-detail.png";
+import imgProtoWireframe   from "@/imports/RabanneCaseStudy-1/proto-wireframe.png";
 
 /* ─────────────────────────────────────────────────────────────
    Shared easing — expressive ease-out, feels premium
@@ -865,37 +868,82 @@ export default function RabanneCaseStudy() {
         </div>
       </section>
 
+      {/* ── Designing for Growth ──────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-10"
+          >
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-6">
+              Designing for Growth
+            </h2>
+            <div className="max-w-3xl flex flex-col gap-4">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                I also stress-tested components against future product scenarios. Rabanne's product line could expand across different category structures, so components needed to work for small and large sets of products. This helped the team design flexible patterns instead of one-off layouts.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                For example, I explored how the same category component would behave with different numbers and tabs:
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.9, ease, delay: 0.1 }}
+          >
+            <img src={imgDfgWireframes} alt="Category component at 2–6 categories" className="w-full" />
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── 04 — Production / Prototyping ────────────────────────────── */}
       <section id="work-production" className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>04 — Production</SectionLabel>
-            <SectionH2>Prototyping</SectionH2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.9, ease }}
-              className="flex flex-col gap-4"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-10"
+          >
+            <div className="flex flex-col gap-3 mb-8">
+              <SectionLabel>04 — Production</SectionLabel>
+              <div className="mt-1"><SectionH2>Prototyping</SectionH2></div>
+            </div>
+            <div className="max-w-[638px] flex flex-col gap-4">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 For complex journeys, I prototyped key parts of the experience so the team could evaluate flow logic, transitions, and edge cases before development.
               </p>
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 The prototypes helped make abstract flow decisions easier to discuss and gave the team a clearer sense of how users would move through the shopping journey.
               </p>
-            </motion.div>
+            </div>
+          </motion.div>
 
+          <div className="relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease, delay: 0.12 }}
+              transition={{ duration: 0.95, ease }}
+              className="relative z-10"
             >
-              <img src={imgCSProto} alt="Prototype screen" className="w-full shadow-lg" />
+              <img src={imgProtoWireframe} alt="Shopping bag and checkout prototype wireframe" className="w-[82%] shadow-md" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.15 }}
+              className="absolute top-0 right-0 w-[36%] shadow-lg z-20"
+            >
+              <img src={imgProtoDetail} alt="Figma prototype flow detail" className="w-full" />
             </motion.div>
           </div>
         </div>
