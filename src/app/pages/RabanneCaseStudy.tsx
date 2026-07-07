@@ -36,6 +36,8 @@ import imgOcMacbookGif     from "@/imports/RabanneCaseStudy-1/oc-macbook-screen.
 import imgOcIphoneFrame    from "@/imports/RabanneCaseStudy-1/oc-iphone-frame.png";
 import imgOcIphoneGif      from "@/imports/RabanneCaseStudy-1/oc-iphone-screen.gif";
 import imgOcAccessibility  from "@/imports/RabanneCaseStudy-1/oc-accessibility.png";
+import imgNavOptionA       from "@/imports/RabanneCaseStudy-1/nav-option-a.png";
+import imgNavOptionB       from "@/imports/RabanneCaseStudy-1/nav-option-b.png";
 import imgDfgWireframes    from "@/imports/RabanneCaseStudy-1/dfg-wireframes.png";
 import imgProtoDetail      from "@/imports/RabanneCaseStudy-1/proto-detail.png";
 import imgProtoWireframe   from "@/imports/RabanneCaseStudy-1/proto-wireframe.png";
@@ -950,65 +952,59 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 05 — Testing / Header Usability Test ──────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>05 — Testing</SectionLabel>
-            <SectionH2>Header Usability Test</SectionH2>
+          <div className="flex gap-16 items-start">
+
+            {/* Sticky left column */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="sticky top-24 py-16 w-[45%] flex-shrink-0 flex flex-col gap-10"
+            >
+              <div className="flex flex-col gap-3">
+                <SectionLabel>05 — Testing</SectionLabel>
+                <div className="mt-1"><SectionH2>Header Usability Test</SectionH2></div>
+              </div>
+              <div className="flex flex-col gap-5 max-w-[526px]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  Navigation was critical because Rabanne spans fragrance, makeup, fashion, gift inspiration, online offers, and editorial worlds. I explored header and mega-menu structures to reduce overwhelm and support product discovery.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  The header had to do more than organize links. It had to guide users through Rabanne's commercial and brand universe.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  To validate our design decisions, we conducted a user test that asked participants to find a specific product using the new layouts, as well as asked them for their impression of what they see.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Scrolling right column */}
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex-1 py-16 flex flex-col gap-8"
+            >
+              <motion.div variants={cardItem} className="flex flex-col gap-4">
+                <img src={imgNavOptionA} alt="Navigation option A — outliers in a row on top" className="w-full" style={{ aspectRatio: "2/1", objectFit: "cover" }} />
+                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">Outliers in a row on top</p>
+              </motion.div>
+
+              <motion.div variants={cardItem}>
+                <p className="font-['Mulish',sans-serif] font-bold text-[18px] leading-[1.625] text-[rgba(52,58,62,0.8)]">vs</p>
+              </motion.div>
+
+              <motion.div variants={cardItem} className="flex flex-col gap-4">
+                <img src={imgNavOptionB} alt="Navigation option B — outliers in columns" className="w-full" style={{ aspectRatio: "2/1", objectFit: "cover" }} />
+                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">Outliers in columns</p>
+              </motion.div>
+            </motion.div>
+
           </div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.8, ease }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
-          >
-            Navigation was one of the most complex challenges. Rabanne's site spans fragrance, makeup, fashion, gifting, editorial content, and loyalty. I tested two header structures to understand how users navigated between brand worlds and product categories.
-          </motion.p>
-
-          {/* Two nav images with "vs" */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, x: -18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease }}
-            >
-              <img src={imgCS1440} alt="Navigation option A" className="w-full shadow-md" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.75, ease, delay: 0.1 }}
-              className="flex items-center justify-center px-4"
-            >
-              <span className="font-['Mulish',sans-serif] font-bold text-[18px] text-[#ac4e76] tracking-widest">VS</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease }}
-            >
-              <img src={imgCS1441} alt="Navigation option B" className="w-full shadow-md" />
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.85, ease, delay: 0.1 }}
-            className="max-w-[561px]"
-          >
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">
-              Testing revealed that users responded better to a structure that separated commercial and editorial navigation — allowing them to enter product worlds without losing their browsing context. The header had to do more than organize links. It had to guide users through Rabanne's commercial and brand universe.
-            </p>
-          </motion.div>
         </div>
       </section>
 
