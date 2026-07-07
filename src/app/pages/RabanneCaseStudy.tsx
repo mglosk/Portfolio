@@ -763,14 +763,11 @@ export default function RabanneCaseStudy() {
               className="flex flex-col gap-4 flex-shrink-0 w-[52%]"
             >
               {/* Device frame + GIF overlay */}
-              <div className="relative" style={{ aspectRatio: "520/299" }}>
-                {/* Animated GIF — screen area: top 5.7%, left/right 11.59%, bottom 10.88% */}
-                <img
-                  src={imgOcMacbookGif}
-                  alt=""
-                  className="absolute object-cover"
-                  style={{ top: "5.7%", left: "11.59%", right: "11.59%", bottom: "10.88%" }}
-                />
+              <div className="relative overflow-hidden" style={{ aspectRatio: "520/299" }}>
+                {/* GIF clipped to screen area */}
+                <div className="absolute overflow-hidden" style={{ top: "5.7%", left: "11.59%", right: "11.59%", bottom: "10.88%" }}>
+                  <img src={imgOcMacbookGif} alt="" className="w-full h-full object-cover" />
+                </div>
                 {/* Device chrome on top */}
                 <img
                   src={imgOcMacbookFrame}
@@ -798,14 +795,11 @@ export default function RabanneCaseStudy() {
 
               {/* iPhone mockup with animated GIF screen */}
               <div className="flex flex-col gap-3 items-start w-[110px]">
-                <div className="relative w-[110px]" style={{ aspectRatio: "110/222" }}>
-                  {/* Animated GIF — screen area: top/bottom 2.68%, left/right 6.09% */}
-                  <img
-                    src={imgOcIphoneGif}
-                    alt=""
-                    className="absolute object-cover"
-                    style={{ top: "2.68%", left: "6.09%", right: "6.09%", bottom: "2.68%" }}
-                  />
+                <div className="relative overflow-hidden w-[110px]" style={{ aspectRatio: "110/222" }}>
+                  {/* GIF clipped to screen area */}
+                  <div className="absolute overflow-hidden" style={{ top: "2.68%", left: "6.09%", right: "6.09%", bottom: "2.68%" }}>
+                    <img src={imgOcIphoneGif} alt="" className="w-full h-full object-cover" />
+                  </div>
                   {/* Device chrome on top */}
                   <img
                     src={imgOcIphoneFrame}
