@@ -36,7 +36,13 @@ import imgOcMacbookGif     from "@/imports/RabanneCaseStudy-1/oc-macbook-screen.
 import imgOcIphoneFrame    from "@/imports/RabanneCaseStudy-1/oc-iphone-frame.png";
 import imgOcIphoneGif      from "@/imports/RabanneCaseStudy-1/oc-iphone-screen.gif";
 import imgOcAccessibility  from "@/imports/RabanneCaseStudy-1/oc-accessibility.png";
-import imgNavOptionA       from "@/imports/RabanneCaseStudy-1/nav-option-a.png";
+import imgDsFragranceDefault from "@/imports/RabanneCaseStudy-1/ds-fragrance-default.png";
+import imgDsMakeupDefault    from "@/imports/RabanneCaseStudy-1/ds-makeup-default.png";
+import imgDsFashionDefault   from "@/imports/RabanneCaseStudy-1/ds-fashion-default.png";
+import imgDsFragranceHover   from "@/imports/RabanneCaseStudy-1/ds-fragrance-hover.png";
+import imgDsMakeupHover      from "@/imports/RabanneCaseStudy-1/ds-makeup-hover.png";
+import imgDsFashionHover     from "@/imports/RabanneCaseStudy-1/ds-fashion-hover.png";
+import imgNavOptionA         from "@/imports/RabanneCaseStudy-1/nav-option-a.png";
 import imgNavOptionB       from "@/imports/RabanneCaseStudy-1/nav-option-b.png";
 import imgDfgWireframes    from "@/imports/RabanneCaseStudy-1/dfg-wireframes.png";
 import imgProtoDetail      from "@/imports/RabanneCaseStudy-1/proto-detail.png";
@@ -1009,77 +1015,88 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Design System & Handover ──────────────────────────────────── */}
-      <section id="work-delivery" className="py-24 border-b border-[#343a3e]/10">
+      <section id="work-delivery" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <SectionLabel>05 — Delivery</SectionLabel>
-            <SectionH2>Design System & Handover</SectionH2>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div className="flex flex-col gap-4">
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease }}
-              >
-                <img src={imgCSDeodorant} alt="Design system components" className="w-full shadow-sm" />
-              </motion.div>
-              <div className="grid grid-cols-2 gap-4">
-                {[imgCS1117, imgCSImage20].map((src, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-20px" }}
-                    transition={{ duration: 0.85, ease, delay: 0.1 + i * 0.08 }}
-                  >
-                    <img src={src} alt="Component" className="w-full h-48 object-cover shadow-sm" />
-                  </motion.div>
-                ))}
-              </div>
+          {/* Header + body text */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-11"
+          >
+            <div className="flex flex-col gap-3 mb-8">
+              <SectionLabel>05 — Delivery</SectionLabel>
+              <div className="mt-1"><SectionH2>Design System &amp; Handover</SectionH2></div>
             </div>
+            <div className="flex flex-col gap-4 max-w-3xl">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                A well documented design system was essential to the success of this project
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                The team created an organized, component-based system that prioritized flexibility and a dynamic ecosystem.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                For example, we documented all scenarios and states of cards across the ecosystem on both desktop &amp; mobile
+              </p>
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease, delay: 0.12 }}
-              className="flex flex-col gap-6"
-            >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]">
-                A well-documented design system was essential to the success of this project. Every component, spacing token, color variable, and typography style was annotated for developer handover — ensuring the design intent survived implementation intact.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.6)]">
-                Because the redesign covered a large e-commerce ecosystem, reusable patterns were essential. A modular component library ensured every page type — homepage, PDP, PLP, checkout, editorial — could be assembled consistently and handed to development with confidence.
-              </p>
-              <motion.div
-                variants={cardContainer}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-20px" }}
-                className="grid grid-cols-2 gap-4"
+          {/* Card state grid: row labels × column headers × 6 images */}
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="grid gap-x-8 gap-y-6"
+            style={{ gridTemplateColumns: "auto 1fr 1fr 1fr" }}
+          >
+            {/* Header row */}
+            <div /> {/* empty top-left cell */}
+            {["Fragrance", "Makeup", "Fashion"].map((col) => (
+              <motion.p
+                key={col}
+                variants={cardItem}
+                className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none pb-2"
               >
-                {["Colour tokens", "Type scale", "Component variants", "Motion specs"].map((item) => (
-                  <motion.div key={item} variants={cardItem} className="border border-[#343a3e]/15 p-4">
-                    <p className="font-['Mulish',sans-serif] font-bold text-sm tracking-[0.1em] uppercase text-[#343a3e]">{item}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
+                {col}
+              </motion.p>
+            ))}
 
-          <div className="mt-16 flex flex-col gap-3">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.9, ease }}
-            >
-              <img src={imgCSImage25} alt="Design handover documentation" className="w-full shadow-sm" />
+            {/* Default row */}
+            <motion.div variants={cardItem} className="flex items-center">
+              <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
+                Default
+              </p>
             </motion.div>
-          </div>
+            {[
+              { src: imgDsFragranceDefault, alt: "Fragrance card — default state" },
+              { src: imgDsMakeupDefault,    alt: "Makeup card — default state" },
+              { src: imgDsFashionDefault,   alt: "Fashion card — default state" },
+            ].map(({ src, alt }) => (
+              <motion.div key={alt} variants={cardItem} className="overflow-hidden">
+                <img src={src} alt={alt} className="w-full h-full object-cover" />
+              </motion.div>
+            ))}
+
+            {/* Hover row */}
+            <motion.div variants={cardItem} className="flex items-center">
+              <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
+                Hover
+              </p>
+            </motion.div>
+            {[
+              { src: imgDsFragranceHover, alt: "Fragrance card — hover state" },
+              { src: imgDsMakeupHover,    alt: "Makeup card — hover state" },
+              { src: imgDsFashionHover,   alt: "Fashion card — hover state" },
+            ].map(({ src, alt }) => (
+              <motion.div key={alt} variants={cardItem} className="overflow-hidden">
+                <img src={src} alt={alt} className="w-full h-full object-cover" />
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </section>
 
