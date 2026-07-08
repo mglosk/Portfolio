@@ -1100,88 +1100,115 @@ export default function RabanneCaseStudy() {
         </div>
       </section>
 
-      {/* ── Key Takeaway ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      {/* ── Key Takeaway + Reflection (unified) ──────────────────────── */}
+      <section className="bg-[#f3f3f3]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col gap-2 mb-6">
-            <SectionLabel>Outcome</SectionLabel>
-            <SectionH2>Key Takeaway</SectionH2>
+
+          {/* Key Takeaway */}
+          <div className="py-16">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.8, ease }}
+              className="mb-11"
+            >
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.5] mb-8">
+                Key Takeaway
+              </h2>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#343a3e]">
+                Luxury e-commerce is a delicate balance. You can't sacrifice elegance for function, but you also can't make it so beautiful that people can't buy.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={listContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex flex-col gap-5 max-w-[820px]"
+            >
+              {[
+                {
+                  n: "1",
+                  title: "Luxury commerce needs emotion and efficiency",
+                  body: "The experience needed to create desire while still helping users shop easily.",
+                },
+                {
+                  n: "2",
+                  title: "Navigation is part of conversion",
+                  body: "The header and mega-menu were not just organizational tools. They shaped how users discovered products, offers, and brand content.",
+                },
+                {
+                  n: "3",
+                  title: "Checkout is where brand trust becomes practical",
+                  body: "Service reassurance, payment clarity, guest checkout, loyalty, and error states all needed to work together.",
+                },
+                {
+                  n: "4",
+                  title: "Scalable components protect quality",
+                  body: "The strongest experiences do both at once: they invite users into the brand world, then make it easy for them to find products, understand their options, and complete the purchase with confidence.",
+                },
+              ].map(({ n, title, body }) => (
+                <motion.div key={n} variants={listItem} className="border border-[#4c657e] px-6 py-8 flex flex-col gap-3 text-[#656663]">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] leading-[1.2] tracking-[-0.04em] uppercase">{n}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[16px] leading-[1.125]">{title}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[1]">{body}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.8, ease, delay: 0.06 }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[561px] mb-12"
-          >
-            Luxury e-commerce is a delicate balance. This project reinforced four things I'll carry into every future engagement.
-          </motion.p>
+          {/* Reflection */}
+          <div className="py-16">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.8, ease }}
+              className="flex flex-col gap-11"
+            >
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.5]">
+                Reflection
+              </h2>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                  This project taught me that luxury e-commerce is not just about making shopping beautiful. It is about creating desire while removing friction.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                  The strongest experiences do both at once: they invite users into the brand world, then make it easy for them to find products, understand their options, and complete the purchase with confidence.
+                </p>
+              </div>
+            </motion.div>
+          </div>
 
-          <motion.div
-            variants={cardContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-20px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
-          >
-            {[
-              { n: "1", title: "Luxury needs emotion and efficiency",       body: "Prestige without usability frustrates high-value customers. Both must be true simultaneously — not sequentially." },
-              { n: "2", title: "Navigation is part of conversion",          body: "How a user moves through a site shapes how they feel about the brand. A confused navigation is a brand problem, not just a UX problem." },
-              { n: "3", title: "Checkout is where brand trust becomes practical", body: "Users are most attentive — and most vulnerable — at checkout. Every decision point here carries brand weight." },
-              { n: "4", title: "Scalable components protect quality",       body: "A strong design system is the difference between a coherent redesign and a fragmented one. Consistency at scale is only possible through shared components." },
-            ].map(({ n, title, body }) => (
-              <motion.div key={n} variants={cardItem}>
-                <div className="border border-[#343a3e]/30 p-8 h-full flex flex-col gap-4">
-                  <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-none text-[#ac4e76]/30">{n}</p>
-                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] uppercase leading-[1.3] text-[#151515]">{title}</p>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[22px] text-[rgba(52,58,62,0.7)]">{body}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {/* Separator rule */}
+          <div className="border-t border-[#343a3e]/20" />
         </div>
       </section>
 
-      {/* ── Reflection ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#343a3e]">
+      {/* ── Next case study cards ─────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.85, ease }}
-            className="flex flex-col gap-3 mb-16"
-          >
-            <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]">Reflection</p>
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase text-white">
-              What I learned
-            </h2>
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(238,229,212,0.7)] max-w-[561px] mt-4">
-              This project reinforced how important it is to hold brand and commercial goals together without compromise — and how much early documentation, thorough wireframing, and a well-structured design system determines the quality of what gets built.
-            </p>
-          </motion.div>
-
-          {/* Next case study cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { label: "Next case study", title: "Greenswan AI", href: "#" },
-              { label: "Next case study", title: "Impossible Foods", href: "#" },
+              { label: "Next case study", title: "Greenswan AI" },
+              { label: "Next case study", title: "Impossible Foods" },
             ].map(({ label, title }, i) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 32 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease, delay: i * 0.1 }}
+                transition={{ duration: 0.85, ease, delay: i * 0.1 }}
               >
-                <div className="bg-[#2a2f32] p-8 flex flex-col gap-6 group cursor-pointer hover:bg-[#252a2d] transition-colors duration-300">
+                <div className="border border-[#343a3e]/20 p-8 flex flex-col gap-6 group cursor-pointer hover:border-[#343a3e]/40 transition-colors duration-300">
                   <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]">{label}</p>
-                  <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase leading-none text-white">{title}</p>
-                  <div className="flex items-center gap-2 text-[#ac4e76] group-hover:gap-4 transition-all duration-300">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase leading-none text-[#151515]">{title}</p>
+                  <div className="flex items-center gap-2 text-[#343a3e] group-hover:gap-4 transition-all duration-300">
                     <span className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase">Go to case study</span>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#ac4e76" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#343a3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                 </div>
