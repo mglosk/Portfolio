@@ -956,26 +956,14 @@ export default function RabanneCaseStudy() {
             </div>
           </motion.div>
 
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease }}
-              className="relative z-10"
-            >
-              <img src={imgProtoWireframe} alt="Shopping bag and checkout prototype wireframe" className="w-[82%] shadow-md" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease, delay: 0.15 }}
-              className="absolute top-0 right-0 w-[36%] shadow-lg z-20"
-            >
-              <img src={imgProtoDetail} alt="Figma prototype flow detail" className="w-full" />
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.95, ease }}
+          >
+            <img src={imgProtoWireframe} alt="Shopping bag and checkout prototype wireframe" className="w-full shadow-md" />
+          </motion.div>
         </div>
       </section>
 
@@ -1144,11 +1132,11 @@ export default function RabanneCaseStudy() {
             </motion.div>
 
             <motion.div
-              variants={listContainer}
+              variants={cardContainer}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-20px" }}
-              className="flex flex-col gap-5 max-w-[820px]"
+              className="grid grid-cols-4 gap-5 items-stretch"
             >
               {[
                 {
@@ -1172,10 +1160,10 @@ export default function RabanneCaseStudy() {
                   body: "The strongest experiences do both at once: they invite users into the brand world, then make it easy for them to find products, understand their options, and complete the purchase with confidence.",
                 },
               ].map(({ n, title, body }) => (
-                <motion.div key={n} variants={listItem} className="border border-[#4c657e] px-6 py-8 flex flex-col gap-3 text-[#656663]">
+                <motion.div key={n} variants={cardItem} className="border border-[#4c657e] px-6 py-8 flex flex-col gap-3 text-[#656663]">
                   <p className="font-['Mulish',sans-serif] font-bold text-[16px] leading-[1.2] tracking-[-0.04em] uppercase">{n}</p>
                   <p className="font-['Mulish',sans-serif] font-medium text-[16px] leading-[1.125]">{title}</p>
-                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[1]">{body}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[1.4]">{body}</p>
                 </motion.div>
               ))}
             </motion.div>
