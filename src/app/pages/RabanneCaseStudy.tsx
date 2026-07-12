@@ -394,7 +394,7 @@ export default function RabanneCaseStudy() {
           <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[1.2] uppercase text-[#1c1f23]">
             My approach:
           </p>
-          <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+          <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
             I prioritized understanding what makes luxury e-commerce different, balancing brand prestige with usability, and designing for sophisticated customers who expect both beauty and ease.
           </p>
         </motion.div>
@@ -599,7 +599,7 @@ export default function RabanneCaseStudy() {
                 ].map((item) => (
                   <motion.div key={item} variants={listItem} className="flex items-center gap-3">
                     <span className="w-[4px] h-[4px] rounded-full bg-[#ac4e76] flex-shrink-0" />
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">{item}</p>
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -642,13 +642,13 @@ export default function RabanneCaseStudy() {
               Category Representation Ideas
             </h2>
             <div className="max-w-3xl flex flex-col gap-4">
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 {"Rabanne's product ecosystem needed to be easy to scan while still feeling distinctive. I explored multiple ways of representing categories, from simple tile systems to more editorial and image-led interactions."}
               </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 The goal was to compare how each pattern supported different user needs: quick scanning, visual inspiration, category comprehension, and a more memorable brand experience.
               </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)]">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 Conclusion: choose patterns that balance clarity, luxury, and scalability.
               </p>
             </div>
@@ -727,7 +727,7 @@ export default function RabanneCaseStudy() {
             <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
               Checkout had to support more than a simple happy path. It needed to account for guest checkout, login, account creation, saved details, regional address requirements, payment methods, gift cards, packaging options, promo codes, shipping choices, error states, and confirmation screens.
             </p>
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)] max-w-md">
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-md">
               I mapped these scenarios to make sure the flow could support real shopping behavior while still feeling smooth, premium, and reassuring.
             </p>
           </motion.div>
@@ -774,7 +774,7 @@ export default function RabanneCaseStudy() {
             <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
               Other Considerations
             </h2>
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
               Throughout wireframing, I kept two practical constraints in mind.
             </p>
           </motion.div>
@@ -819,7 +819,7 @@ export default function RabanneCaseStudy() {
               transition={{ duration: 0.9, ease, delay: 0.1 }}
               className="flex flex-col gap-5 items-end flex-1"
             >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)] self-stretch">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] self-stretch">
                 <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Responsive design</span>
                 The experience needed to work across desktop, tablet, and mobile, especially for shopping, navigation, mini bag, and checkout flows.
               </p>
@@ -856,7 +856,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)] w-[263px] flex-shrink-0"
+              className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] w-[263px] flex-shrink-0"
             >
               <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Accessibility</span>
               Layouts, interactions, contrast, form states, and navigation patterns needed to support accessibility expectations, including AA-level considerations
@@ -896,10 +896,10 @@ export default function RabanneCaseStudy() {
                 Designing for Growth
               </h2>
               <div className="flex flex-col gap-4">
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                   I also stress-tested components against future product scenarios. Rabanne's product line could expand across different category structures, so components needed to work for small and large sets of products. This helped the team design flexible patterns instead of one-off layouts.
                 </p>
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                   For example, I explored how the same category component would behave with different numbers and tabs:
                 </p>
               </div>
@@ -1005,7 +1005,7 @@ export default function RabanneCaseStudy() {
             >
               <motion.div variants={cardItem} className="flex flex-col gap-4">
                 <img src={imgNavOptionA} alt="Navigation option A — outliers in a row on top" className="w-full" style={{ aspectRatio: "2/1", objectFit: "cover" }} />
-                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">Outliers in a row on top</p>
+                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[rgba(52,58,62,0.8)]">Outliers in a row on top</p>
               </motion.div>
 
               <motion.div variants={cardItem}>
@@ -1014,7 +1014,7 @@ export default function RabanneCaseStudy() {
 
               <motion.div variants={cardItem} className="flex flex-col gap-4">
                 <img src={imgNavOptionB} alt="Navigation option B — outliers in columns" className="w-full" style={{ aspectRatio: "2/1", objectFit: "cover" }} />
-                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">Outliers in columns</p>
+                <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[rgba(52,58,62,0.8)]">Outliers in columns</p>
               </motion.div>
             </motion.div>
 
@@ -1023,7 +1023,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Design System & Handover ──────────────────────────────────── */}
-      <section id="work-delivery" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-delivery" className="py-16 bg-[#e8e6e0] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           {/* Header + body text */}
@@ -1083,7 +1083,7 @@ export default function RabanneCaseStudy() {
               { src: imgDsMakeupDefault,    alt: "Makeup card — default state" },
               { src: imgDsFashionDefault,   alt: "Fashion card — default state" },
             ].map(({ src, alt }) => (
-              <motion.div key={alt} variants={cardItem} className="overflow-hidden">
+              <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
                 <img src={src} alt={alt} className="w-full h-full object-cover" />
               </motion.div>
             ))}
@@ -1099,7 +1099,7 @@ export default function RabanneCaseStudy() {
               { src: imgDsMakeupHover,    alt: "Makeup card — hover state" },
               { src: imgDsFashionHover,   alt: "Fashion card — hover state" },
             ].map(({ src, alt }) => (
-              <motion.div key={alt} variants={cardItem} className="overflow-hidden">
+              <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
                 <img src={src} alt={alt} className="w-full h-full object-cover" />
               </motion.div>
             ))}
@@ -1124,7 +1124,7 @@ export default function RabanneCaseStudy() {
               <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.5] mb-8">
                 Key Takeaway
               </h2>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#343a3e]">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 Luxury e-commerce is a delicate balance. You can't sacrifice elegance for function, but you also can't make it so beautiful that people can't buy.
               </p>
             </motion.div>
@@ -1180,10 +1180,10 @@ export default function RabanneCaseStudy() {
                 Reflection
               </h2>
               <div className="flex flex-col gap-4">
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                   This project taught me that luxury e-commerce is not just about making shopping beautiful. It is about creating desire while removing friction.
                 </p>
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                   The strongest experiences do both at once: they invite users into the brand world, then make it easy for them to find products, understand their options, and complete the purchase with confidence.
                 </p>
               </div>
