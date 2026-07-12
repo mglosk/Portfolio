@@ -202,11 +202,10 @@ export default function ImpossibleFoodsCaseStudy() {
                     i < arr.length - 1 ? "border-r border-[#eee5d4]/10" : ""
                   } ${isActive ? "bg-[#eee5d4]/8" : "hover:bg-[#eee5d4]/5"}`}
                 >
-                  <span className={`absolute inset-x-0 bottom-0 h-[2px] transition-all duration-500 ${isActive ? "bg-[#e10600]" : isPast ? "bg-[#e10600]/25" : "bg-transparent"}`} />
-                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125" : isPast ? "bg-[#e10600]/40" : "bg-[#eee5d4]/20 group-hover:bg-[#eee5d4]/40"}`}
-                    style={isActive ? { backgroundColor: RED } : {}} />
-                  <span className={`font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300 ${isActive ? "text-[#e10600]" : "text-[#eee5d4]/35"}`}>{phase}</span>
-                  <span className={`font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? "text-[#eee5d4]" : isPast ? "text-[#eee5d4]/50" : "text-[#eee5d4]/35 group-hover:text-[#eee5d4]/60"}`}>{label}</span>
+                  <span className={`absolute inset-x-0 top-0 h-[2px] transition-all duration-500 ${isActive ? "bg-[#d4af37]" : isPast ? "bg-[#d4af37]/25" : "bg-transparent"}`} />
+                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125 bg-[#d4af37]" : isPast ? "bg-[#d4af37]/40" : "bg-[#eee5d4]/20 group-hover:bg-[#eee5d4]/40"}`} />
+                  <span className={`font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300 ${isActive ? "text-[#d4af37]" : "text-[rgba(212,175,55,0.35)]"}`}>{phase}</span>
+                  <span className={`font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? "text-[#eee5d4]" : isPast ? "text-[#eee5d4]/50" : "text-[rgba(238,229,212,0.3)] group-hover:text-[#eee5d4]/60"}`}>{label}</span>
                 </button>
               );
             })}
