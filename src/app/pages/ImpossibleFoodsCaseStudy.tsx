@@ -1,52 +1,66 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-import imgHero from "@/imports/ImpossibleFoods/hero-bg-screenshot.png";
-import imgBackground from "@/imports/ImpossibleFoods/background-image.png";
-import imgWorkshop from "@/imports/ImpossibleFoods/workshop-photo.png";
+import imgHeroFood         from "@/imports/ImpossibleFoodsCaseStudy-1/hero-food.png";
+import imgBgProduct        from "@/imports/ImpossibleFoodsCaseStudy-1/bg-product.png";
+import imgWorkshop         from "@/imports/ImpossibleFoodsCaseStudy-1/workshop.png";
+import imgCompetitorBM     from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-beyondmeat.png";
+import imgCompetitorNutella from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-nutella.png";
+import imgCompetitorOatly  from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-oatly.png";
+import imgIaDiagram1       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram-1.png";
+import imgIaDiagram2       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram-2.png";
+import imgWireframe1       from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-1.png";
+import imgWireframe2       from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-2.png";
+import imgInteraction1     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-1.png";
+import imgInteraction2     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-2.png";
+import imgInteraction3     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-3.png";
+import imgInteraction4     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-4.png";
+import imgInteraction5     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-5.png";
+import imgInteraction6     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-6.png";
+import imgAccessibility    from "@/imports/ImpossibleFoodsCaseStudy-1/accessibility.gif";
+import imgCollabGif1       from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-1.gif";
+import imgCollabGif2       from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-2.gif";
+import imgComponentLib     from "@/imports/ImpossibleFoodsCaseStudy-1/component-library.png";
+import imgAtomAtoms        from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-atoms.png";
+import imgAtomMolecules    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-molecules.png";
+import imgAtomOrganisms    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-organisms.png";
+import imgAtomComponents   from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-components.png";
+import imgGodzilla         from "@/imports/ImpossibleFoodsCaseStudy-1/godzilla-placeholder.png";
 
 /* ─────────────────────────────────────────────────────────────
-   Brand tokens
+   Animation constants
 ───────────────────────────────────────────────────────────── */
-const RED   = "#e10600";
-const DARK  = "#260212";
-const CREAM = "#fcfbf4";
-
 const ease = [0.16, 1, 0.3, 1] as const;
 
-/* ─────────────────────────────────────────────────────────────
-   Stagger variants
-───────────────────────────────────────────────────────────── */
-const listWrap = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-const listRow  = {
+const listContainer = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+const listItem = {
   hidden: { opacity: 0, y: 14 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
 };
-const cardWrap = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
-const cardRow  = {
-  hidden: { opacity: 0, y: 20 },
+const cardContainer = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
+const cardItem = {
+  hidden: { opacity: 0, y: 12 },
   show:   { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
 /* ─────────────────────────────────────────────────────────────
    Shared label / heading helpers
 ───────────────────────────────────────────────────────────── */
-function Label({ children }: { children: string }) {
+function SectionLabel({ children }: { children: string }) {
   return (
     <motion.p
       initial={{ opacity: 0, x: -10 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.65, ease }}
-      className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase"
-      style={{ color: RED }}
+      transition={{ duration: 0.9, ease }}
+      className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#ac4e76]"
     >
       {children}
     </motion.p>
   );
 }
 
-function H2({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function SectionH2({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <motion.h2
       initial={{ opacity: 0, y: 14 }}
@@ -64,7 +78,7 @@ function H2({ children, light = false }: { children: React.ReactNode; light?: bo
    Main component
 ───────────────────────────────────────────────────────────── */
 export default function ImpossibleFoodsCaseStudy() {
-  const [activePhase, setActivePhase] = useState("work-background");
+  const [activePhase, setActivePhase] = useState<string>("work-background");
 
   useEffect(() => {
     const ids = ["work-background", "work-research", "work-ideation", "work-production", "work-delivery"];
@@ -83,40 +97,26 @@ export default function ImpossibleFoodsCaseStudy() {
   }, []);
 
   const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImgY = useTransform(heroScroll, [0, 1], ["0%", "20%"]);
 
-  const phases = [
-    { id: "work-background", phase: "01", label: "Background" },
-    { id: "work-research",   phase: "02", label: "Research"   },
-    { id: "work-ideation",   phase: "03", label: "Ideation"   },
-    { id: "work-production", phase: "04", label: "Production" },
-    { id: "work-delivery",   phase: "05", label: "Delivery"   },
-  ] as const;
+  const RED = "#e10600";
 
   return (
     <div className="min-h-screen bg-[#fcfbf4]">
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative overflow-hidden" style={{ backgroundColor: DARK, height: 480 }}>
-        {/* website screenshot bleeds from right */}
-        <motion.div
-          style={{ y: heroY }}
-          className="absolute right-0 top-0 h-full w-[58%] overflow-hidden"
-        >
-          <img src={imgHero} alt="" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#260212] via-[#260212]/65 to-transparent" />
-        </motion.div>
-
-        <div className="relative z-10 h-full flex flex-col justify-end px-10 pb-10 max-w-7xl">
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      <section ref={heroRef} className="relative bg-[#fcfbf4] overflow-hidden" style={{ height: 540 }}>
+        {/* Left — text pinned to bottom */}
+        <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pb-14 w-[52%]">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="font-['Mulish',sans-serif] text-[12px] tracking-[1.8px] uppercase mb-5"
+            className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[1.8px] uppercase mb-5"
             style={{ color: RED }}
           >
-            Case Study — Brand & Digital Redesign
+            Case Study — Brand Redesign
           </motion.p>
 
           <div className="overflow-hidden mb-8">
@@ -125,12 +125,8 @@ export default function ImpossibleFoodsCaseStudy() {
               animate={{ y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease }}
             >
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b4455]">
-                Impossible
-              </p>
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#3d1a22]">
-                Foods
-              </p>
+              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b7885]">Impossible</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#343a3e]">Foods</p>
             </motion.div>
           </div>
 
@@ -140,13 +136,13 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.5, delay: 0.65, ease }}
             className="flex flex-wrap gap-3"
           >
-            {["Wireframing", "Information Architecture", "Prototyping", "UX Writing", "Design System"].map((tag, i) => (
+            {["Research", "Wireframing", "Prototyping", "Design System"].map((tag, i) => (
               <motion.span
                 key={tag}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 + i * 0.1, ease }}
-                className="font-['Mulish',sans-serif] text-[12px] tracking-[2.4px] uppercase border px-[17px] py-[9px]"
+                className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase border px-[17px] py-[9px]"
                 style={{ borderColor: RED, color: RED }}
               >
                 {tag}
@@ -154,17 +150,40 @@ export default function ImpossibleFoodsCaseStudy() {
             ))}
           </motion.div>
         </div>
+
+        {/* Right — food image with parallax */}
+        <motion.div
+          className="absolute right-0 top-0 h-full w-[55%] overflow-hidden"
+          style={{ y: heroImgY }}
+        >
+          <motion.img
+            src={imgHeroFood}
+            alt="Impossible Foods burger"
+            className="w-full h-full object-cover object-center"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, delay: 0.2, ease }}
+          />
+        </motion.div>
       </section>
 
-      {/* ── Sub-nav ───────────────────────────────────────────────── */}
-      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-24 z-30 overflow-x-auto">
+      {/* ── Process phases bar ────────────────────────────────────────── */}
+      <div className="bg-[#343a3e] border-b border-[#eee5d4]/10 sticky top-24 z-30 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex min-w-max">
-            {phases.map(({ id, phase, label }, i) => {
-              const phaseIds = phases.map(p => p.id);
+            {(
+              [
+                { id: "work-background", phase: "01", label: "Background" },
+                { id: "work-research",   phase: "02", label: "Research"   },
+                { id: "work-ideation",   phase: "03", label: "Ideation"   },
+                { id: "work-production", phase: "04", label: "Production" },
+                { id: "work-delivery",   phase: "05", label: "Delivery"   },
+              ] as const
+            ).map(({ id, phase, label }, i, arr) => {
+              const phaseIds  = arr.map(p => p.id);
               const activeIdx = phaseIds.indexOf(activePhase as typeof phaseIds[number]);
-              const isActive = activePhase === id;
-              const isPast = activeIdx > i;
+              const isActive  = activePhase === id;
+              const isPast    = activeIdx > i;
               return (
                 <button
                   key={id}
@@ -173,13 +192,14 @@ export default function ImpossibleFoodsCaseStudy() {
                     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 128, behavior: "smooth" });
                   }}
                   className={`group relative flex items-center gap-3 px-6 py-4 transition-colors duration-300 focus-visible:outline-none ${
-                    i < phases.length - 1 ? "border-r border-[#343a3e]/10" : ""
-                  } ${isActive ? "bg-[#e10600]/8" : "hover:bg-[#343a3e]/5"}`}
+                    i < arr.length - 1 ? "border-r border-[#eee5d4]/10" : ""
+                  } ${isActive ? "bg-[#eee5d4]/8" : "hover:bg-[#eee5d4]/5"}`}
                 >
                   <span className={`absolute inset-x-0 bottom-0 h-[2px] transition-all duration-500 ${isActive ? "bg-[#e10600]" : isPast ? "bg-[#e10600]/25" : "bg-transparent"}`} />
-                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "bg-[#e10600] scale-125" : isPast ? "bg-[#e10600]/40" : "bg-[#343a3e]/20 group-hover:bg-[#343a3e]/40"}`} />
-                  <span className={`font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300 ${isActive ? "text-[#e10600]" : "text-[#343a3e]/35"}`}>{phase}</span>
-                  <span className={`font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? "text-[#151515]" : isPast ? "text-[#343a3e]/50" : "text-[#343a3e]/35 group-hover:text-[#343a3e]/60"}`}>{label}</span>
+                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125" : isPast ? "bg-[#e10600]/40" : "bg-[#eee5d4]/20 group-hover:bg-[#eee5d4]/40"}`}
+                    style={isActive ? { backgroundColor: RED } : {}} />
+                  <span className={`font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300 ${isActive ? "text-[#e10600]" : "text-[#eee5d4]/35"}`}>{phase}</span>
+                  <span className={`font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300 ${isActive ? "text-[#eee5d4]" : isPast ? "text-[#eee5d4]/50" : "text-[#eee5d4]/35 group-hover:text-[#eee5d4]/60"}`}>{label}</span>
                 </button>
               );
             })}
@@ -187,86 +207,84 @@ export default function ImpossibleFoodsCaseStudy() {
         </div>
       </div>
 
-      {/* ── 01 — Background ──────────────────────────────────────── */}
-      <section id="work-background" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-16">
-            <Label>01 — Introduction</Label>
-            <H2>Project Overview</H2>
-          </div>
+      {/* ── 01 — Background ───────────────────────────────────────────── */}
+      <section id="work-background" className="bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex gap-16 items-start">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Metadata table */}
-            <motion.div
-              initial={{ opacity: 0, x: -18 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.9, ease }}
-              className="flex flex-col divide-y divide-[#343a3e]/10"
-            >
-              {[
-                { label: "Client",  value: "Impossible Foods" },
-                { label: "Project", value: "Website redesign" },
-                { label: "Role",    value: "User Experience Designer" },
-                { label: "Length",  value: "6 months (2024)" },
-                { label: "Team",    value: "UX, visual design, art direction, front-end development, content strategy" },
-              ].map(({ label, value }) => (
-                <div key={label} className="flex gap-8 py-5">
-                  <p className="font-['Mulish',sans-serif] font-normal text-[14px] text-[#343a3e]/50 w-[120px] flex-shrink-0">{label}</p>
-                  <p className="font-['Mulish',sans-serif] font-semibold text-[16px] text-[#151515] leading-snug">{value}</p>
-                </div>
-              ))}
-            </motion.div>
+            {/* Empty left spacer so text begins at ~30% */}
+            <div className="w-[30%] flex-shrink-0 py-16 hidden lg:block" />
 
-            <div className="flex flex-col gap-8">
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
+            {/* Center/right — text + image */}
+            <div className="flex-1 py-16 flex flex-col gap-16">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.8, ease, delay: 0.12 }}
-                className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]"
+                transition={{ duration: 0.85, ease }}
+                className="flex flex-col gap-3"
               >
-                Impossible Foods was undergoing a major rebrand and needed a website that could do more than look fresh. The new experience had to communicate the brand's evolved mission, help users understand and trust plant-based meat, support product and recipe discovery, and create a scalable foundation for future content.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.85, ease, delay: 0.2 }}
-                className="overflow-hidden"
-              >
-                <img src={imgBackground} alt="Impossible Foods rebrand visual" className="w-full object-cover" />
+                <SectionLabel>01 — Background</SectionLabel>
+                <div className="mt-1"><SectionH2>Background</SectionH2></div>
               </motion.div>
+
+              <div className="flex flex-col lg:flex-row gap-12 items-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.85, ease }}
+                  className="flex flex-col gap-4 flex-1"
+                >
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                    Impossible Foods was in the middle of a significant rebrand, both visually and in messaging. The website needed to become the digital expression of that shift.
+                  </p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                    The challenge was not only to make the site feel more current. The experience needed to help users understand the brand, trust the product, discover recipes, find where to buy, and move through different audience pathways without confusion.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 18 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.95, ease, delay: 0.12 }}
+                  className="w-[40%] flex-shrink-0"
+                >
+                  <img src={imgBgProduct} alt="Impossible Foods product" className="w-full object-cover" />
+                </motion.div>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── The Challenge ─────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-10">
-            <Label>01 — The Brief</Label>
-            <H2>The challenge</H2>
-          </div>
+      {/* ── The Challenge ─────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, ease }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[700px] mb-12"
+            className="mb-10"
           >
-            The redesign had to balance brand transformation with practical UX needs. Impossible Foods needed a site that felt bold, playful, and memorable — while still making it easy for users to find products, recipes, nutrition information, sustainability content, and purchase pathways.
-          </motion.p>
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
+              The challenge
+            </h2>
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-3xl">
+              The redesign had to balance brand transformation with practical UX needs. Impossible Foods needed a site that felt bold, playful, and memorable, while still making it easy for users to find products, recipes, nutrition information, sustainability content, and purchase pathways. The old experience created several challenges:
+            </p>
+          </motion.div>
 
           <motion.div
-            variants={cardWrap}
+            variants={cardContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-20px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {[
               { n: "1", body: "The site felt dated and did not fully capture the playful, colorful, and bold personality of the new brand." },
@@ -276,122 +294,91 @@ export default function ImpossibleFoodsCaseStudy() {
               { n: "5", body: "Had to serve three distinct audiences with different needs." },
               { n: "6", body: "Plant-based meat still required trust-building, education, and clear product information before trial." },
             ].map(({ n, body }) => (
-              <motion.div key={n} variants={cardRow}>
-                <div className="border border-[#343a3e]/20 p-7 h-full flex gap-5">
-                  <span className="font-['Mulish',sans-serif] font-black text-[40px] leading-none flex-shrink-0" style={{ color: "#f8dddd" }}>{n}</span>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)] pt-2">{body}</p>
+              <motion.div key={n} variants={cardItem}>
+                <div className="flex gap-5 items-start border border-[#343a3e]/15 px-6 py-7 h-full">
+                  <div className="w-[46px] h-[46px] flex-shrink-0 flex items-center justify-center rounded-full border-2 border-[#e10600]/30">
+                    <span className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase" style={{ color: "#4f0423" }}>{n}</span>
+                  </div>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] pt-2">{body}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
 
-      {/* ── Goals ─────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-6">
-            <Label>01 — Goals</Label>
-            <H2>The redesign had to solve for three connected goals</H2>
-          </div>
+      {/* ── Goals ─────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
-            variants={cardWrap}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8 flex flex-col gap-3"
+          >
+            <SectionLabel>02 — Goals</SectionLabel>
+            <div className="mt-1">
+              <SectionH2>The redesign had to solve for three connected goals</SectionH2>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={cardContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-20px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[234px]"
           >
             {[
-              { bg: "#ff6c02", title: "Build trust in the category",       desc: "Build a narrative that establishes trust in plant-based meat and explains why Impossible matters." },
-              { bg: "#c1d5cf", title: "Make product discovery easier",     desc: "Create intuitive pathways for all three audiences to find what they need." },
-              { bg: "#e6e4de", title: "Create a scalable system",          desc: "Build and integrate a scalable design system in a CMS so the client can maintain and expand it independently." },
+              { bg: "#dc9660", title: "Build trust in the category",     desc: "Build a narrative that establishes trust in plant-based meat and explains why Impossible matters." },
+              { bg: "#c1d5cf", title: "Make product discovery easier",   desc: "Create intuitive pathways for all three audiences to find what they need." },
+              { bg: "#e6e4de", title: "Create a scalable system",        desc: "Build and integrate a scalable design system in a CMS so the client can maintain and expand it independently." },
             ].map(({ bg, title, desc }) => (
-              <motion.div key={title} variants={cardRow}>
-                <div className="flex flex-col justify-between gap-8 p-8 h-[260px]" style={{ backgroundColor: bg }}>
-                  <p className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase leading-tight text-black">{title}</p>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[15px] leading-[24px] text-[#151515]">{desc}</p>
+              <motion.div key={title} variants={cardItem} className="h-full">
+                <div className="flex flex-col gap-6 p-6 h-full justify-between" style={{ backgroundColor: bg }}>
+                  <p className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase leading-none text-black">{title}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[18px] text-[#151515]">{desc}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
 
-      {/* ── My Role ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-white border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <motion.h2
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.8, ease }}
-                className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase leading-none text-[#1c1f23] mb-6"
-              >
-                My role
-              </motion.h2>
+      {/* ── 02 — Research / Stakeholder Workshop ──────────────────────── */}
+      <section id="work-research" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-10 flex flex-col gap-3"
+          >
+            <SectionLabel>02 — Research</SectionLabel>
+            <div className="mt-1"><SectionH2>Stakeholder Workshop</SectionH2></div>
+          </motion.div>
+
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
+
+            <div className="flex-1 flex flex-col gap-8">
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.8, ease, delay: 0.08 }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)]"
-              >
-                I joined the project after discovery and worked across UX, content, and production — translating strategy into usable structures and design-ready artifacts.
-              </motion.p>
-            </div>
-
-            <motion.div
-              variants={listWrap}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-20px" }}
-              className="flex flex-col"
-            >
-              {[
-                "Turning discovery insights into page priorities and UX requirements",
-                "Mapping user journeys and site structure across B2C and B2B needs",
-                "Creating wireframes for key pages, product content, recipes, and conversion moments",
-                "Exploring interaction patterns for nutrition, ingredients, flavor, and supporting product information",
-                "Collaborating with visual designers to balance usability with the new brand expression",
-                "Considering accessibility in card layouts, hover states, navigation, and content hierarchy",
-                "Writing UX annotations and supporting reusable component documentation for development handoff",
-                "Supporting the creation of a component library and design documentation",
-              ].map((item) => (
-                <motion.div key={item} variants={listRow} className="flex items-start gap-4 py-4 border-b border-[rgba(52,58,62,0.1)]">
-                  <span className="w-[5px] h-[5px] rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: RED }} />
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)]">{item}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Research ──────────────────────────────────────────────── */}
-      <section id="work-research" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>02 — Research</Label>
-            <H2>Stakeholder Workshop</H2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.8, ease }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-10"
+                transition={{ duration: 0.85, ease }}
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
               >
                 The project began with a collaborative workshop involving product, marketing, leadership, UX, design, and technical stakeholders. The goal was to align on what the new website needed to achieve beyond a visual refresh. The workshop helped define:
               </motion.p>
 
               <motion.div
-                variants={listWrap}
+                variants={listContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-20px" }}
@@ -406,9 +393,9 @@ export default function ImpossibleFoodsCaseStudy() {
                   "Feature priorities",
                   "Future personalization opportunities",
                 ].map((item) => (
-                  <motion.div key={item} variants={listRow} className="flex items-center gap-4">
+                  <motion.div key={item} variants={listItem} className="flex items-center gap-4">
                     <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ backgroundColor: RED }} />
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)]">{item}</p>
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -417,8 +404,8 @@ export default function ImpossibleFoodsCaseStudy() {
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.8, ease }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.6)] mt-8 max-w-[480px]"
+                transition={{ duration: 0.85, ease, delay: 0.1 }}
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)] max-w-[480px]"
               >
                 A key theme emerged early: the team wanted a distinctive, personalized, brand-led experience — but did not want new features or AI opportunities to distract from the core user journey.
               </motion.p>
@@ -428,183 +415,404 @@ export default function ImpossibleFoodsCaseStudy() {
               initial={{ opacity: 0, x: 18 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.95, ease, delay: 0.12 }}
+              transition={{ duration: 0.95, ease, delay: 0.1 }}
+              className="lg:w-[44%] flex-shrink-0"
             >
-              <img src={imgWorkshop} alt="Stakeholder workshop" className="w-full object-cover shadow-lg" />
+              {/* Tilted workshop image */}
+              <div className="flex items-center justify-center py-8">
+                <div style={{ transform: "rotate(-7deg)" }}>
+                  <img src={imgWorkshop} alt="Stakeholder workshop" className="w-full shadow-lg" />
+                </div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* ── Audience Needs ────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-6">
-            <Label>02 — Research</Label>
-            <H2>Audience needs</H2>
-          </div>
+      {/* ── Audience Needs ────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8 flex flex-col gap-3"
+          >
+            <SectionLabel>02 — Insights</SectionLabel>
+            <div className="mt-1"><SectionH2>Audience needs</SectionH2></div>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, ease }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[660px] mb-12"
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] mb-10"
           >
             The website needed to serve different audiences with different expectations.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                accent: "#4b7b44",
-                label: "B2C — Conscious foodie",
-                body: "Needs confidence, recipes, product facts, taste cues, reviews, environmental impact, and a clear path to trial. The design opportunity was to make products feel real, approachable, and part of everyday food choices.",
-              },
-              {
-                accent: "#a7c58c",
-                label: "B2B — Food-service operators",
-                body: "Needs product details, operational confidence, menu ideas, case studies, marketing resources, and clear support pathways. The design opportunity was to separate operator journeys from consumer inspiration without isolating them from the brand.",
-              },
-            ].map(({ accent, label, body }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, x: i === 0 ? -18 : 18 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.9, ease }}
-              >
-                <div className="border border-[#343a3e]/20 rounded-sm overflow-hidden h-full flex">
-                  <div className="w-[6px] flex-shrink-0" style={{ backgroundColor: accent }} />
-                  <div className="p-8 flex flex-col gap-4">
-                    <p className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase text-[#151515]">{label}</p>
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">{body}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Strategic Insights ────────────────────────────────────── */}
-      <section className="py-24 bg-white border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>02 — Research</Label>
-            <H2>Strategic Insights</H2>
-          </div>
-
           <motion.div
-            variants={cardWrap}
+            variants={cardContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-20px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-5"
           >
             {[
-              { n: "1", title: "Trust before trial",                    body: "Plant-based meat faced skepticism. The website needed to educate users without overwhelming them." },
-              { n: "2", title: "Discovery before conversion",           body: "Important decision-making content — taste, ingredients, nutrition, recipes, reviews, and store access — was hard to scan." },
-              { n: "3", title: "Different audiences, different journeys", body: "Consumers and food-service operators had different goals, but the existing structure blurred the line between consumer inspiration and B2B conversion." },
-              { n: "4", title: "Scale beyond launch",                   body: "The rebrand required reusable patterns, content structure, and documentation for future pages and personalization." },
+              {
+                n: "B2C",
+                title: "Conscious foodie",
+                body: "Needs confidence, recipes, product facts, taste cues, reviews, environmental impact, and a clear path to trial. The design opportunity was to make products feel real, approachable, and part of everyday food choices.",
+              },
+              {
+                n: "B2B",
+                title: "Food-service operators",
+                body: "Needs product details, operational confidence, menu ideas, case studies, marketing resources, and clear support pathways. The design opportunity was to separate operator journeys from consumer inspiration without isolating them from the brand.",
+              },
             ].map(({ n, title, body }) => (
-              <motion.div key={n} variants={cardRow}>
-                <div className="border border-[#343a3e]/20 p-8 h-full flex flex-col gap-4">
-                  <p className="font-['Mulish',sans-serif] font-black text-[48px] leading-none" style={{ color: "#f8dddd" }}>{n}</p>
-                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] uppercase leading-tight text-[#151515]">{title}</p>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[15px] leading-[24px] text-[rgba(52,58,62,0.7)]">{body}</p>
+              <motion.div key={n} variants={cardItem}>
+                <div className="border border-[#4c657e] p-8 flex flex-col gap-4 h-full text-[#656663]">
+                  <p className="font-['Mulish',sans-serif] font-bold text-[16px] leading-[1.2] tracking-[-0.04em] uppercase">{n}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[16px] leading-[1.125]">{title}</p>
+                  <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[1.4]">{body}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </section>
 
-      {/* ── Competitive Research ──────────────────────────────────── */}
-      <section id="work-ideation" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>03 — Ideation</Label>
-            <H2>Competitive Research</H2>
+      {/* ── Strategic Insights ────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-12"
+          >
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2]">
+              Strategic Insights
+            </h2>
+          </motion.div>
+
+          {/* 4 scattered sticky notes */}
+          <div className="relative min-h-[640px]">
+            {[
+              {
+                n: "1", title: "Trust before trial",
+                body: "Plant-based meat faced skepticism. The website needed to educate users without overwhelming them.",
+                rotate: "-7deg", top: "0%", left: "0%",
+              },
+              {
+                n: "2", title: "Discovery before conversion",
+                body: "Important decision-making content — taste, ingredients, nutrition, recipes, reviews, and store access — was hard to scan.",
+                rotate: "9deg", top: "3%", left: "40%",
+              },
+              {
+                n: "3", title: "Different audiences, different journeys",
+                body: "Consumers and food-service operators had different goals, but the existing structure blurred the line between consumer inspiration and B2B conversion.",
+                rotate: "-5deg", top: "44%", left: "6%",
+              },
+              {
+                n: "4", title: "Scale beyond launch",
+                body: "The rebrand required reusable patterns, content structure, and documentation for future pages and personalization.",
+                rotate: "4deg", top: "46%", left: "47%",
+              },
+            ].map(({ n, title, body, rotate, top, left }, i) => (
+              <motion.div
+                key={n}
+                initial={{ opacity: 0, y: 24, rotate: 0 }}
+                whileInView={{ opacity: 1, y: 0, rotate }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.9, ease, delay: i * 0.15 }}
+                className="absolute w-[42%] max-w-[380px]"
+                style={{ top, left }}
+              >
+                <div className="bg-[#ffbaf5] shadow-[0px_5px_15px_rgba(0,0,0,0.18)] flex flex-col gap-4 pt-16 pb-12 px-8 relative">
+                  {/* Tape strip at top */}
+                  <div className="absolute top-[-8px] left-1/2 -translate-x-1/2 w-[60px] h-[18px] bg-[#f5a8e6]/60" />
+                  <p className="font-['Mulish',sans-serif] font-bold text-[28px] uppercase text-black">{n}</p>
+                  <p className="font-['Mulish',sans-serif] font-bold text-[20px] uppercase text-black leading-tight">{title}</p>
+                  <p className="font-['Mulish',sans-serif] font-normal text-[14px] leading-[1.4] text-black">{body}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.85, ease }}
-            >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-8">
+        </div>
+      </section>
+
+      {/* ── Competitor Analysis ───────────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8"
+          >
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
+              Competitor analysis
+            </h2>
+            <div className="max-w-3xl flex flex-col gap-4">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 The rebrand created an important UX tension. Impossible's new identity was bold, expressive, and playful — but the website still needed enough structure to help users find what they needed quickly.
               </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)] mb-8">
-                I used competitor and category research to understand how food, lifestyle, and mission-driven brands balance appetite appeal, education, product information, and conversion. Brands studied included Beyond Meat, Aura Bora, Mate Libre, Fitbit, and others in the premium food and wellness space.
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                I used competitor and category research to understand how food, lifestyle, and mission-driven brands balance appetite appeal, education, product information, and conversion. The key takeaway: many brands led with emotional storytelling, while others leaned heavily on product specs. Impossible had an opportunity to combine both.
               </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">
-                The key takeaway: many brands led with emotional storytelling, while others leaned heavily on product specs. Impossible had an opportunity to combine both — a confident brand story supported by clear, credible product information.
-              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="flex gap-8 items-end mt-10"
+          >
+            {[
+              { src: imgCompetitorBM,      label: "Beyond Meat" },
+              { src: imgCompetitorNutella, label: "Nutella" },
+              { src: imgCompetitorOatly,   label: "Oatly" },
+            ].map(({ src, label }) => (
+              <motion.div key={label} variants={cardItem} className="flex flex-col gap-3 flex-1">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#232a27]">{label}</p>
+                <div className="overflow-hidden" style={{ maxHeight: "320px" }}>
+                  <img src={src} alt={`${label} website`} className="w-full object-cover object-top" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ── 03 — Information Architecture ────────────────────────────── */}
+      <section id="work-ideation" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="flex gap-16 items-start">
+
+            {/* Left — text */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="lg:w-[42%] flex-shrink-0 flex flex-col gap-8"
+            >
+              <div className="flex flex-col gap-3">
+                <SectionLabel>03 — Ideation</SectionLabel>
+                <div className="mt-1"><SectionH2>Information architecture</SectionH2></div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  One of the biggest UX challenges was restructuring the site around user intent. Discovery showed that mission content, product education, recipes, and conversion pathways needed stronger connections.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  I explored how the site map could better separate B2C and B2B needs while still allowing users to move naturally between brand story, product discovery, recipes, and purchase actions.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  The goal was to create a structure that answered two questions:
+                </p>
+                <div className="flex flex-col gap-3">
+                  {[
+                    "What does each audience need first?",
+                    "How can the site guide users from curiosity to confidence to action?",
+                  ].map((q, i) => (
+                    <div key={q} className="flex gap-3 items-start">
+                      <span className="font-['Mulish',sans-serif] font-bold text-[14px] flex-shrink-0 pt-0.5" style={{ color: RED }}>{i + 1}.</span>
+                      <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{q}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
+            {/* Right — IA diagram on beige background */}
             <motion.div
-              variants={listWrap}
-              initial="hidden"
-              whileInView="show"
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              className="flex flex-col"
+              transition={{ duration: 0.95, ease, delay: 0.12 }}
+              className="flex-1 bg-[#eee5d4] relative overflow-hidden"
+              style={{ minHeight: "500px" }}
             >
-              <p className="font-['Mulish',sans-serif] font-bold text-[14px] uppercase tracking-[2px] text-[#151515] mb-6">Key patterns observed</p>
-              {[
-                "Playful tone and strong brand voice",
-                "Appetite appeal through photography",
-                "Trust building through clear information",
-                "Product-forward nutrition content",
-                "Conversion pathways close to inspiration",
-              ].map((item, i) => (
-                <motion.div key={item} variants={listRow} className="flex items-center gap-4 py-4 border-b border-[rgba(52,58,62,0.1)]">
-                  <span className="font-['Mulish',sans-serif] font-bold text-[12px]" style={{ color: RED }}>0{i + 1}</span>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)]">{item}</p>
-                </motion.div>
-              ))}
+              <div className="absolute inset-0 p-6 flex items-center justify-center">
+                {/* Two overlapping IA diagrams */}
+                <div className="relative w-full h-full">
+                  <img
+                    src={imgIaDiagram1}
+                    alt="Information architecture diagram"
+                    className="absolute top-4 right-4 w-[58%] shadow-md"
+                  />
+                  <img
+                    src={imgIaDiagram2}
+                    alt="Information architecture mobile diagram"
+                    className="absolute bottom-4 left-4 w-[44%] shadow-md"
+                  />
+                </div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* ── Information Architecture ──────────────────────────────── */}
-      <section className="py-24 bg-white border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>03 — Ideation</Label>
-            <H2>Information Architecture</H2>
-          </div>
+      {/* ── Low-Fidelity Exploration ──────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8"
+          >
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
+              Low-fidelity exploration
+            </h2>
+            <div className="max-w-3xl flex flex-col gap-4">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                I created wireframes to test how the new brand system could support different types of content, from bold campaign storytelling to practical product information.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                The challenge was finding the right balance between emotional appetite appeal and decision-making content. Product pages needed to feel exciting and branded, but they also had to make flavor, nutrition, ingredients, recipes, reviews, and store access easy to understand.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10"
+          >
+            {[imgWireframe1, imgWireframe2].map((src, i) => (
+              <motion.div key={i} variants={cardItem}>
+                <img src={src} alt={`Wireframe exploration ${i + 1}`} className="w-full shadow-sm" />
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ── 04 — Interaction Scenarios ───────────────────────────────── */}
+      <section id="work-production" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.8, ease }}
+            className="mb-8 flex flex-col gap-3"
+          >
+            <SectionLabel>04 — Production</SectionLabel>
+            <div className="mt-1"><SectionH2>Interaction scenarios</SectionH2></div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.85, ease }}
+            className="flex flex-col gap-4 max-w-3xl mb-10"
+          >
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+              For especially important content moments, I focused on memorable interaction and storytelling to leave an impression. For example, nutrition and ingredients were especially important because they played a direct role in user trust.
+            </p>
+            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+              I explored different ways to present this content — tabs, accordions, side-by-side layouts, expandable sections, and contextual explanations. The goal was to help users scan high-level facts quickly, while still giving them access to deeper information when they needed it.
+            </p>
+          </motion.div>
+
+          {/* Annotated flow on beige background */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.95, ease }}
+            className="bg-[#eee5d4] p-10"
+          >
+            {/* Top row */}
+            <div className="flex gap-6 items-end mb-4">
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction1} alt="User scrolls" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User scrolls</p>
+              </div>
+              <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction2} alt="Opens nutrition accordion" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User opens nutrition accordion</p>
+              </div>
+              <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction3} alt="User changes tabs" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
+              </div>
+            </div>
+            {/* Bottom row */}
+            <div className="flex gap-6 items-start mt-8">
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction4} alt="User changes tabs again" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
+              </div>
+              <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction5} alt="User hovers bullet point" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User hovers over bullet point</p>
+              </div>
+              <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
+              <div className="flex flex-col gap-2 flex-1">
+                <img src={imgInteraction6} alt="User changes tabs again" className="w-full shadow-sm" />
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ── Accessibility Considerations ──────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="flex gap-16 items-center">
+
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
+              className="flex flex-col gap-6 lg:w-[38%] flex-shrink-0"
             >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-6">
-                One of the biggest UX challenges was restructuring the site around user intent. Discovery showed that mission content, product education, recipes, and conversion pathways needed stronger connections.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)] mb-6">
-                I explored how the site map could better separate B2C and B2B needs while still allowing users to move naturally between brand story, product discovery, recipes, and purchase actions.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)] mb-8">
-                The goal was to create a structure that answered two questions:
-              </p>
+              <div className="flex flex-col gap-3">
+                <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2]">
+                  Accessibility considerations
+                </h2>
+              </div>
               <div className="flex flex-col gap-4">
-                {[
-                  "What does each audience need first?",
-                  "How can the site guide users from curiosity to confidence to action?",
-                ].map((q, i) => (
-                  <div key={q} className="flex gap-4">
-                    <span className="font-['Mulish',sans-serif] font-bold text-[14px] flex-shrink-0 pt-1" style={{ color: RED }}>{i + 1}.</span>
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.8)]">{q}</p>
-                  </div>
-                ))}
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  Accessibility needed to be considered throughout the process. It affected decisions around card structure, hover behavior, contrast, content hierarchy, and interaction states. Because the visual direction was expressive, it was important to make sure playful brand moments did not make the experience harder to use.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  For example, in a graph showing ingredients, we needed to consider colorblind users. We tackled this with patterns rather than color alone.
+                </p>
               </div>
             </motion.div>
 
@@ -613,176 +821,279 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease, delay: 0.1 }}
-              className="flex flex-col gap-4"
+              className="flex-1"
             >
-              {[
-                { label: "Homepage", desc: "Brand story → product categories → recipes → where to buy" },
-                { label: "Products", desc: "Filterable by format, audience, and use case — B2C and B2B paths" },
-                { label: "Recipes",  desc: "Inspiration-first, linked to product discovery and purchase" },
-                { label: "Mission",  desc: "Environmental story, science, and trust-building content" },
-                { label: "For Business", desc: "Operator resources, marketing assets, and support" },
-              ].map(({ label, desc }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: 16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.85, ease, delay: i * 0.08 }}
-                >
-                  <div className="border border-[#343a3e]/15 p-5 flex gap-5 items-start">
-                    <span className="font-['Mulish',sans-serif] font-black text-[11px] tracking-[2px] uppercase pt-1" style={{ color: RED }}>0{i + 1}</span>
-                    <div>
-                      <p className="font-['Mulish',sans-serif] font-bold text-[15px] uppercase text-[#151515] mb-1">{label}</p>
-                      <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[22px] text-[rgba(52,58,62,0.65)]">{desc}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+              <img src={imgAccessibility} alt="Accessibility color-blind pattern example" className="w-full" />
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* ── Wireframing ───────────────────────────────────────────── */}
-      <section id="work-production" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>04 — Production</Label>
-            <H2>Wireframing & Interaction Design</H2>
-          </div>
+      {/* ── Collaboration with Visual Design ─────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.85, ease }}
-            >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-6">
-                Wireframes focused on the moments where users needed to make decisions — product pages, recipe hubs, the homepage, and the mission narrative.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">
-                Nutrition and ingredients were especially important because they played a direct role in user trust. I explored different ways to present this content, including tabs, accordions, side-by-side layouts, expandable sections, and contextual explanations.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)] mt-4">
-                The goal was to help users scan high-level facts quickly, while still giving them access to deeper information when they needed it.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardWrap}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-20px" }}
-              className="flex flex-col gap-4"
-            >
-              {[
-                { label: "Accordion layout",           desc: "Collapsed sections for Ingredients, Flavor, and Nutrition — lets users choose what to explore without being overwhelmed." },
-                { label: "Tab / pill navigation",      desc: "Horizontal progress tabs switching between content types, keeping the product image always in view." },
-                { label: "Icon + ingredient grid",     desc: "Visual icons paired with ingredient names for quick scanability and brand personality." },
-                { label: "Side-by-side card layout",   desc: "Flavor cards presented alongside the product — connecting sensory appeal to product identity." },
-              ].map(({ label, desc }) => (
-                <motion.div key={label} variants={cardRow} className="border border-[#343a3e]/15 p-6">
-                  <p className="font-['Mulish',sans-serif] font-bold text-[14px] uppercase text-[#151515] mb-2">{label}</p>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[22px] text-[rgba(52,58,62,0.65)]">{desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Design System ─────────────────────────────────────────── */}
-      <section id="work-delivery" className="py-24 bg-white border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
-          <div className="flex flex-col gap-2 mb-12">
-            <Label>05 — Delivery</Label>
-            <H2>Design System & Handover</H2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.85, ease }}
-            >
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] mb-6">
-                Because the site needed to be handed over to the client team for ongoing management, scalability was built into the design process from the start.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(52,58,62,0.7)]">
-                Components were designed to be modular and reusable across product pages, recipe listings, editorial content, and campaign moments — so the team could assemble new pages without needing a designer in the room.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={cardWrap}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-20px" }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                "Colour & typography tokens",
-                "Component variants",
-                "Motion specifications",
-                "CMS content model",
-                "UX annotations",
-                "Handover documentation",
-              ].map((item) => (
-                <motion.div key={item} variants={cardRow} className="border border-[#343a3e]/15 p-5">
-                  <p className="font-['Mulish',sans-serif] font-bold text-[13px] tracking-[0.08em] uppercase text-[#343a3e]">{item}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Reflection ────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#260212]">
-        <div className="max-w-7xl mx-auto px-10">
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.85, ease }}
-            className="flex flex-col gap-3 mb-12"
+            transition={{ duration: 0.8, ease }}
+            className="mb-8 flex flex-col gap-3"
           >
-            <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase" style={{ color: RED }}>Reflection</p>
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase text-white">What I learned</h2>
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(238,229,212,0.7)] max-w-[640px] mt-4">
-              This project taught me how to balance expressive brand storytelling with practical UX needs when one website has to support education, inspiration, conversion, and platform growth.
-            </p>
-            <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[26px] text-[rgba(238,229,212,0.6)] max-w-[640px]">
-              The biggest lesson: strong brand expression needs strong structure. For a product like plant-based meat, storytelling matters as much as product specs — but the experience only works when users can easily find what they need, understand why it matters, and take the next step.
-            </p>
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#1c1b1f] leading-[1.2]">
+              Collaboration with visual design
+            </h2>
+            <div className="flex flex-col gap-4 max-w-3xl">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                I worked closely with visual designers to translate wireframes into a bold branded experience while preserving navigation clarity, CTAs, product discovery, and supporting information.
+              </p>
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                This collaboration became a balancing act between brand impact and user clarity. Large visual moments created appetite and emotion, while the UX structure kept the experience usable, scannable, and actionable.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Next case study cards */}
+          <motion.div
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-20px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10"
+          >
+            {[imgCollabGif1, imgCollabGif2].map((src, i) => (
+              <motion.div key={i} variants={cardItem}>
+                <img src={src} alt={`Visual collaboration example ${i + 1}`} className="w-full" />
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ── 05 — Component Library ────────────────────────────────────── */}
+      <section id="work-delivery" className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="flex gap-16 items-start">
+
+            {/* Left — text */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
+            >
+              <div className="flex flex-col gap-3">
+                <SectionLabel>05 — Delivery</SectionLabel>
+                <div className="mt-1"><SectionH2>Component library</SectionH2></div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  I supported the organization and documentation of a 120+ component library with a systematic naming and numbering convention:
+                </p>
+                <div className="flex flex-col gap-2">
+                  {[
+                    "100–149: Basic UI elements",
+                    "150–199: Product-related components",
+                    "200–249: Content and narrative components",
+                    "250+: Page templates",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="w-[5px] h-[5px] rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: RED }} />
+                      <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[15px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  This helped the client team understand the system and gave future designers a clear logic for adding new components.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right — component library screenshot */}
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.1 }}
+              className="flex-1"
+            >
+              <img src={imgComponentLib} alt="Component library" className="w-full shadow-sm" />
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Atomic Design ─────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="flex gap-16 items-start">
+
+            {/* Left — text */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
+            >
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-black leading-[1.2]">
+                Atomic design
+              </h2>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  The design system helped turn a rebrand into a maintainable product experience.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  Rather than treating each page as a one-off layout, the team broke the experience into reusable modules: product heroes, content cards, expandable nutrition sections, recipe links, CTA blocks, carousels, campaign modules, and page templates.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right — 4 atomic levels */}
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex-1 flex flex-col gap-8"
+            >
+              {[
+                { label: "Atoms",      src: imgAtomAtoms      },
+                { label: "Molecules",  src: imgAtomMolecules  },
+                { label: "Organisms",  src: imgAtomOrganisms  },
+                { label: "Components", src: imgAtomComponents },
+              ].map(({ label, src }) => (
+                <motion.div key={label} variants={cardItem} className="flex flex-col gap-3">
+                  <p className="font-['Mulish',sans-serif] font-normal text-[16px] text-black">{label}</p>
+                  <img src={src} alt={`${label} in the design system`} className="w-full" />
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Example: "Godzilla" ───────────────────────────────────────── */}
+      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="flex gap-16 items-start">
+
+            {/* Left — text */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
+            >
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-black leading-[1.2]">
+                Example: "Godzilla"
+              </h2>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  Some components required especially detailed thinking. One hero component had flexible image placement, optional CTAs, optional badges, editable CMS content, responsive behavior, and linked prototypes for development.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  Internally, we affectionately called this component "Godzilla" because of its complexity — a complex hero component that required close collaboration with developers to make the intended behavior clear.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right — prototype placeholder */}
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.95, ease, delay: 0.1 }}
+              className="flex-1"
+            >
+              <div className="relative bg-[#eee5d4] flex items-center justify-center" style={{ minHeight: "420px" }}>
+                <img src={imgGodzilla} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+                <p className="relative z-10 font-['Mulish',sans-serif] font-normal text-[28px] text-[#343a3e] text-center">video of prototype</p>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Reflection + Next case studies ───────────────────────────── */}
+      <section className="bg-[#f3f3f3]">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          {/* Reflection */}
+          <div className="py-16">
+            <div className="flex gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.85, ease }}
+                className="flex flex-col gap-8 lg:w-[55%] flex-shrink-0"
+              >
+                <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2]">
+                  Reflection
+                </h2>
+                <div className="flex flex-col gap-4">
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                    This project taught me how to balance expressive brand storytelling with practical UX needs when one website has to support education, inspiration, conversion, and platform growth.
+                  </p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">
+                    The biggest lesson was that strong brand expression needs strong structure. For a product like plant-based meat, storytelling matters as much as product specs — but the experience only works when users can easily find what they need, understand why it matters, and take the next step.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.95, ease, delay: 0.1 }}
+                className="flex-1"
+              >
+                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full object-cover" />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Separator */}
+          <div className="border-t border-[#343a3e]/20" />
+
+        </div>
+      </section>
+
+      {/* ── Next case study cards ─────────────────────────────────────── */}
+      <section className="py-16 bg-[#f3f3f3]">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { label: "Next case study", title: "Rabanne.com", href: "/work/rabanne" },
               { label: "Next case study", title: "Greenswan AI",  href: "#" },
+              { label: "Next case study", title: "Rabanne.com",   href: "/work/rabanne" },
             ].map(({ label, title, href }, i) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease, delay: i * 0.1 }}
               >
-                <a
-                  href={href}
-                  className="bg-[#3d1a22] p-8 flex flex-col gap-6 group hover:bg-[#4a2030] transition-colors duration-300 block"
-                >
-                  <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase" style={{ color: RED }}>{label}</p>
-                  <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase leading-none text-white">{title}</p>
-                  <div className="flex items-center gap-2 group-hover:gap-4 transition-all duration-300" style={{ color: RED }}>
-                    <span className="font-['Mulish',sans-serif] text-[12px] tracking-[2.4px] uppercase">Go to case study</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke={RED} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                <a href={href} className="block">
+                  <div className="border border-[#343a3e]/20 p-8 flex flex-col gap-6 group cursor-pointer hover:border-[#343a3e]/40 transition-colors duration-300">
+                    <p className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[3.6px] uppercase text-[#e10600]">{label}</p>
+                    <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase leading-none text-[#151515]">{title}</p>
+                    <div className="flex items-center gap-2 text-[#343a3e] group-hover:gap-4 transition-all duration-300">
+                      <span className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase">Go to case study</span>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="#343a3e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
                   </div>
                 </a>
               </motion.div>
