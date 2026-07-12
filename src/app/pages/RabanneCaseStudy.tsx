@@ -238,7 +238,7 @@ export default function RabanneCaseStudy() {
 
       {/* ── 01 — Background ──────────────────────────────────────────── */}
       <section id="work-background" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-16">
             <SectionLabel>01 — Background</SectionLabel>
             <SectionH2>Background</SectionH2>
@@ -251,7 +251,7 @@ export default function RabanneCaseStudy() {
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease }}
             >
-              <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-[444px]">
+              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-[444px]">
                 Rabanne is a Parisian luxury fashion house best known for its bold, avant-garde aesthetic. As the brand expanded its direct-to-consumer strategy — including a new loyalty program — the digital experience needed to evolve. The redesign had to balance brand prestige with practical e-commerce performance across fragrance, fashion, and beauty categories.
               </p>
             </motion.div>
@@ -280,7 +280,7 @@ export default function RabanneCaseStudy() {
 
       {/* ── The Brief / Central Task ──────────────────────────────────── */}
       <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col lg:flex-row gap-[70px] items-start">
 
             {/* Left — label + heading + intro */}
@@ -367,7 +367,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── My Approach ───────────────────────────────────────────────── */}
-      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 flex flex-col items-center gap-8 px-10">
+      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 flex flex-col items-center gap-8 px-6 md:px-10">
         {/* Bottle floats in from above */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -402,7 +402,7 @@ export default function RabanneCaseStudy() {
 
       {/* ── 02 — Research / Competitive Analysis ──────────────────────── */}
       <section id="work-research" className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
-        <div className="flex items-start px-10 py-16 gap-16 max-w-7xl mx-auto">
+        <div className="flex items-start px-6 md:px-10 py-16 gap-16 max-w-7xl mx-auto">
 
           {/* Left — sticky text panel */}
           <div className="w-[38%] flex-shrink-0 sticky top-24 self-start flex flex-col gap-16">
@@ -516,7 +516,7 @@ export default function RabanneCaseStudy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, ease, delay: 0.08 }}
-            className="font-['Helvetica_Neue',sans-serif] font-medium text-[18px] leading-[29.25px] text-[rgba(52,58,62,0.8)] max-w-3xl mb-10"
+            className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-3xl mb-10"
           >
             Across the luxury e-commerce space, I saw a few patterns that supported the same goals Rabanne was trying to achieve.
           </motion.p>
@@ -563,7 +563,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 03 — Ideation / HD Wireframes ────────────────────────────── */}
-      <section id="work-ideation" className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 px-10">
+      <section id="work-ideation" className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 px-6 md:px-10">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 items-center">
 
           {/* Left — text */}
@@ -870,7 +870,7 @@ export default function RabanneCaseStudy() {
               className="flex flex-col gap-5 flex-1"
             >
               <img src={imgOcAccessibility} alt="Accessibility controls on hero video" className="w-full" />
-              <p className="font-['Mulish',sans-serif] font-normal text-[20px] leading-none text-black">
+              <p className="font-['Mulish',sans-serif] font-medium text-[10px] text-black">
                 example: placing pause and mute buttons in the hero video to be mindful of cognitive sensitivities
               </p>
             </motion.div>
@@ -931,7 +931,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 04 — Production / Prototyping ────────────────────────────── */}
-      <section id="work-production" className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-production" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
