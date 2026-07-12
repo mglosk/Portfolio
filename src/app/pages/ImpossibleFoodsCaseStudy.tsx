@@ -3,6 +3,13 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 import imgHeroFood         from "@/imports/ImpossibleFoodsCaseStudy-1/hero-food.png";
 import imgBgProduct        from "@/imports/ImpossibleFoodsCaseStudy-1/bg-product.png";
+import imgBgIllusBurgerL   from "@/imports/ImpossibleFoodsCaseStudy-1/bg-illus-burger-left.svg";
+import imgBgIllusBurgerR   from "@/imports/ImpossibleFoodsCaseStudy-1/bg-illus-burger-right.svg";
+import imgBgIllusFlower    from "@/imports/ImpossibleFoodsCaseStudy-1/bg-illus-flower.svg";
+import imgBgIllusFork      from "@/imports/ImpossibleFoodsCaseStudy-1/bg-illus-fork.svg";
+import imgBgIllusPig       from "@/imports/ImpossibleFoodsCaseStudy-1/bg-illus-pig.svg";
+import imgChallengeIconStar   from "@/imports/ImpossibleFoodsCaseStudy-1/challenge-icon-star.svg";
+import imgChallengeIconCircle from "@/imports/ImpossibleFoodsCaseStudy-1/challenge-icon-circle.svg";
 import imgWorkshop         from "@/imports/ImpossibleFoodsCaseStudy-1/workshop.png";
 import imgCompetitorBM     from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-beyondmeat.png";
 import imgCompetitorNutella from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-nutella.png";
@@ -159,7 +166,7 @@ export default function ImpossibleFoodsCaseStudy() {
           <motion.img
             src={imgHeroFood}
             alt="Impossible Foods burger"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[right_bottom]"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.2, ease }}
@@ -208,54 +215,93 @@ export default function ImpossibleFoodsCaseStudy() {
       </div>
 
       {/* ── 01 — Background ───────────────────────────────────────────── */}
-      <section id="work-background" className="bg-[#f7f3ea] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex gap-16 items-start">
+      <section id="work-background" className="bg-[#fcfbf4] border-b border-[#343a3e]/10 relative overflow-hidden" style={{ minHeight: 440 }}>
+        {/* Scattered brand illustrations — positioned to mirror Figma layout */}
+        {/* Top-center-left: fork/utensils sunburst */}
+        <motion.img
+          src={imgBgIllusFork}
+          alt=""
+          aria-hidden
+          className="absolute w-[130px] pointer-events-none select-none"
+          style={{ top: "10%", left: "16%" }}
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease, delay: 0.05 }}
+        />
+        {/* Left center: large burger illustration */}
+        <motion.img
+          src={imgBgIllusBurgerL}
+          alt=""
+          aria-hidden
+          className="absolute w-[160px] pointer-events-none select-none"
+          style={{ top: "42%", left: "1%" }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.85, ease, delay: 0.1 }}
+        />
+        {/* Center-left: flower (flipped) */}
+        <motion.img
+          src={imgBgIllusFlower}
+          alt=""
+          aria-hidden
+          className="absolute w-[110px] pointer-events-none select-none"
+          style={{ top: "58%", left: "23%", transform: "scaleY(-1) rotate(180deg)" }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease, delay: 0.18 }}
+        />
+        {/* Top right: burger on bun, slightly rotated */}
+        <motion.img
+          src={imgBgIllusBurgerR}
+          alt=""
+          aria-hidden
+          className="absolute w-[150px] pointer-events-none select-none"
+          style={{ top: "8%", right: "4%", transform: "rotate(6deg)" }}
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.85, ease, delay: 0.12 }}
+        />
+        {/* Bottom right: pig character, rotated -10deg */}
+        <motion.img
+          src={imgBgIllusPig}
+          alt=""
+          aria-hidden
+          className="absolute w-[160px] pointer-events-none select-none"
+          style={{ bottom: "12%", right: "2%", transform: "rotate(-10deg)" }}
+          initial={{ opacity: 0, scale: 0.7 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.85, ease, delay: 0.2 }}
+        />
 
-            {/* Empty left spacer so text begins at ~30% */}
-            <div className="w-[30%] flex-shrink-0 py-16 hidden lg:block" />
-
-            {/* Center/right — text + image */}
-            <div className="flex-1 py-16 flex flex-col gap-16">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20px" }}
-                transition={{ duration: 0.85, ease }}
-                className="flex flex-col gap-3"
-              >
+        {/* Text block offset to center-right, matching Figma ~35% from left */}
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+          <div className="flex items-start">
+            <div className="hidden lg:block w-[32%] flex-shrink-0" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="flex-1 py-16 flex flex-col gap-10"
+            >
+              <div className="flex flex-col gap-3">
                 <SectionLabel>01 — Background</SectionLabel>
                 <div className="mt-1"><SectionH2>Background</SectionH2></div>
-              </motion.div>
-
-              <div className="flex flex-col lg:flex-row gap-12 items-start">
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.85, ease }}
-                  className="flex flex-col gap-4 flex-1"
-                >
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
-                    Impossible Foods was in the middle of a significant rebrand, both visually and in messaging. The website needed to become the digital expression of that shift.
-                  </p>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
-                    The challenge was not only to make the site feel more current. The experience needed to help users understand the brand, trust the product, discover recipes, find where to buy, and move through different audience pathways without confusion.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 18 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.95, ease, delay: 0.12 }}
-                  className="w-[40%] flex-shrink-0"
-                >
-                  <img src={imgBgProduct} alt="Impossible Foods product" className="w-full object-cover" />
-                </motion.div>
               </div>
-            </div>
-
+              <div className="flex flex-col gap-4 max-w-[500px]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  Impossible Foods was in the middle of a significant rebrand, both visually and in messaging. The website needed to become the digital expression of that shift.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                  The challenge was not only to make the site feel more current. The experience needed to help users understand the brand, trust the product, discover recipes, find where to buy, and move through different audience pathways without confusion.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -287,19 +333,20 @@ export default function ImpossibleFoodsCaseStudy() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {[
-              { n: "1", body: "The site felt dated and did not fully capture the playful, colorful, and bold personality of the new brand." },
-              { n: "2", body: "Navigation and information architecture made it difficult to find products, recipes, and audience-specific content." },
-              { n: "3", body: "The system needed to be scalable enough for the client team to maintain and expand after launch." },
-              { n: "4", body: "The site had to balance brand storytelling with functional product discovery." },
-              { n: "5", body: "Had to serve three distinct audiences with different needs." },
-              { n: "6", body: "Plant-based meat still required trust-building, education, and clear product information before trial." },
-            ].map(({ n, body }) => (
+              { n: "1", body: "The site felt dated and did not fully capture the playful, colorful, and bold personality of the new brand.",       icon: imgChallengeIconCircle },
+              { n: "2", body: "Navigation and information architecture made it difficult to find products, recipes, and audience-specific content.", icon: imgChallengeIconStar },
+              { n: "3", body: "The system needed to be scalable enough for the client team to maintain and expand after launch.",                   icon: imgChallengeIconStar },
+              { n: "4", body: "The site had to balance brand storytelling with functional product discovery.",                                      icon: imgChallengeIconStar },
+              { n: "5", body: "Had to serve three distinct audiences with different needs.",                                                        icon: imgChallengeIconStar },
+              { n: "6", body: "Plant-based meat still required trust-building, education, and clear product information before trial.",             icon: imgChallengeIconStar },
+            ].map(({ n, body, icon }) => (
               <motion.div key={n} variants={cardItem}>
-                <div className="flex gap-5 items-start border border-[#343a3e]/15 px-6 py-7 h-full">
-                  <div className="w-[46px] h-[46px] flex-shrink-0 flex items-center justify-center rounded-full border-2 border-[#e10600]/30">
-                    <span className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase" style={{ color: "#4f0423" }}>{n}</span>
+                <div className="flex gap-5 items-center border border-[#343a3e]/15 px-6 py-7 h-full">
+                  <div className="w-[46px] h-[46px] flex-shrink-0 relative">
+                    <img src={icon} alt="" aria-hidden className="w-full h-full" />
+                    <span className="absolute inset-0 flex items-center justify-center font-['Mulish',sans-serif] font-bold text-[18px] uppercase" style={{ color: "#4f0423" }}>{n}</span>
                   </div>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] pt-2">{body}</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{body}</p>
                 </div>
               </motion.div>
             ))}
@@ -1030,13 +1077,13 @@ export default function ImpossibleFoodsCaseStudy() {
 
           {/* Reflection */}
           <div className="py-16">
-            <div className="flex gap-16 items-center">
+            <div className="flex gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease }}
-                className="flex flex-col gap-8 lg:w-[55%] flex-shrink-0"
+                className="flex flex-col gap-8 lg:w-[45%] flex-shrink-0"
               >
                 <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2]">
                   Reflection
@@ -1056,9 +1103,10 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.95, ease, delay: 0.1 }}
-                className="flex-1"
+                className="flex-1 overflow-hidden"
+                style={{ maxHeight: "500px" }}
               >
-                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full object-cover" />
+                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-full object-cover object-center" />
               </motion.div>
             </div>
           </div>
