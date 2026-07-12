@@ -49,7 +49,6 @@ import imgDfg3cat          from "@/imports/RabanneCaseStudy-1/dfg-3cat.png";
 import imgDfg4cat          from "@/imports/RabanneCaseStudy-1/dfg-4cat.png";
 import imgDfg5cat          from "@/imports/RabanneCaseStudy-1/dfg-5cat.png";
 import imgDfg6cat          from "@/imports/RabanneCaseStudy-1/dfg-6cat.png";
-import imgProtoDetail      from "@/imports/RabanneCaseStudy-1/proto-detail.png";
 import imgProtoWireframe   from "@/imports/RabanneCaseStudy-1/proto-wireframe.png";
 
 /* ─────────────────────────────────────────────────────────────
