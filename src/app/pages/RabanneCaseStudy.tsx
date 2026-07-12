@@ -44,7 +44,11 @@ import imgDsMakeupHover      from "@/imports/RabanneCaseStudy-1/ds-makeup-hover.
 import imgDsFashionHover     from "@/imports/RabanneCaseStudy-1/ds-fashion-hover.png";
 import imgNavOptionA         from "@/imports/RabanneCaseStudy-1/nav-option-a.png";
 import imgNavOptionB       from "@/imports/RabanneCaseStudy-1/nav-option-b.png";
-import imgDfgWireframes    from "@/imports/RabanneCaseStudy-1/dfg-wireframes.png";
+import imgDfg2cat          from "@/imports/RabanneCaseStudy-1/dfg-2cat.png";
+import imgDfg3cat          from "@/imports/RabanneCaseStudy-1/dfg-3cat.png";
+import imgDfg4cat          from "@/imports/RabanneCaseStudy-1/dfg-4cat.png";
+import imgDfg5cat          from "@/imports/RabanneCaseStudy-1/dfg-5cat.png";
+import imgDfg6cat          from "@/imports/RabanneCaseStudy-1/dfg-6cat.png";
 import imgProtoDetail      from "@/imports/RabanneCaseStudy-1/proto-detail.png";
 import imgProtoWireframe   from "@/imports/RabanneCaseStudy-1/proto-wireframe.png";
 
@@ -877,36 +881,54 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Designing for Growth ──────────────────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.8, ease }}
-            className="mb-10"
-          >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-6">
-              Designing for Growth
-            </h2>
-            <div className="max-w-3xl flex flex-col gap-4">
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
-                I also stress-tested components against future product scenarios. Rabanne's product line could expand across different category structures, so components needed to work for small and large sets of products. This helped the team design flexible patterns instead of one-off layouts.
-              </p>
-              <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
-                For example, I explored how the same category component would behave with different numbers and tabs:
-              </p>
-            </div>
-          </motion.div>
+          <div className="flex gap-16 items-start">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.9, ease, delay: 0.1 }}
-          >
-            <img src={imgDfgWireframes} alt="Category component at 2–6 categories" className="w-full" />
-          </motion.div>
+            {/* Sticky left column */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.85, ease }}
+              className="sticky top-24 py-16 w-[40%] flex-shrink-0 flex flex-col gap-8"
+            >
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2]">
+                Designing for Growth
+              </h2>
+              <div className="flex flex-col gap-4">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  I also stress-tested components against future product scenarios. Rabanne's product line could expand across different category structures, so components needed to work for small and large sets of products. This helped the team design flexible patterns instead of one-off layouts.
+                </p>
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.7)]">
+                  For example, I explored how the same category component would behave with different numbers and tabs:
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Scrolling right column */}
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex-1 py-16 flex flex-col gap-10"
+            >
+              {[
+                { src: imgDfg2cat, label: "2 categories" },
+                { src: imgDfg3cat, label: "3 categories" },
+                { src: imgDfg4cat, label: "4 categories" },
+                { src: imgDfg5cat, label: "5 categories" },
+                { src: imgDfg6cat, label: "6 categories" },
+              ].map(({ src, label }) => (
+                <motion.div key={label} variants={cardItem} className="flex flex-col gap-3">
+                  <img src={src} alt={`Category component — ${label}`} className="w-full" />
+                  <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">{label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
