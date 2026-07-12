@@ -920,9 +920,8 @@ export default function RabanneCaseStudy() {
                 { src: imgDfg5cat, label: "5 categories" },
                 { src: imgDfg6cat, label: "6 categories" },
               ].map(({ src, label }) => (
-                <motion.div key={label} variants={cardItem} className="flex flex-col gap-3">
+                <motion.div key={label} variants={cardItem}>
                   <img src={src} alt={`Category component — ${label}`} className="w-full" />
-                  <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.2] text-[#343a3e]">{label}</p>
                 </motion.div>
               ))}
             </motion.div>
