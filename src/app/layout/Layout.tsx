@@ -49,7 +49,6 @@ function Header() {
   const nav: { label: string; to: string }[] = [
     { label: "Home", to: "/" },
     { label: "Work", to: "/work" },
-    { label: "Contact", to: "/contact" },
   ];
 
   const navLinkClass = (isActive: boolean) =>
@@ -83,12 +82,6 @@ function Header() {
             <NavLink to="/work" className={({ isActive }) => navLinkClass(isActive)}>
               Work
             </NavLink>
-            <Link
-              to="/contact"
-              className="bg-[#36413d] text-[#eee5d4] font-['Mulish',sans-serif] font-bold text-sm uppercase tracking-wide px-4 py-3 rounded-[4px] hover:bg-[#232a27] transition-colors duration-200"
-            >
-              Reach Out
-            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -161,7 +154,6 @@ function Footer() {
             {[
               { label: "Home", to: "/" },
               { label: "Work", to: "/work" },
-              { label: "Contact", to: "/contact" },
             ].map(({ label, to }) => (
               <Link
                 key={to}
