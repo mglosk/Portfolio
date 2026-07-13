@@ -113,7 +113,7 @@ export default function ImpossibleFoodsCaseStudy() {
     <div className="min-h-screen bg-[#fcfbf4]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#fcfbf4] overflow-hidden" style={{ height: 540 }}>
+      <section ref={heroRef} className="relative bg-[#fcfbf4]" style={{ height: 540 }}>
         {/* Left — text pinned to bottom */}
         <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pb-14 w-[52%]">
           <motion.p
@@ -158,15 +158,15 @@ export default function ImpossibleFoodsCaseStudy() {
           </motion.div>
         </div>
 
-        {/* Right — food image with parallax */}
+        {/* Right — food image bursting out of bottom */}
         <motion.div
-          className="absolute right-0 top-0 h-full w-[55%] overflow-hidden"
-          style={{ y: heroImgY }}
+          className="absolute right-0 top-0 w-[55%] z-40"
+          style={{ height: "calc(100% + 56px)", y: heroImgY }}
         >
           <motion.img
             src={imgHeroFood}
             alt="Impossible Foods burger"
-            className="w-full h-full object-cover object-[right_bottom]"
+            className="w-full h-full object-cover object-top"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.2, ease }}
