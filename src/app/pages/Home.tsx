@@ -80,14 +80,6 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <button
-              onClick={() => navigate("/contact")}
-              className="inline-flex items-center gap-3 mt-4 font-['Mulish',sans-serif] font-bold text-sm tracking-[0.2em] uppercase text-[#232a27] border-b border-[#232a27]/30 pb-1 hover:border-[#232a27] transition-colors duration-200"
-            >
-              Get in touch <ArrowRight size={14} />
-            </button>
-          </FadeIn>
         </div>
 
         {/* Right — sticky photo */}
@@ -225,13 +217,6 @@ export default function Home() {
           <h2 className="font-['Mulish',sans-serif] font-bold text-4xl md:text-6xl uppercase text-[#eee5d4] mb-8 leading-none">
             {"Let's work\ntogether."}
           </h2>
-          <button
-            onClick={() => navigate("/contact")}
-            className="inline-flex items-center gap-3 bg-[#eee5d4] text-[#36413d] px-10 py-4 font-['Mulish',sans-serif] font-bold text-sm tracking-[0.2em] uppercase hover:bg-white transition-colors duration-300 rounded-[4px]"
-          >
-            Reach Out
-            <ArrowRight size={16} />
-          </button>
         </FadeIn>
       </section>
 
