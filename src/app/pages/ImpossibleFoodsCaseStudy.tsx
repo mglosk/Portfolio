@@ -199,8 +199,11 @@ export default function ImpossibleFoodsCaseStudy() {
                     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 128, behavior: "smooth" });
                   }}
                   className={`group relative flex items-center gap-3 px-6 py-4 transition-colors duration-300 focus-visible:outline-none ${
-                    i < arr.length - 1 ? "border-r border-[#eee5d4]/10" : ""
-                  } ${isActive ? "bg-[#eee5d4]/8" : "hover:bg-[#eee5d4]/5"}`}
+                    i < arr.length - 1 ? "border-r border-white/10" : ""
+                  }`}
+                  style={{ backgroundColor: isActive ? "rgba(238,229,212,0.08)" : undefined }}
+                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(238,229,212,0.05)"; }}
+                  onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = ""; }}
                 >
                   <span className="absolute inset-x-0 top-0 h-[2px] transition-all duration-500" style={{ backgroundColor: isActive ? "#d4af37" : isPast ? "rgba(212,175,55,0.25)" : "transparent" }} />
                   <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125" : ""}`} style={{ backgroundColor: isActive ? "#d4af37" : isPast ? "rgba(212,175,55,0.4)" : "rgba(238,229,212,0.2)" }} />
