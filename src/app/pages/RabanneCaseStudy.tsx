@@ -135,7 +135,7 @@ export default function RabanneCaseStudy() {
   const heroImgY = useTransform(heroScroll, [0, 1], ["0%", "20%"]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf4]">
+    <div className="min-h-screen bg-[#f3f3f3]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section ref={heroRef} className="relative bg-[#f3f3f3] overflow-hidden" style={{ height: 540 }}>
@@ -237,7 +237,7 @@ export default function RabanneCaseStudy() {
       </div>
 
       {/* ── 01 — Background ──────────────────────────────────────────── */}
-      <section id="work-background" className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section id="work-background" className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-16">
             <SectionLabel>01 — Background</SectionLabel>
@@ -335,7 +335,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── 02 — Goals ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-16">
             <SectionLabel>02 — Goals</SectionLabel>
@@ -504,7 +504,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Key Insights ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-8">
             <SectionLabel>02 — Insights</SectionLabel>
@@ -1023,7 +1023,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Design System & Handover ──────────────────────────────────── */}
-      <section id="work-delivery" className="py-16 bg-[#e8e6e0] border-b border-[#343a3e]/10">
+      <section id="work-delivery" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           {/* Header + body text */}
