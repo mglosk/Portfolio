@@ -13,7 +13,7 @@ import imgChallengeIconCircle from "@/imports/ImpossibleFoodsCaseStudy-1/challen
 import imgWorkshop         from "@/imports/ImpossibleFoodsCaseStudy-1/workshop.png";
 import imgCompetitorBM     from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-beyondmeat.png";
 import imgCompetitorNutella from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-nutella.png";
-import imgCompetitorOatly  from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-oatly.png";
+import imgCompetitorOatly  from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-oatly.gif";
 import imgIaDiagram1       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram-1.png";
 import imgIaDiagram2       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram-2.png";
 import imgWireframe1       from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-1.png";
@@ -632,8 +632,8 @@ export default function ImpossibleFoodsCaseStudy() {
           >
             {[
               { src: imgCompetitorBM,      label: "Beyond Meat" },
-              { src: imgCompetitorNutella, label: "Nutella" },
               { src: imgCompetitorOatly,   label: "Oatly" },
+              { src: imgCompetitorNutella, label: "Nutella" },
             ].map(({ src, label }) => (
               <motion.div key={label} variants={cardItem} className="flex flex-col gap-3 flex-1">
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#232a27]">{label}</p>
