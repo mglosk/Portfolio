@@ -470,7 +470,7 @@ export default function ImpossibleFoodsCaseStudy() {
               {/* Tilted workshop image */}
               <div className="flex items-center justify-center py-8">
                 <div className="w-[85%]" style={{ transform: "rotate(-7deg)" }}>
-                  <img src={imgWorkshop} alt="Stakeholder workshop" className="w-full shadow-lg" />
+                  <img src={imgWorkshop} alt="Stakeholder workshop" className="w-full" />
                 </div>
               </div>
             </motion.div>
