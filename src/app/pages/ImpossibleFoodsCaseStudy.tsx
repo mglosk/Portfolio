@@ -32,7 +32,7 @@ import imgAtomAtoms        from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-ato
 import imgAtomMolecules    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-molecules.png";
 import imgAtomOrganisms    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-organisms.png";
 import imgAtomComponents   from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-components.png";
-import imgGodzilla         from "@/imports/ImpossibleFoodsCaseStudy-1/godzilla-placeholder.png";
+import imgGodzilla         from "@/imports/ImpossibleFoodsCaseStudy-1/godzilla-prototype.gif";
 
 /* ─────────────────────────────────────────────────────────────
    Animation constants
@@ -1063,10 +1063,7 @@ export default function ImpossibleFoodsCaseStudy() {
               transition={{ duration: 0.95, ease, delay: 0.1 }}
               className="flex-1"
             >
-              <div className="relative bg-[#eee5d4] flex items-center justify-center" style={{ minHeight: "420px" }}>
-                <img src={imgGodzilla} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
-                <p className="relative z-10 font-['Mulish',sans-serif] font-normal text-[28px] text-[#343a3e] text-center">video of prototype</p>
-              </div>
+              <img src={imgGodzilla} alt="Godzilla component prototype" className="w-full h-auto block" />
             </motion.div>
 
           </div>
@@ -1105,10 +1102,9 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.95, ease, delay: 0.1 }}
-                className="flex-1 overflow-hidden"
-                style={{ maxHeight: "500px" }}
+                className="flex-1"
               >
-                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-full object-cover object-center" />
+                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-auto block object-contain" />
               </motion.div>
             </div>
           </div>
