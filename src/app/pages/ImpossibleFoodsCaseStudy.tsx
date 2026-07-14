@@ -1062,10 +1062,7 @@ export default function ImpossibleFoodsCaseStudy() {
               transition={{ duration: 0.95, ease, delay: 0.1 }}
               className="flex-1 w-full"
             >
-              <div className="relative bg-[#eee5d4] flex items-center justify-center min-h-[280px] md:min-h-[420px]">
-                <img src={imgGodzilla} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
-                <p className="relative z-10 font-['Mulish',sans-serif] font-normal text-[28px] text-[#343a3e] text-center">video of prototype</p>
-              </div>
+              <img src={imgGodzilla} alt="Godzilla component prototype" className="w-full h-auto block" />
             </motion.div>
 
           </div>
@@ -1104,7 +1101,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.95, ease, delay: 0.1 }}
-                className="flex-1 w-full overflow-hidden max-h-[320px] md:max-h-[500px]"
+                className="flex-1 w-full"
               >
                 <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-auto block object-contain" />
               </motion.div>
