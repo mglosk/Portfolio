@@ -18,12 +18,12 @@ import imgIaDiagram1       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram
 import imgIaDiagram2       from "@/imports/ImpossibleFoodsCaseStudy-1/ia-diagram-2.png";
 import imgWireframe1       from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-1.png";
 import imgWireframe2       from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-2.png";
-import imgInteraction1     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-1.png";
-import imgInteraction2     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-2.png";
-import imgInteraction3     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-3.png";
-import imgInteraction4     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-4.png";
-import imgInteraction5     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-5.png";
-import imgInteraction6     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-6.png";
+import imgInteractionScenario1     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-1.png";
+import imgInteractionScenario2     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-2.png";
+import imgInteractionScenario3     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-3.png";
+import imgInteractionScenario4     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-4.png";
+import imgInteractionScenario5     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-5.png";
+import imgInteractionScenario6     from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-6.png";
 import imgAccessibility    from "@/imports/ImpossibleFoodsCaseStudy-1/accessibility.gif";
 import imgCollabGif1       from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-1.gif";
 import imgCollabGif2       from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-2.gif";
@@ -33,6 +33,25 @@ import imgAtomMolecules    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-mol
 import imgAtomOrganisms    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-organisms.png";
 import imgAtomComponents   from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-components.png";
 import imgGodzilla         from "@/imports/ImpossibleFoodsCaseStudy-1/godzilla-prototype.gif";
+import imgWireframeDesktop1    from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-desktop-1.png";
+import imgWireframeDesktop2    from "@/imports/ImpossibleFoodsCaseStudy-1/wireframe-desktop-2.png";
+import imgInteractionScenario1 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-1.png";
+import imgInteractionScenario2 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-2.png";
+import imgInteractionScenario3 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-3.png";
+import imgInteractionScenario4 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-4.png";
+import imgInteractionScenario5 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-5.png";
+import imgInteractionScenario6 from "@/imports/ImpossibleFoodsCaseStudy-1/interaction-scenario-6.png";
+import imgReflectionNugget     from "@/imports/ImpossibleFoodsCaseStudy-1/reflection-nugget.png";
+import imgAccessibilityNew     from "@/imports/ImpossibleFoodsCaseStudy-1/accessibility-new.gif";
+import imgCollabGif1New        from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-1-new.gif";
+import imgCollabGif2New        from "@/imports/ImpossibleFoodsCaseStudy-1/collab-gif-2-new.gif";
+import imgAtomAtomsNew         from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-atoms-new.png";
+import imgAtomMoleculesNew     from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-molecules-new.png";
+import imgAtomOrganismsNew     from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-organisms-new.png";
+import imgAtomComponentsNew    from "@/imports/ImpossibleFoodsCaseStudy-1/atomic-components-new.png";
+import imgCompetitorBMNew      from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-beyondmeat-new.png";
+import imgCompetitorOatlyNew   from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-oatly-new.gif";
+import imgCompetitorNutellaNew from "@/imports/ImpossibleFoodsCaseStudy-1/competitor-nutella-new.png";
 
 /* ─────────────────────────────────────────────────────────────
    Animation constants
@@ -132,8 +151,8 @@ export default function ImpossibleFoodsCaseStudy() {
               animate={{ y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease }}
             >
-              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#6b7885]">Impossible</p>
-              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#343a3e]">Foods</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#6b7885]">Impossible foods</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#343a3e]">Redesign</p>
             </motion.div>
           </div>
 
@@ -296,10 +315,10 @@ export default function ImpossibleFoodsCaseStudy() {
                 <div className="mt-1"><SectionH2>Background</SectionH2></div>
               </div>
               <div className="flex flex-col gap-4 max-w-[500px]">
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(21,21,21,0.8)]">
                   Impossible Foods was in the middle of a significant rebrand, both visually and in messaging. The website needed to become the digital expression of that shift.
                 </p>
-                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
+                <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(21,21,21,0.8)]">
                   The challenge was not only to make the site feel more current. The experience needed to help users understand the brand, trust the product, discover recipes, find where to buy, and move through different audience pathways without confusion.
                 </p>
               </div>
@@ -336,8 +355,8 @@ export default function ImpossibleFoodsCaseStudy() {
           >
             {[
               { n: "1", body: "The site felt dated and did not fully capture the playful, colorful, and bold personality of the new brand.",       icon: imgChallengeIconCircle },
-              { n: "2", body: "Navigation and information architecture made it difficult to find products, recipes, and audience-specific content.", icon: imgChallengeIconStar },
               { n: "3", body: "The system needed to be scalable enough for the client team to maintain and expand after launch.",                   icon: imgChallengeIconStar },
+              { n: "2", body: "Navigation and information architecture made it difficult to find products, recipes, and audience-specific content.", icon: imgChallengeIconStar },
               { n: "4", body: "The site had to balance brand storytelling with functional product discovery.",                                      icon: imgChallengeIconStar },
               { n: "5", body: "Had to serve three distinct audiences with different needs.",                                                        icon: imgChallengeIconStar },
               { n: "6", body: "Plant-based meat still required trust-building, education, and clear product information before trial.",             icon: imgChallengeIconStar },
@@ -348,7 +367,7 @@ export default function ImpossibleFoodsCaseStudy() {
                     <img src={icon} alt="" aria-hidden className="w-full h-full" />
                     <span className="absolute inset-0 flex items-center justify-center font-['Mulish',sans-serif] font-bold text-[18px] uppercase" style={{ color: "#4f0423" }}>{n}</span>
                   </div>
-                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{body}</p>
+                  <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#151515]">{body}</p>
                 </div>
               </motion.div>
             ))}
@@ -421,7 +440,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[1.4] text-[rgba(52,58,62,0.8)]"
               >
                 The project began with a collaborative workshop involving product, marketing, leadership, UX, design, and technical stakeholders. The goal was to align on what the new website needed to achieve beyond a visual refresh. The workshop helped define:
               </motion.p>
@@ -444,7 +463,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 ].map((item) => (
                   <motion.div key={item} variants={listItem} className="flex items-center gap-4">
                     <span className="w-[5px] h-[5px] rounded-full flex-shrink-0" style={{ backgroundColor: RED }} />
-                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</p>
+                    <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[1.4] text-[rgba(52,58,62,0.8)]">{item}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -454,7 +473,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease, delay: 0.1 }}
-                className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.6)] max-w-[480px]"
+                className="font-['Helvetica_Neue',sans-serif] font-medium text-[14px] leading-[1.4] text-[rgba(52,58,62,0.6)] max-w-[480px]"
               >
                 A key theme emerged early: the team wanted a distinctive, personalized, brand-led experience — but did not want new features or AI opportunities to distract from the core user journey.
               </motion.p>
@@ -631,9 +650,9 @@ export default function ImpossibleFoodsCaseStudy() {
             className="flex flex-col sm:flex-row gap-8 sm:items-end mt-10"
           >
             {[
-              { src: imgCompetitorBM,      label: "Beyond Meat" },
-              { src: imgCompetitorOatly,   label: "Oatly" },
-              { src: imgCompetitorNutella, label: "Nutella" },
+              { src: imgCompetitorBMNew,      label: "Beyond Meat" },
+              { src: imgCompetitorOatlyNew,   label: "Oatly" },
+              { src: imgCompetitorNutellaNew, label: "Nutella" },
             ].map(({ src, label }) => (
               <motion.div key={label} variants={cardItem} className="flex flex-col gap-3 flex-1">
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[#232a27]">{label}</p>
@@ -749,7 +768,7 @@ export default function ImpossibleFoodsCaseStudy() {
             viewport={{ once: true, margin: "-20px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10"
           >
-            {[imgWireframe1, imgWireframe2].map((src, i) => (
+            {[imgWireframeDesktop1, imgWireframeDesktop2].map((src, i) => (
               <motion.div key={i} variants={cardItem}>
                 <img src={src} alt={`Wireframe exploration ${i + 1}`} className="w-full shadow-sm" />
               </motion.div>
@@ -800,34 +819,34 @@ export default function ImpossibleFoodsCaseStudy() {
             {/* Top row */}
             <div className="flex gap-6 items-end mb-4 overflow-x-auto">
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction1} alt="User scrolls" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario1} alt="User scrolls" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User scrolls</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction2} alt="Opens nutrition accordion" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario2} alt="Opens nutrition accordion" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User opens nutrition accordion</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction3} alt="User changes tabs" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario3} alt="User changes tabs" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
             </div>
             {/* Bottom row */}
             <div className="flex gap-6 items-start mt-8 overflow-x-auto">
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction4} alt="User changes tabs again" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario4} alt="User changes tabs again" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction5} alt="User hovers bullet point" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario5} alt="User hovers bullet point" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User hovers over bullet point</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteraction6} alt="User changes tabs again" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario6} alt="User changes tabs again" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
             </div>
@@ -871,7 +890,7 @@ export default function ImpossibleFoodsCaseStudy() {
               transition={{ duration: 0.95, ease, delay: 0.1 }}
               className="flex-1"
             >
-              <img src={imgAccessibility} alt="Accessibility color-blind pattern example" className="w-full" />
+              <img src={imgAccessibilityNew} alt="Accessibility color-blind pattern example" className="w-full" />
             </motion.div>
 
           </div>
@@ -909,7 +928,7 @@ export default function ImpossibleFoodsCaseStudy() {
             viewport={{ once: true, margin: "-20px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10"
           >
-            {[imgCollabGif1, imgCollabGif2].map((src, i) => (
+            {[imgCollabGif1New, imgCollabGif2New].map((src, i) => (
               <motion.div key={i} variants={cardItem}>
                 <img src={src} alt={`Visual collaboration example ${i + 1}`} className="w-full" />
               </motion.div>
@@ -1011,10 +1030,10 @@ export default function ImpossibleFoodsCaseStudy() {
               className="flex-1 flex flex-col gap-8"
             >
               {[
-                { label: "Atoms",      src: imgAtomAtoms      },
-                { label: "Molecules",  src: imgAtomMolecules  },
-                { label: "Organisms",  src: imgAtomOrganisms  },
-                { label: "Components", src: imgAtomComponents },
+                { label: "Atoms",      src: imgAtomAtomsNew      },
+                { label: "Molecules",  src: imgAtomMoleculesNew  },
+                { label: "Organisms",  src: imgAtomOrganismsNew  },
+                { label: "Components", src: imgAtomComponentsNew },
               ].map(({ label, src }) => (
                 <motion.div key={label} variants={cardItem} className="flex flex-col gap-3">
                   <p className="font-['Mulish',sans-serif] font-normal text-[16px] text-black">{label}</p>
@@ -1103,7 +1122,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 transition={{ duration: 0.95, ease, delay: 0.1 }}
                 className="flex-1 w-full"
               >
-                <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-auto block object-contain" />
+                <img src={imgReflectionNugget} alt="Impossible Foods chicken nugget" className="w-full h-auto block object-contain" />
               </motion.div>
             </div>
           </div>
