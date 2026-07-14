@@ -74,7 +74,7 @@ function SectionH2({ children, light = false }: { children: React.ReactNode; lig
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.8, ease, delay: 0.08 }}
-      className={`font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase ${light ? "text-white" : "text-[#151515]"}`}
+      className={`font-['Mulish',sans-serif] font-bold text-[32px] leading-[34px] sm:text-[40px] sm:leading-[42px] md:text-[48px] md:leading-[48px] uppercase ${light ? "text-white" : "text-[#151515]"}`}
     >
       {children}
     </motion.h2>
@@ -113,9 +113,9 @@ export default function ImpossibleFoodsCaseStudy() {
     <div className="min-h-screen bg-[#fcfbf4]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#fcfbf4]" style={{ height: 540 }}>
+      <section ref={heroRef} className="relative bg-[#fcfbf4] overflow-hidden flex flex-col lg:block lg:h-[540px]">
         {/* Left — text pinned to bottom */}
-        <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pb-14 w-[52%]">
+        <div className="relative lg:absolute lg:left-0 lg:bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pt-28 pb-10 lg:pt-0 lg:pb-14 w-full lg:w-[52%]">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -132,8 +132,8 @@ export default function ImpossibleFoodsCaseStudy() {
               animate={{ y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease }}
             >
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b7885]">Impossible</p>
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#343a3e]">Foods</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#6b7885]">Impossible</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#343a3e]">Foods</p>
             </motion.div>
           </div>
 
@@ -160,8 +160,8 @@ export default function ImpossibleFoodsCaseStudy() {
 
         {/* Right — food image bursting out of bottom */}
         <motion.div
-          className="absolute right-0 top-0 w-[55%] z-40"
-          style={{ height: "calc(100% + 56px)", y: heroImgY }}
+          className="relative lg:absolute lg:right-0 lg:top-0 h-[280px] sm:h-[360px] lg:h-[calc(100%+56px)] w-full lg:w-[55%] z-40"
+          style={{ y: heroImgY }}
         >
           <motion.img
             src={imgHeroFood}
@@ -224,7 +224,7 @@ export default function ImpossibleFoodsCaseStudy() {
           src={imgBgIllusFork}
           alt=""
           aria-hidden
-          className="absolute w-[130px] pointer-events-none select-none"
+          className="hidden lg:block absolute w-[130px] pointer-events-none select-none"
           style={{ top: "10%", left: "16%" }}
           initial={{ opacity: 0, scale: 0.7 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -236,7 +236,7 @@ export default function ImpossibleFoodsCaseStudy() {
           src={imgBgIllusBurgerL}
           alt=""
           aria-hidden
-          className="absolute w-[160px] pointer-events-none select-none"
+          className="hidden lg:block absolute w-[160px] pointer-events-none select-none"
           style={{ top: "42%", left: "1%" }}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -248,7 +248,7 @@ export default function ImpossibleFoodsCaseStudy() {
           src={imgBgIllusFlower}
           alt=""
           aria-hidden
-          className="absolute w-[110px] pointer-events-none select-none"
+          className="hidden lg:block absolute w-[110px] pointer-events-none select-none"
           style={{ top: "58%", left: "23%", transform: "scaleY(-1) rotate(180deg)" }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -260,7 +260,7 @@ export default function ImpossibleFoodsCaseStudy() {
           src={imgBgIllusBurgerR}
           alt=""
           aria-hidden
-          className="absolute w-[150px] pointer-events-none select-none"
+          className="hidden lg:block absolute w-[150px] pointer-events-none select-none"
           style={{ top: "8%", right: "4%", transform: "rotate(6deg)" }}
           initial={{ opacity: 0, scale: 0.7 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -272,7 +272,7 @@ export default function ImpossibleFoodsCaseStudy() {
           src={imgBgIllusPig}
           alt=""
           aria-hidden
-          className="absolute w-[160px] pointer-events-none select-none"
+          className="hidden lg:block absolute w-[160px] pointer-events-none select-none"
           style={{ bottom: "12%", right: "2%", transform: "rotate(-10deg)" }}
           initial={{ opacity: 0, scale: 0.7 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -319,7 +319,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
               The challenge
             </h2>
             <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-3xl">
@@ -379,7 +379,7 @@ export default function ImpossibleFoodsCaseStudy() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-20px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[234px]"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:h-[234px]"
           >
             {[
               { bg: "#dc9660", title: "Build trust in the category",     desc: "Build a narrative that establishes trust in plant-based meat and explains why Impossible matters." },
@@ -387,7 +387,7 @@ export default function ImpossibleFoodsCaseStudy() {
               { bg: "#e6e4de", title: "Create a scalable system",        desc: "Build and integrate a scalable design system in a CMS so the client can maintain and expand it independently." },
             ].map(({ bg, title, desc }) => (
               <motion.div key={title} variants={cardItem} className="h-full">
-                <div className="flex flex-col gap-6 p-6 h-full justify-between" style={{ backgroundColor: bg }}>
+                <div className="flex flex-col gap-6 p-6 h-auto min-h-[180px] md:h-full justify-between" style={{ backgroundColor: bg }}>
                   <p className="font-['Mulish',sans-serif] font-bold text-[18px] uppercase leading-none text-black">{title}</p>
                   <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[18px] text-[#151515]">{desc}</p>
                 </div>
@@ -413,9 +413,9 @@ export default function ImpossibleFoodsCaseStudy() {
             <div className="mt-1"><SectionH2>Stakeholder Workshop</SectionH2></div>
           </motion.div>
 
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
-            <div className="flex-1 flex flex-col gap-8">
+            <div className="flex-1 w-full flex flex-col gap-8">
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -465,11 +465,11 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease, delay: 0.1 }}
-              className="lg:w-[44%] flex-shrink-0"
+              className="w-full lg:w-[44%] flex-shrink-0"
             >
               {/* Tilted workshop image */}
               <div className="flex items-center justify-center py-8">
-                <div style={{ transform: "rotate(-7deg)" }}>
+                <div className="w-[85%]" style={{ transform: "rotate(-7deg)" }}>
                   <img src={imgWorkshop} alt="Stakeholder workshop" className="w-full shadow-lg" />
                 </div>
               </div>
@@ -547,13 +547,13 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-12"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2]">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2]">
               Strategic Insights
             </h2>
           </motion.div>
 
-          {/* 4 scattered sticky notes */}
-          <div className="relative min-h-[640px]">
+          {/* 4 scattered sticky notes — stacked on mobile, scattered/absolute at lg+ */}
+          <div className="flex flex-col gap-8 lg:block lg:relative lg:min-h-[640px]">
             {[
               {
                 n: "1", title: "Trust before trial",
@@ -582,7 +582,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, y: 0, rotate }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.9, ease, delay: i * 0.15 }}
-                className="absolute w-[42%] max-w-[380px]"
+                className="w-full lg:absolute lg:w-[42%] lg:max-w-[380px]"
                 style={{ top, left }}
               >
                 <div className="bg-[#ffbaf5] shadow-[0px_5px_15px_rgba(0,0,0,0.18)] flex flex-col gap-4 pt-16 pb-12 px-8 relative">
@@ -610,7 +610,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
               Competitor analysis
             </h2>
             <div className="max-w-3xl flex flex-col gap-4">
@@ -628,7 +628,7 @@ export default function ImpossibleFoodsCaseStudy() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-20px" }}
-            className="flex gap-8 items-end mt-10"
+            className="flex flex-col sm:flex-row gap-8 sm:items-end mt-10"
           >
             {[
               { src: imgCompetitorBM,      label: "Beyond Meat" },
@@ -651,7 +651,7 @@ export default function ImpossibleFoodsCaseStudy() {
       <section id="work-ideation" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Left — text */}
             <motion.div
@@ -659,7 +659,7 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:w-[42%] flex-shrink-0 flex flex-col gap-8"
+              className="w-full lg:w-[42%] flex-shrink-0 flex flex-col gap-8"
             >
               <div className="flex flex-col gap-3">
                 <SectionLabel>03 — Ideation</SectionLabel>
@@ -695,8 +695,7 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease, delay: 0.12 }}
-              className="flex-1 bg-[#eee5d4] relative overflow-hidden"
-              style={{ minHeight: "500px" }}
+              className="flex-1 w-full bg-[#eee5d4] relative overflow-hidden min-h-[320px] md:min-h-[500px]"
             >
               <div className="absolute inset-0 p-6 flex items-center justify-center">
                 {/* Two overlapping IA diagrams */}
@@ -730,7 +729,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.2] mb-6">
               Low-fidelity exploration
             </h2>
             <div className="max-w-3xl flex flex-col gap-4">
@@ -796,38 +795,38 @@ export default function ImpossibleFoodsCaseStudy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.95, ease }}
-            className="bg-[#eee5d4] p-10"
+            className="bg-[#eee5d4] p-6 md:p-10"
           >
             {/* Top row */}
-            <div className="flex gap-6 items-end mb-4">
-              <div className="flex flex-col gap-2 flex-1">
+            <div className="flex gap-6 items-end mb-4 overflow-x-auto">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction1} alt="User scrolls" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User scrolls</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
-              <div className="flex flex-col gap-2 flex-1">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction2} alt="Opens nutrition accordion" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User opens nutrition accordion</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
-              <div className="flex flex-col gap-2 flex-1">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction3} alt="User changes tabs" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
             </div>
             {/* Bottom row */}
-            <div className="flex gap-6 items-start mt-8">
-              <div className="flex flex-col gap-2 flex-1">
+            <div className="flex gap-6 items-start mt-8 overflow-x-auto">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction4} alt="User changes tabs again" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
-              <div className="flex flex-col gap-2 flex-1">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction5} alt="User hovers bullet point" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User hovers over bullet point</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
-              <div className="flex flex-col gap-2 flex-1">
+              <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
                 <img src={imgInteraction6} alt="User changes tabs again" className="w-full shadow-sm" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
@@ -841,17 +840,17 @@ export default function ImpossibleFoodsCaseStudy() {
       <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-center">
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="flex flex-col gap-6 lg:w-[38%] flex-shrink-0"
+              className="flex flex-col gap-6 w-full lg:w-[38%] flex-shrink-0"
             >
               <div className="flex flex-col gap-3">
-                <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2]">
+                <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.2]">
                   Accessibility considerations
                 </h2>
               </div>
@@ -890,7 +889,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8 flex flex-col gap-3"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#1c1b1f] leading-[1.2]">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#1c1b1f] leading-[1.2]">
               Collaboration with visual design
             </h2>
             <div className="flex flex-col gap-4 max-w-3xl">
@@ -924,7 +923,7 @@ export default function ImpossibleFoodsCaseStudy() {
       <section id="work-delivery" className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Left — text */}
             <motion.div
@@ -932,7 +931,7 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
+              className="w-full lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
             >
               <div className="flex flex-col gap-3">
                 <SectionLabel>05 — Delivery</SectionLabel>
@@ -980,7 +979,7 @@ export default function ImpossibleFoodsCaseStudy() {
       <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Left — text */}
             <motion.div
@@ -988,9 +987,9 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
+              className="w-full lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
             >
-              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-black leading-[1.2]">
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-black leading-[1.2]">
                 Atomic design
               </h2>
               <div className="flex flex-col gap-4">
@@ -1032,7 +1031,7 @@ export default function ImpossibleFoodsCaseStudy() {
       <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Left — text */}
             <motion.div
@@ -1040,9 +1039,9 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
+              className="w-full lg:w-[38%] flex-shrink-0 flex flex-col gap-6"
             >
-              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-black leading-[1.2]">
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-black leading-[1.2]">
                 Example: "Godzilla"
               </h2>
               <div className="flex flex-col gap-4">
@@ -1061,9 +1060,12 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease, delay: 0.1 }}
-              className="flex-1"
+              className="flex-1 w-full"
             >
-              <img src={imgGodzilla} alt="Godzilla component prototype" className="w-full h-auto block" />
+              <div className="relative bg-[#eee5d4] flex items-center justify-center min-h-[280px] md:min-h-[420px]">
+                <img src={imgGodzilla} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+                <p className="relative z-10 font-['Mulish',sans-serif] font-normal text-[28px] text-[#343a3e] text-center">video of prototype</p>
+              </div>
             </motion.div>
 
           </div>
@@ -1076,15 +1078,15 @@ export default function ImpossibleFoodsCaseStudy() {
 
           {/* Reflection */}
           <div className="py-16">
-            <div className="flex gap-12 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch lg:items-center">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.85, ease }}
-                className="flex flex-col gap-8 lg:w-[45%] flex-shrink-0"
+                className="flex flex-col gap-8 w-full lg:w-[45%] flex-shrink-0"
               >
-                <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.2]">
+                <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.2]">
                   Reflection
                 </h2>
                 <div className="flex flex-col gap-4">
@@ -1102,7 +1104,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.95, ease, delay: 0.1 }}
-                className="flex-1"
+                className="flex-1 w-full overflow-hidden max-h-[320px] md:max-h-[500px]"
               >
                 <img src={imgBgProduct} alt="Impossible Foods product" className="w-full h-auto block object-contain" />
               </motion.div>
