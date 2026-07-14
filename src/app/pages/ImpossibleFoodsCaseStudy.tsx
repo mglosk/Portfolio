@@ -113,7 +113,7 @@ export default function ImpossibleFoodsCaseStudy() {
     <div className="min-h-screen bg-[#fcfbf4]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#fcfbf4] overflow-hidden flex flex-col lg:block lg:h-[540px]">
+      <section ref={heroRef} className="relative bg-[#fcfbf4] overflow-hidden flex flex-col lg:block" style={{ height: 540 }}>
         {/* Left — text pinned to bottom */}
         <div className="relative lg:absolute lg:left-0 lg:bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pt-28 pb-10 lg:pt-0 lg:pb-14 w-full lg:w-[52%]">
           <motion.p
@@ -160,7 +160,7 @@ export default function ImpossibleFoodsCaseStudy() {
 
         {/* Right — food image bursting out of bottom */}
         <motion.div
-          className="relative lg:absolute lg:right-0 lg:top-0 h-[280px] sm:h-[360px] lg:h-[calc(100%+56px)] w-full lg:w-[55%] z-40"
+          className="relative lg:absolute lg:right-0 lg:top-0 h-[280px] sm:h-[360px] lg:h-full w-full lg:w-[55%]"
           style={{ y: heroImgY }}
         >
           <motion.img
@@ -309,7 +309,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── The Challenge ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -358,7 +358,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Goals ─────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -399,7 +399,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── 02 — Research / Stakeholder Workshop ──────────────────────── */}
-      <section id="work-research" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-research" className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -480,7 +480,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Audience Needs ────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -537,7 +537,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Strategic Insights ────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10 overflow-hidden">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -600,7 +600,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Competitor Analysis ───────────────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -648,7 +648,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── 03 — Information Architecture ────────────────────────────── */}
-      <section id="work-ideation" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-ideation" className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
@@ -695,7 +695,7 @@ export default function ImpossibleFoodsCaseStudy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.95, ease, delay: 0.12 }}
-              className="flex-1 w-full bg-[#eee5d4] relative overflow-hidden min-h-[320px] md:min-h-[500px]"
+              className="flex-1 w-full bg-[#fcfbf4] relative overflow-hidden min-h-[320px] md:min-h-[500px]"
             >
               <div className="absolute inset-0 p-6 flex items-center justify-center">
                 {/* Two overlapping IA diagrams */}
@@ -719,7 +719,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Low-Fidelity Exploration ──────────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -760,7 +760,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── 04 — Interaction Scenarios ───────────────────────────────── */}
-      <section id="work-production" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-production" className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -837,7 +837,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Accessibility Considerations ──────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-center">
@@ -879,7 +879,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Collaboration with Visual Design ─────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div
@@ -920,7 +920,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── 05 — Component Library ────────────────────────────────────── */}
-      <section id="work-delivery" className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section id="work-delivery" className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
@@ -976,7 +976,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Atomic Design ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
@@ -1028,7 +1028,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Example: "Godzilla" ───────────────────────────────────────── */}
-      <section className="py-16 bg-[#f7f3ea] border-b border-[#343a3e]/10">
+      <section className="py-16 bg-[#fcfbf4] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
@@ -1070,7 +1070,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Reflection + Next case studies ───────────────────────────── */}
-      <section className="bg-[#f3f3f3]">
+      <section className="bg-[#fcfbf4]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
           {/* Reflection */}
@@ -1115,7 +1115,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Next case study cards ─────────────────────────────────────── */}
-      <section className="py-16 bg-[#f3f3f3]">
+      <section className="py-16 bg-[#fcfbf4]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
