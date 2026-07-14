@@ -604,7 +604,7 @@ export default function ImpossibleFoodsCaseStudy() {
                 className="w-full lg:absolute lg:w-[42%] lg:max-w-[380px]"
                 style={{ top, left }}
               >
-                <div className="bg-[#ffbaf5] shadow-[0px_5px_15px_rgba(0,0,0,0.18)] flex flex-col gap-4 pt-16 pb-12 px-8 relative">
+                <div className="bg-[#ffbaf5] shadow-[0px_5px_15px_rgba(0,0,0,0.18)] aspect-square flex flex-col gap-4 pt-10 pb-8 px-8 relative">
                   {/* Tape strip at top */}
                   <div className="absolute top-[-8px] left-1/2 -translate-x-1/2 w-[60px] h-[18px] bg-[#f5a8e6]/60" />
                   <p className="font-['Mulish',sans-serif] font-bold text-[28px] uppercase text-black">{n}</p>
