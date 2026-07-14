@@ -103,7 +103,7 @@ function SectionH2({ children, light = false }: { children: React.ReactNode; lig
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.8, ease, delay: 0.08 }}
-      className={`font-['Mulish',sans-serif] font-bold text-[48px] leading-[48px] uppercase ${light ? "text-white" : "text-[#151515]"}`}
+      className={`font-['Mulish',sans-serif] font-bold text-[32px] leading-[34px] sm:text-[40px] sm:leading-[42px] md:text-[48px] md:leading-[48px] uppercase ${light ? "text-white" : "text-[#151515]"}`}
     >
       {children}
     </motion.h2>
@@ -138,9 +138,9 @@ export default function RabanneCaseStudy() {
     <div className="min-h-screen bg-[#f3f3f3]">
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative bg-[#f3f3f3] overflow-hidden" style={{ height: 540 }}>
+      <section ref={heroRef} className="relative bg-[#f3f3f3] overflow-hidden flex flex-col lg:block lg:h-[540px]">
         {/* Left — text, pinned to bottom */}
-        <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-10 pb-14 w-[52%]">
+        <div className="relative lg:absolute lg:left-0 lg:bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pt-28 pb-10 lg:pt-0 lg:pb-14 w-full lg:w-[52%]">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -156,8 +156,8 @@ export default function RabanneCaseStudy() {
               animate={{ y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease }}
             >
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#6b7885]">Rabanne.com</p>
-              <p className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#343a3e]">Redesign</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#6b7885]">Rabanne.com</p>
+              <p className="font-['Mulish',sans-serif] font-black text-[40px] leading-[40px] sm:text-[56px] sm:leading-[56px] lg:text-[72px] lg:leading-[72px] uppercase text-[#343a3e]">Redesign</p>
             </motion.div>
           </div>
 
@@ -183,7 +183,7 @@ export default function RabanneCaseStudy() {
 
         {/* Right — perfume bottle with parallax */}
         <motion.div
-          className="absolute right-0 top-0 h-full w-[52%] flex items-end justify-center overflow-hidden"
+          className="relative lg:absolute lg:right-0 lg:top-0 h-[280px] sm:h-[360px] lg:h-full w-full lg:w-[52%] flex items-end justify-center overflow-hidden"
           style={{ y: heroImgY }}
         >
           <motion.img
@@ -263,11 +263,11 @@ export default function RabanneCaseStudy() {
               transition={{ duration: 0.75, ease, delay: 0.12 }}
               className="relative"
             >
-              <img src={imgBgImage12} alt="Rabanne product" className="w-[288px] h-[360px] object-cover" />
+              <img src={imgBgImage12} alt="Rabanne product" className="w-[140px] h-[175px] sm:w-[288px] sm:h-[360px] object-cover" />
               <motion.img
                 src={imgBgImage11}
                 alt="Rabanne campaign"
-                className="absolute top-[90px] left-[189px] w-[308px] h-[257px] object-cover"
+                className="absolute top-[44px] left-[92px] w-[150px] h-[125px] sm:top-[90px] sm:left-[189px] sm:w-[308px] sm:h-[257px] object-cover"
                 initial={{ opacity: 0, x: 20, y: 10 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
@@ -281,10 +281,10 @@ export default function RabanneCaseStudy() {
       {/* ── The Brief / Central Task ──────────────────────────────────── */}
       <section className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col lg:flex-row gap-[70px] items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-[70px] items-stretch lg:items-start">
 
             {/* Left — label + heading + intro */}
-            <div className="flex flex-col gap-4 lg:w-[470px] flex-shrink-0">
+            <div className="flex flex-col gap-4 w-full lg:w-[470px] flex-shrink-0">
               <SectionLabel>The Brief</SectionLabel>
               <SectionH2>The central task</SectionH2>
               <motion.p
@@ -356,7 +356,7 @@ export default function RabanneCaseStudy() {
               { bg: "#dde9f8", title: "Design for personalization", desc: "Make users feel recognized and catered to across the journey, especially through loyalty and custom shopping moments." },
             ].map(({ bg, title, desc }) => (
               <motion.div key={title} variants={cardItem}>
-                <div className="flex flex-col gap-8 p-6 h-[234px]" style={{ backgroundColor: bg }}>
+                <div className="flex flex-col gap-8 p-6 h-auto min-h-[180px] md:h-[234px]" style={{ backgroundColor: bg }}>
                   <p className="font-['Mulish',sans-serif] font-bold text-[16px] leading-none uppercase text-black">{title}</p>
                   <p className="font-['Mulish',sans-serif] font-medium text-[14px] leading-[18px] text-[#151515]">{desc}</p>
                 </div>
@@ -391,7 +391,7 @@ export default function RabanneCaseStudy() {
           transition={{ duration: 0.85, ease, delay: 0.12 }}
           className="flex flex-col gap-4 items-center text-center max-w-[504px]"
         >
-          <p className="font-['Mulish',sans-serif] font-bold text-[48px] leading-[1.2] uppercase text-[#1c1f23]">
+          <p className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] uppercase text-[#1c1f23]">
             My approach:
           </p>
           <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
@@ -402,10 +402,10 @@ export default function RabanneCaseStudy() {
 
       {/* ── 02 — Research / Competitive Analysis ──────────────────────── */}
       <section id="work-research" className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
-        <div className="flex items-start px-6 md:px-10 py-16 gap-16 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-start px-6 md:px-10 py-16 gap-10 lg:gap-16 max-w-7xl mx-auto">
 
           {/* Left — sticky text panel */}
-          <div className="w-[38%] flex-shrink-0 sticky top-24 self-start flex flex-col gap-16">
+          <div className="w-full lg:w-[38%] flex-shrink-0 lg:sticky lg:top-24 lg:self-start flex flex-col gap-10 lg:gap-16">
             <div className="flex flex-col gap-3">
               <SectionLabel>02 — Research</SectionLabel>
               <SectionH2>Competitive Analysis</SectionH2>
@@ -450,7 +450,7 @@ export default function RabanneCaseStudy() {
           </div>
 
           {/* Right — scrolling image collage */}
-          <div className="flex-1 flex flex-col gap-8 py-16">
+          <div className="flex-1 w-full flex flex-col gap-8 py-8 lg:py-16">
             {/* Image 1 — split screen, wide */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -464,7 +464,7 @@ export default function RabanneCaseStudy() {
             </motion.div>
 
             {/* Images 2 + 3 — side by side */}
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -493,7 +493,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease, delay: 0.12 }}
-              className="flex flex-col gap-2 w-[57%]"
+              className="flex flex-col gap-2 w-full sm:w-[57%]"
             >
               <img src={imgCAScrollBehavior} alt="Unique scroll behavior" className="w-full object-cover" style={{ aspectRatio: "292/309" }} />
               <p className="font-['Mulish',sans-serif] font-normal text-[12px] text-[rgba(52,58,62,0.8)]">Moments of unique scroll behavior catches attention</p>
@@ -564,10 +564,10 @@ export default function RabanneCaseStudy() {
 
       {/* ── 03 — Ideation / HD Wireframes ────────────────────────────── */}
       <section id="work-ideation" className="bg-[#f3f3f3] border-b border-[#343a3e]/10 py-16 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 items-center">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-6 items-stretch lg:items-center">
 
           {/* Left — text */}
-          <div className="flex flex-col gap-16 lg:w-[42%] flex-shrink-0">
+          <div className="flex flex-col gap-10 lg:gap-16 w-full lg:w-[42%] flex-shrink-0">
             <div className="flex flex-col gap-3">
               <SectionLabel>03 — Ideation</SectionLabel>
               <SectionH2>High-Definition wireframes</SectionH2>
@@ -638,7 +638,7 @@ export default function RabanneCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-16"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-6">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2] mb-6">
               Category Representation Ideas
             </h2>
             <div className="max-w-3xl flex flex-col gap-4">
@@ -655,47 +655,49 @@ export default function RabanneCaseStudy() {
           </motion.div>
 
           {/* Comparison table — labels column + 4 concept columns */}
-          <motion.div
-            variants={cardContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-20px" }}
-            className="flex gap-4 items-stretch"
-          >
-            {/* Row labels */}
-            <motion.div variants={cardItem} className="flex flex-col justify-between w-16 flex-shrink-0 pb-1">
-              {/* spacer for image row */}
-              <div className="flex-1" />
-              <div className="flex flex-col gap-0" style={{ paddingBottom: "0px" }}>
-                {["Concept", "Strength", "Risk"].map((label) => (
-                  <p key={label} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#ac4e76] py-2 border-t border-[#ac4e76]/20">
-                    {label}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Concept columns */}
-            {[
-              { img: imgCS1439, concept: "Tiles",           strength: "Fast to scan",       risk: "Less distinctive" },
-              { img: imgCS1435, concept: "Scroll-in cards", strength: "Memorable, dynamic", risk: "Could slow browsing" },
-              { img: imgCS1437, concept: "Stacked list",    strength: "Compact, efficient", risk: "Less visual impact" },
-              { img: imgCS1436, concept: "Image + tabs",    strength: "Premium, brand-led", risk: "Needs strong imagery" },
-            ].map(({ img, concept, strength, risk }) => (
-              <motion.div key={concept} variants={cardItem} className="flex flex-col flex-1 min-w-0">
-                <div className="w-full overflow-hidden mb-4" style={{ aspectRatio: "2/1" }}>
-                  <img src={img} alt={concept} className="w-full h-full object-cover" />
-                </div>
-                <div className="flex flex-col">
-                  {[concept, strength, risk].map((val) => (
-                    <p key={val} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#151515] py-2 border-t border-[#343a3e]/10">
-                      {val}
+          <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex gap-4 items-stretch min-w-[640px] md:min-w-0"
+            >
+              {/* Row labels */}
+              <motion.div variants={cardItem} className="flex flex-col justify-between w-16 flex-shrink-0 pb-1">
+                {/* spacer for image row */}
+                <div className="flex-1" />
+                <div className="flex flex-col gap-0" style={{ paddingBottom: "0px" }}>
+                  {["Concept", "Strength", "Risk"].map((label) => (
+                    <p key={label} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#ac4e76] py-2 border-t border-[#ac4e76]/20">
+                      {label}
                     </p>
                   ))}
                 </div>
               </motion.div>
-            ))}
-          </motion.div>
+
+              {/* Concept columns */}
+              {[
+                { img: imgCS1439, concept: "Tiles",           strength: "Fast to scan",       risk: "Less distinctive" },
+                { img: imgCS1435, concept: "Scroll-in cards", strength: "Memorable, dynamic", risk: "Could slow browsing" },
+                { img: imgCS1437, concept: "Stacked list",    strength: "Compact, efficient", risk: "Less visual impact" },
+                { img: imgCS1436, concept: "Image + tabs",    strength: "Premium, brand-led", risk: "Needs strong imagery" },
+              ].map(({ img, concept, strength, risk }) => (
+                <motion.div key={concept} variants={cardItem} className="flex flex-col flex-1 min-w-[140px] md:min-w-0">
+                  <div className="w-full overflow-hidden mb-4" style={{ aspectRatio: "2/1" }}>
+                    <img src={img} alt={concept} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex flex-col">
+                    {[concept, strength, risk].map((val) => (
+                      <p key={val} className="font-['Helvetica_Neue',sans-serif] font-medium text-[11px] leading-[14px] text-[#151515] py-2 border-t border-[#343a3e]/10">
+                        {val}
+                      </p>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
         </div>
       </section>
@@ -733,28 +735,30 @@ export default function RabanneCaseStudy() {
           </motion.div>
 
           {/* 4 checkout wireframe screens */}
-          <motion.div
-            variants={cardContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-20px" }}
-            className="flex gap-8 h-[263px] overflow-hidden"
-          >
-            {[
-              { src: imgCheckout1, alt: "Checkout step 1 — login" },
-              { src: imgCheckout2, alt: "Checkout step 2 — shipping" },
-              { src: imgCheckout3, alt: "Checkout step 3 — payment" },
-              { src: imgCheckout4, alt: "Checkout confirmation" },
-            ].map(({ src, alt }) => (
-              <motion.div
-                key={alt}
-                variants={cardItem}
-                className="flex-1 bg-white overflow-hidden flex items-start"
-              >
-                <img src={src} alt={alt} className="w-full object-cover object-top" />
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="flex gap-8 h-[263px]"
+            >
+              {[
+                { src: imgCheckout1, alt: "Checkout step 1 — login" },
+                { src: imgCheckout2, alt: "Checkout step 2 — shipping" },
+                { src: imgCheckout3, alt: "Checkout step 3 — payment" },
+                { src: imgCheckout4, alt: "Checkout confirmation" },
+              ].map(({ src, alt }) => (
+                <motion.div
+                  key={alt}
+                  variants={cardItem}
+                  className="flex-1 min-w-[180px] md:min-w-0 bg-white overflow-hidden flex items-start"
+                >
+                  <img src={src} alt={alt} className="w-full object-cover object-top" />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
         </div>
       </section>
@@ -771,7 +775,7 @@ export default function RabanneCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-16"
           >
-            <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
+            <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2] mb-4">
               Other Considerations
             </h2>
             <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
@@ -780,7 +784,7 @@ export default function RabanneCaseStudy() {
           </motion.div>
 
           {/* Row 1 — Responsive design */}
-          <div className="flex items-end gap-5 mb-[120px]">
+          <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-5 mb-16 lg:mb-[120px]">
 
             {/* MacBook mockup with animated GIF screen */}
             <motion.div
@@ -788,7 +792,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.9, ease }}
-              className="flex flex-col gap-4 flex-shrink-0 w-[52%]"
+              className="flex flex-col gap-4 flex-shrink-0 w-full lg:w-[52%]"
             >
               <div className="relative" style={{ aspectRatio: "520/299" }}>
                 {/* GIF fills screen area, clipped */}
@@ -817,7 +821,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.9, ease, delay: 0.1 }}
-              className="flex flex-col gap-5 items-end flex-1"
+              className="flex flex-col gap-5 items-start lg:items-end flex-1 w-full"
             >
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] self-stretch">
                 <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Responsive design</span>
@@ -850,13 +854,13 @@ export default function RabanneCaseStudy() {
           </div>
 
           {/* Row 2 — Accessibility */}
-          <div className="flex gap-24 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 items-stretch lg:items-start">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] w-[263px] flex-shrink-0"
+              className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] w-full lg:w-[263px] flex-shrink-0"
             >
               <span className="block font-semibold text-[rgba(52,58,62,0.9)] mb-1">Accessibility</span>
               Layouts, interactions, contrast, form states, and navigation patterns needed to support accessibility expectations, including AA-level considerations
@@ -882,7 +886,7 @@ export default function RabanneCaseStudy() {
       {/* ── Designing for Growth ──────────────────────────────────────── */}
       <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Sticky left column */}
             <motion.div
@@ -890,9 +894,9 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="sticky top-24 py-16 w-[40%] flex-shrink-0 flex flex-col gap-8"
+              className="lg:sticky lg:top-24 py-10 lg:py-16 w-full lg:w-[40%] flex-shrink-0 flex flex-col gap-8"
             >
-              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#151515] leading-[1.2]">
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2]">
                 Designing for Growth
               </h2>
               <div className="flex flex-col gap-4">
@@ -911,7 +915,7 @@ export default function RabanneCaseStudy() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-20px" }}
-              className="flex-1 py-16 flex flex-col gap-10"
+              className="flex-1 w-full py-10 lg:py-16 flex flex-col gap-10"
             >
               {[
                 { src: imgDfg2cat, label: "2 categories" },
@@ -968,7 +972,7 @@ export default function RabanneCaseStudy() {
       {/* ── 05 — Testing / Header Usability Test ──────────────────────── */}
       <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-stretch lg:items-start">
 
             {/* Sticky left column */}
             <motion.div
@@ -976,7 +980,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="sticky top-24 py-16 w-[45%] flex-shrink-0 flex flex-col gap-10"
+              className="lg:sticky lg:top-24 py-10 lg:py-16 w-full lg:w-[45%] flex-shrink-0 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-3">
                 <SectionLabel>05 — Testing</SectionLabel>
@@ -1001,7 +1005,7 @@ export default function RabanneCaseStudy() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-20px" }}
-              className="flex-1 py-16 flex flex-col gap-8"
+              className="flex-1 w-full py-10 lg:py-16 flex flex-col gap-8"
             >
               <motion.div variants={cardItem} className="flex flex-col gap-4">
                 <img src={imgNavOptionA} alt="Navigation option A — outliers in a row on top" className="w-full" style={{ aspectRatio: "2/1", objectFit: "cover" }} />
@@ -1052,58 +1056,60 @@ export default function RabanneCaseStudy() {
           </motion.div>
 
           {/* Card state grid: row labels × column headers × 6 images */}
-          <motion.div
-            variants={cardContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-20px" }}
-            className="grid gap-x-8 gap-y-6"
-            style={{ gridTemplateColumns: "auto 1fr 1fr 1fr" }}
-          >
-            {/* Header row */}
-            <div /> {/* empty top-left cell */}
-            {["Fragrance", "Makeup", "Fashion"].map((col) => (
-              <motion.p
-                key={col}
-                variants={cardItem}
-                className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none pb-2"
-              >
-                {col}
-              </motion.p>
-            ))}
+          <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-20px" }}
+              className="grid gap-x-6 md:gap-x-8 gap-y-6 min-w-[560px] md:min-w-0"
+              style={{ gridTemplateColumns: "auto 1fr 1fr 1fr" }}
+            >
+              {/* Header row */}
+              <div /> {/* empty top-left cell */}
+              {["Fragrance", "Makeup", "Fashion"].map((col) => (
+                <motion.p
+                  key={col}
+                  variants={cardItem}
+                  className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none pb-2"
+                >
+                  {col}
+                </motion.p>
+              ))}
 
-            {/* Default row */}
-            <motion.div variants={cardItem} className="flex items-center">
-              <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
-                Default
-              </p>
-            </motion.div>
-            {[
-              { src: imgDsFragranceDefault, alt: "Fragrance card — default state" },
-              { src: imgDsMakeupDefault,    alt: "Makeup card — default state" },
-              { src: imgDsFashionDefault,   alt: "Fashion card — default state" },
-            ].map(({ src, alt }) => (
-              <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
-                <img src={src} alt={alt} className="w-full h-full object-cover" />
+              {/* Default row */}
+              <motion.div variants={cardItem} className="flex items-center">
+                <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
+                  Default
+                </p>
               </motion.div>
-            ))}
+              {[
+                { src: imgDsFragranceDefault, alt: "Fragrance card — default state" },
+                { src: imgDsMakeupDefault,    alt: "Makeup card — default state" },
+                { src: imgDsFashionDefault,   alt: "Fashion card — default state" },
+              ].map(({ src, alt }) => (
+                <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
+                  <img src={src} alt={alt} className="w-full h-full object-cover" />
+                </motion.div>
+              ))}
 
-            {/* Hover row */}
-            <motion.div variants={cardItem} className="flex items-center">
-              <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
-                Hover
-              </p>
-            </motion.div>
-            {[
-              { src: imgDsFragranceHover, alt: "Fragrance card — hover state" },
-              { src: imgDsMakeupHover,    alt: "Makeup card — hover state" },
-              { src: imgDsFashionHover,   alt: "Fashion card — hover state" },
-            ].map(({ src, alt }) => (
-              <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
-                <img src={src} alt={alt} className="w-full h-full object-cover" />
+              {/* Hover row */}
+              <motion.div variants={cardItem} className="flex items-center">
+                <p className="font-['DIN_Condensed_VF',sans-serif] font-normal text-[20px] uppercase text-[#151515] leading-none [writing-mode:vertical-rl] rotate-180 tracking-wide">
+                  Hover
+                </p>
               </motion.div>
-            ))}
-          </motion.div>
+              {[
+                { src: imgDsFragranceHover, alt: "Fragrance card — hover state" },
+                { src: imgDsMakeupHover,    alt: "Makeup card — hover state" },
+                { src: imgDsFashionHover,   alt: "Fashion card — hover state" },
+              ].map(({ src, alt }) => (
+                <motion.div key={alt} variants={cardItem} className="bg-white shadow-sm overflow-hidden">
+                  <img src={src} alt={alt} className="w-full h-full object-cover" />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
         </div>
       </section>
@@ -1121,7 +1127,7 @@ export default function RabanneCaseStudy() {
               transition={{ duration: 0.8, ease }}
               className="mb-11"
             >
-              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.5] mb-8">
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.5] mb-8">
                 Key Takeaway
               </h2>
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
@@ -1134,7 +1140,7 @@ export default function RabanneCaseStudy() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-20px" }}
-              className="grid grid-cols-4 gap-5 items-stretch"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch"
             >
               {[
                 {
@@ -1176,7 +1182,7 @@ export default function RabanneCaseStudy() {
               transition={{ duration: 0.8, ease }}
               className="flex flex-col gap-11"
             >
-              <h2 className="font-['Mulish',sans-serif] font-bold text-[48px] uppercase text-[#343a3e] leading-[1.5]">
+              <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#343a3e] leading-[1.5]">
                 Reflection
               </h2>
               <div className="flex flex-col gap-4">
