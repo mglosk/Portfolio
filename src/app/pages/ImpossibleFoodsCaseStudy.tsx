@@ -722,12 +722,12 @@ export default function ImpossibleFoodsCaseStudy() {
                   <img
                     src={imgIaDiagram1}
                     alt="Information architecture diagram"
-                    className="absolute top-4 right-4 w-[58%] shadow-md"
+                    className="absolute top-4 right-4 w-[58%]"
                   />
                   <img
                     src={imgIaDiagram2}
                     alt="Information architecture mobile diagram"
-                    className="absolute bottom-4 left-4 w-[44%] shadow-md"
+                    className="absolute bottom-4 left-4 w-[44%]"
                   />
                 </div>
               </div>
@@ -770,7 +770,7 @@ export default function ImpossibleFoodsCaseStudy() {
           >
             {[imgWireframeDesktop1, imgWireframeDesktop2].map((src, i) => (
               <motion.div key={i} variants={cardItem}>
-                <img src={src} alt={`Wireframe exploration ${i + 1}`} className="w-full shadow-sm" />
+                <img src={src} alt={`Wireframe exploration ${i + 1}`} className="w-full" />
               </motion.div>
             ))}
           </motion.div>
@@ -819,34 +819,34 @@ export default function ImpossibleFoodsCaseStudy() {
             {/* Top row */}
             <div className="flex gap-6 items-end mb-4 overflow-x-auto">
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario1} alt="User scrolls" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario1} alt="User scrolls" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User scrolls</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario2} alt="Opens nutrition accordion" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario2} alt="Opens nutrition accordion" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User opens nutrition accordion</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pb-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario3} alt="User changes tabs" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario3} alt="User changes tabs" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
             </div>
             {/* Bottom row */}
             <div className="flex gap-6 items-start mt-8 overflow-x-auto">
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario4} alt="User changes tabs again" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario4} alt="User changes tabs again" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario5} alt="User hovers bullet point" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario5} alt="User hovers bullet point" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User hovers over bullet point</p>
               </div>
               <div className="text-[#343a3e]/40 text-[20px] flex-shrink-0 pt-6">→</div>
               <div className="flex flex-col gap-2 flex-1 min-w-[110px] md:min-w-0">
-                <img src={imgInteractionScenario6} alt="User changes tabs again" className="w-full shadow-sm" />
+                <img src={imgInteractionScenario6} alt="User changes tabs again" className="w-full" />
                 <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[10px] text-[#343a3e] text-center tracking-[-0.02em]">User changes tabs</p>
               </div>
             </div>
@@ -987,7 +987,7 @@ export default function ImpossibleFoodsCaseStudy() {
               transition={{ duration: 0.95, ease, delay: 0.1 }}
               className="flex-1"
             >
-              <img src={imgComponentLib} alt="Component library" className="w-full shadow-sm" />
+              <img src={imgComponentLib} alt="Component library" className="w-full" />
             </motion.div>
 
           </div>
