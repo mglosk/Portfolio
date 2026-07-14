@@ -17,9 +17,9 @@ function useScrolled(threshold = 40) {
 
 function LogoMark() {
   return (
-    <div className="relative w-[42px] h-[59px] flex-shrink-0">
-      <div className="absolute inset-[1.69%_2.38%_30.51%_2.38%]">
-        <div className="absolute inset-[-1.88%_-1.88%_-1.87%_-1.88%]">
+    <div className="flex items-center gap-[8px]">
+      <div className="relative size-[40px] flex-shrink-0 text-[#343a3e]">
+        <div className="absolute inset-[-1.88%]">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 41.5 41.5">
             <g>
               <path d={svgHomepagePaths.p9b3e700} stroke="currentColor" strokeMiterlimit="10" strokeWidth="1.5" />
@@ -35,7 +35,7 @@ function LogoMark() {
           </svg>
         </div>
       </div>
-      <div className="absolute left-[5px] top-[50px] flex gap-[2px] font-['Inter',sans-serif] font-medium text-[11px] text-black tracking-wider">
+      <div className="flex gap-[2px] font-['Mulish',sans-serif] font-bold text-[12px] text-[#343a3e]">
         <span>M</span><span>G</span><span>L</span>
       </div>
     </div>
@@ -46,42 +46,41 @@ function Header() {
   const scrolled = useScrolled();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const nav: { label: string; to: string }[] = [
-    { label: "Home", to: "/" },
+  const navLinks = [
     { label: "Work", to: "/work" },
+    { label: "About", to: "/about" },
   ];
-
-  const navLinkClass = (isActive: boolean) =>
-    `font-['Mulish',sans-serif] font-bold text-sm uppercase tracking-wide transition-all duration-200 text-[#232a27] ${
-      isActive ? "border-b border-[#232a27]" : "border-b border-transparent hover:border-[#232a27]/30"
-    }`;
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#fcfbf4]/95 backdrop-blur-md border-b border-[#343a3e]/10 shadow-sm"
+            ? "bg-[#f3f3f3]/95 backdrop-blur-md border-b border-[#343a3e]/10 shadow-sm"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-24 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-[20px] md:px-[32px] lg:px-[64px] h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 group text-[#232a27] hover:text-[#d4af37] transition-colors duration-300"
-          >
+          <Link to="/">
             <LogoMark />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-14">
-            <NavLink to="/" end className={({ isActive }) => navLinkClass(isActive)}>
-              Home
-            </NavLink>
-            <NavLink to="/work" className={({ isActive }) => navLinkClass(isActive)}>
-              Work
-            </NavLink>
+          {/* Desktop + Tablet Nav */}
+          <nav className="hidden md:flex items-center gap-[24px] lg:gap-[32px]">
+            {navLinks.map(({ label, to }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `font-['Noto_Sans',sans-serif] font-bold text-[16px] uppercase text-[#212528] transition-colors duration-200 ${
+                    isActive ? "border-b border-[#212528]" : "border-b border-transparent hover:border-[#212528]/40"
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
           </nav>
 
           {/* Mobile hamburger */}
@@ -90,12 +89,12 @@ function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -103,18 +102,17 @@ function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#fcfbf4] flex flex-col pt-20 px-8"
+            className="fixed inset-0 z-40 bg-[#f3f3f3] flex flex-col pt-20 px-[20px]"
           >
             <nav className="flex flex-col gap-8 pt-8">
-              {nav.map(({ label, to }) => (
+              {navLinks.map(({ label, to }) => (
                 <NavLink
                   key={to}
                   to={to}
-                  end={to === "/"}
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) =>
-                    `font-['Mulish',sans-serif] text-4xl font-bold uppercase tracking-wider text-left transition-colors duration-200 ${
-                      isActive ? "text-[#343a3e]" : "text-[#343a3e]/40"
+                    `font-['Noto_Sans',sans-serif] text-4xl font-bold uppercase text-left transition-colors duration-200 ${
+                      isActive ? "text-[#212528]" : "text-[#212528]/40"
                     }`
                   }
                 >
@@ -123,7 +121,7 @@ function Header() {
               ))}
             </nav>
             <div className="mt-auto pb-12 border-t border-[#343a3e]/10 pt-8">
-              <p className="font-['Inter',sans-serif] text-sm text-[#343a3e]/50 tracking-wide">
+              <p className="font-['Mulish',sans-serif] text-sm text-[#343a3e]/50 tracking-wide">
                 UX Design Portfolio
               </p>
             </div>
@@ -209,7 +207,7 @@ export default function Layout() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#fcfbf4]">
+    <div className="min-h-screen bg-[#f3f3f3]">
       <Header />
       <main>
         <AnimatePresence mode="wait">

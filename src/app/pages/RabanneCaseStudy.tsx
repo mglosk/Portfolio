@@ -198,7 +198,7 @@ export default function RabanneCaseStudy() {
       </section>
 
       {/* ── Process phases bar ────────────────────────────────────────── */}
-      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-24 z-30 overflow-x-auto">
+      <div className="bg-[#f0ece2] border-b border-[#343a3e]/10 sticky top-20 z-30 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex min-w-max">
             {(
@@ -405,7 +405,7 @@ export default function RabanneCaseStudy() {
         <div className="flex flex-col lg:flex-row items-stretch lg:items-start px-6 md:px-10 py-16 gap-10 lg:gap-16 max-w-7xl mx-auto">
 
           {/* Left — sticky text panel */}
-          <div className="w-full lg:w-[38%] flex-shrink-0 lg:sticky lg:top-24 lg:self-start flex flex-col gap-10 lg:gap-16">
+          <div className="w-full lg:w-[38%] flex-shrink-0 lg:sticky lg:top-20 lg:self-start flex flex-col gap-10 lg:gap-16">
             <div className="flex flex-col gap-3">
               <SectionLabel>02 — Research</SectionLabel>
               <SectionH2>Competitive Analysis</SectionH2>
@@ -894,7 +894,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:sticky lg:top-24 py-10 lg:py-16 w-full lg:w-[40%] flex-shrink-0 flex flex-col gap-8"
+              className="lg:sticky lg:top-20 py-10 lg:py-16 w-full lg:w-[40%] flex-shrink-0 flex flex-col gap-8"
             >
               <h2 className="font-['Mulish',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#151515] leading-[1.2]">
                 Designing for Growth
@@ -980,7 +980,7 @@ export default function RabanneCaseStudy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.85, ease }}
-              className="lg:sticky lg:top-24 py-10 lg:py-16 w-full lg:w-[45%] flex-shrink-0 flex flex-col gap-10"
+              className="lg:sticky lg:top-20 py-10 lg:py-16 w-full lg:w-[45%] flex-shrink-0 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-3">
                 <SectionLabel>05 — Testing</SectionLabel>
