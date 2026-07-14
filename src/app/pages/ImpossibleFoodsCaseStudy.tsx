@@ -175,7 +175,7 @@ export default function ImpossibleFoodsCaseStudy() {
       </section>
 
       {/* ── Process phases bar ────────────────────────────────────────── */}
-      <div className="bg-[#343a3e] border-b border-[#eee5d4]/10 sticky top-24 z-30 overflow-x-auto">
+      <div className="bg-[#fcfbf4] border-b border-[#343a3e]/10 sticky top-24 z-30 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex min-w-max">
             {(
@@ -199,16 +199,16 @@ export default function ImpossibleFoodsCaseStudy() {
                     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 128, behavior: "smooth" });
                   }}
                   className={`group relative flex items-center gap-3 px-6 py-4 transition-colors duration-300 focus-visible:outline-none ${
-                    i < arr.length - 1 ? "border-r border-white/10" : ""
+                    i < arr.length - 1 ? "border-r border-[#343a3e]/10" : ""
                   }`}
-                  style={{ backgroundColor: isActive ? "rgba(238,229,212,0.08)" : undefined }}
-                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(238,229,212,0.05)"; }}
+                  style={{ backgroundColor: isActive ? "rgba(52,58,62,0.08)" : undefined }}
+                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(52,58,62,0.04)"; }}
                   onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = ""; }}
                 >
-                  <span className="absolute inset-x-0 top-0 h-[2px] transition-all duration-500" style={{ backgroundColor: isActive ? "#d4af37" : isPast ? "rgba(212,175,55,0.25)" : "transparent" }} />
-                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125" : ""}`} style={{ backgroundColor: isActive ? "#d4af37" : isPast ? "rgba(212,175,55,0.4)" : "rgba(238,229,212,0.2)" }} />
-                  <span className="font-['Mulish',sans-serif] text-[10px] tracking-[2px] transition-colors duration-300" style={{ color: isActive ? "#d4af37" : "rgba(212,175,55,0.35)" }}>{phase}</span>
-                  <span className="font-['Mulish',sans-serif] text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-300" style={{ color: isActive ? "#eee5d4" : isPast ? "rgba(238,229,212,0.5)" : "rgba(238,229,212,0.3)" }}>{label}</span>
+                  <span className="absolute inset-x-0 top-0 h-[2px] transition-all duration-500" style={{ backgroundColor: isActive ? "#e10600" : isPast ? "rgba(225,6,0,0.25)" : "transparent" }} />
+                  <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? "scale-125" : ""}`} style={{ backgroundColor: isActive ? "#e10600" : "rgba(52,58,62,0.2)" }} />
+                  <span className="font-['Mulish',sans-serif] font-medium text-[14px] tracking-[2px] transition-colors duration-300" style={{ color: isActive ? "#e10600" : "rgba(225,6,0,0.35)" }}>{phase}</span>
+                  <span className="font-['Mulish',sans-serif] font-bold text-[14px] tracking-[0.13em] uppercase transition-colors duration-300" style={{ color: isActive ? "#343a3e" : "rgba(21,21,21,0.3)" }}>{label}</span>
                 </button>
               );
             })}
