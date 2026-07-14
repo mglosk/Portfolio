@@ -19,7 +19,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#fcfbf4]">
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="h-screen flex flex-col justify-end px-10 pb-16 pt-0">
+      <section className="h-screen flex flex-col justify-end px-6 md:px-10 pb-16 pt-0">
         <div className="flex flex-col gap-6">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,7 @@ export default function Home() {
         enough for the sticky effect to be visible — min-height: 100vh ensures
         that. On mobile the photo stacks above the text normally.
       */}
-      <section className="relative flex flex-col lg:flex-row items-start px-10 gap-16 lg:gap-24 min-h-screen">
+      <section className="relative flex flex-col lg:flex-row items-start px-6 md:px-10 gap-16 lg:gap-24 min-h-screen">
         {/* Left — text scrolls normally */}
         <div className="w-full lg:w-[38%] flex-shrink-0 py-24 lg:py-32 flex flex-col gap-8">
           <FadeIn>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* ── Experience in a nutshell ───────────────────────────────── */}
-      <section className="py-20 px-10">
+      <section className="py-20 px-6 md:px-10">
         <FadeIn>
           <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase text-black leading-none mb-8">
             Experience in a nutshell
@@ -147,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* ── Work grid ─────────────────────────────────────────────── */}
-      <section className="py-20 px-10">
+      <section className="py-20 px-6 md:px-10">
         <FadeIn className="mb-8">
           <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase text-black leading-none">
             Work
