@@ -101,11 +101,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Experience in a nutshell ───────────────────────────────── */}
+      {/* ── My areas of expertise ─────────────────────────────────── */}
       <section className="py-20 px-6 md:px-10">
         <FadeIn>
           <p className="font-['Mulish',sans-serif] font-bold text-[32px] uppercase text-black leading-none mb-8">
-            Experience in a nutshell
+            My areas of expertise
           </p>
         </FadeIn>
 
@@ -113,21 +113,21 @@ export default function Home() {
           {[
             {
               bg: "#ff6c02",
-              category: "AI Softwares",
-              body: "A lot of AI products ask users to trust something they can't fully see. I've spent time figuring out how the interface can make that easier, without pretending the complexity isn't there.",
-              clients: "Greenswan.ai · Copydesk · Monks.Flow",
+              category: "Agentic software design",
+              body: "I specialize in transforming complex agentic systems into intuitive, user-friendly interfaces",
+              clients: "Greenswan.ai, Copydesk, Monks.Flow, BUNQ",
             },
             {
               bg: "#c1d5cf",
               category: "E-commerce",
-              body: "Luxury commerce is less about the purchase and more about what leads up to it. I've worked on the quieter parts of that journey, where the design either earns confidence or quietly loses it.",
-              clients: "Rabanne · Studio Ehlén · Boutique Group",
+              body: "I build online webshops that maximize sales and build user trust while maintaining brand integrity",
+              clients: "Rabanne, Studio Ehlén, Resmed",
             },
             {
               bg: "#e6e4de",
-              category: "Brand awareness",
-              body: "Some products need the website to do a lot of convincing before anyone reaches for their wallet. I find that work interesting. Getting the structure right so the story can actually land.",
-              clients: "Impossible Foods · Resmed",
+              category: "Brand storytelling",
+              body: "I bring brand stories to life through memorable and immersive digital experiences",
+              clients: "Impossible Foods, Resmed, Boutique group",
             },
           ].map(({ bg, category, body, clients }, i) => (
             <FadeIn key={category} delay={i * 0.08} className="flex-1">
