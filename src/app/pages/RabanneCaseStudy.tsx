@@ -240,7 +240,6 @@ export default function RabanneCaseStudy() {
       <section id="work-background" className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-16">
-            <SectionLabel>01 — Background</SectionLabel>
             <SectionH2>Background</SectionH2>
           </div>
 
@@ -285,7 +284,6 @@ export default function RabanneCaseStudy() {
 
             {/* Left — label + heading + intro */}
             <div className="flex flex-col gap-4 w-full lg:w-[470px] flex-shrink-0">
-              <SectionLabel>The Brief</SectionLabel>
               <SectionH2>The central task</SectionH2>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -338,7 +336,6 @@ export default function RabanneCaseStudy() {
       <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-16">
-            <SectionLabel>02 — Goals</SectionLabel>
             <SectionH2>Goals</SectionH2>
           </div>
 
@@ -407,7 +404,6 @@ export default function RabanneCaseStudy() {
           {/* Left — sticky text panel */}
           <div className="w-full lg:w-[38%] flex-shrink-0 lg:sticky lg:top-20 lg:self-start flex flex-col gap-10 lg:gap-16">
             <div className="flex flex-col gap-3">
-              <SectionLabel>02 — Research</SectionLabel>
               <SectionH2>Competitive Analysis</SectionH2>
             </div>
 
@@ -507,7 +503,6 @@ export default function RabanneCaseStudy() {
       <section className="py-24 bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex flex-col gap-2 mb-8">
-            <SectionLabel>02 — Insights</SectionLabel>
             <SectionH2>Key Insights</SectionH2>
           </div>
 
@@ -569,7 +564,6 @@ export default function RabanneCaseStudy() {
           {/* Left — text */}
           <div className="flex flex-col gap-10 lg:gap-16 w-full lg:w-[42%] flex-shrink-0">
             <div className="flex flex-col gap-3">
-              <SectionLabel>03 — Ideation</SectionLabel>
               <SectionH2>High-Definition wireframes</SectionH2>
             </div>
 
@@ -714,7 +708,6 @@ export default function RabanneCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8"
           >
-            <SectionLabel>03 — Wireframing</SectionLabel>
             <div className="mt-3"><SectionH2>Mapping Checkout Complexity</SectionH2></div>
           </motion.div>
 
@@ -945,7 +938,6 @@ export default function RabanneCaseStudy() {
             className="mb-10"
           >
             <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>04 — Production</SectionLabel>
               <div className="mt-1"><SectionH2>Prototyping</SectionH2></div>
             </div>
             <div className="max-w-[638px] flex flex-col gap-4">
@@ -983,7 +975,6 @@ export default function RabanneCaseStudy() {
               className="lg:sticky lg:top-20 py-10 lg:py-16 w-full lg:w-[45%] flex-shrink-0 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-3">
-                <SectionLabel>05 — Testing</SectionLabel>
                 <div className="mt-1"><SectionH2>Header Usability Test</SectionH2></div>
               </div>
               <div className="flex flex-col gap-5 max-w-[526px]">
@@ -1039,7 +1030,6 @@ export default function RabanneCaseStudy() {
             className="mb-11"
           >
             <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>05 — Delivery</SectionLabel>
               <div className="mt-1"><SectionH2>Design System &amp; Handover</SectionH2></div>
             </div>
             <div className="flex flex-col gap-4 max-w-3xl">

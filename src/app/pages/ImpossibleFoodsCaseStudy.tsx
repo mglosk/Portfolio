@@ -292,7 +292,7 @@ export default function ImpossibleFoodsCaseStudy() {
               className="flex-1 py-16 flex flex-col gap-10"
             >
               <div className="flex flex-col gap-3">
-                <SectionLabel>01 — Background</SectionLabel>
+
                 <div className="mt-1"><SectionH2>Background</SectionH2></div>
               </div>
               <div className="flex flex-col gap-4 max-w-[500px]">
@@ -368,7 +368,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8 flex flex-col gap-3"
           >
-            <SectionLabel>02 — Goals</SectionLabel>
+
             <div className="mt-1">
               <SectionH2>The redesign had to solve for three connected goals</SectionH2>
             </div>
@@ -409,7 +409,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10 flex flex-col gap-3"
           >
-            <SectionLabel>02 — Research</SectionLabel>
+
             <div className="mt-1"><SectionH2>Stakeholder Workshop</SectionH2></div>
           </motion.div>
 
@@ -490,7 +490,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8 flex flex-col gap-3"
           >
-            <SectionLabel>02 — Insights</SectionLabel>
+
             <div className="mt-1"><SectionH2>Audience needs</SectionH2></div>
           </motion.div>
 
@@ -662,7 +662,7 @@ export default function ImpossibleFoodsCaseStudy() {
               className="w-full lg:w-[42%] flex-shrink-0 flex flex-col gap-8"
             >
               <div className="flex flex-col gap-3">
-                <SectionLabel>03 — Ideation</SectionLabel>
+
                 <div className="mt-1"><SectionH2>Information architecture</SectionH2></div>
               </div>
               <div className="flex flex-col gap-4">
@@ -770,7 +770,7 @@ export default function ImpossibleFoodsCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-8 flex flex-col gap-3"
           >
-            <SectionLabel>04 — Production</SectionLabel>
+
             <div className="mt-1"><SectionH2>Interaction scenarios</SectionH2></div>
           </motion.div>
 
@@ -934,7 +934,7 @@ export default function ImpossibleFoodsCaseStudy() {
               className="w-full lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
             >
               <div className="flex flex-col gap-3">
-                <SectionLabel>05 — Delivery</SectionLabel>
+
                 <div className="mt-1"><SectionH2>Component library</SectionH2></div>
               </div>
               <div className="flex flex-col gap-4">
