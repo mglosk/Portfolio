@@ -140,9 +140,6 @@ function Footer() {
           <p className="font-['Barlow_Condensed',sans-serif] font-semibold text-xl tracking-[0.25em] uppercase text-[#d4af37] mb-4">
             Mandy Losk
           </p>
-          <p className="font-['Inter',sans-serif] text-sm text-[#eee5d4]/60 leading-relaxed max-w-xs">
-            UX/UI design portfolio featuring case studies in luxury e-commerce, AI platforms, and brand-driven digital experiences.
-          </p>
         </div>
         <div>
           <p className="font-['Barlow_Condensed',sans-serif] text-xs tracking-[0.2em] uppercase text-[#eee5d4]/40 mb-5">
