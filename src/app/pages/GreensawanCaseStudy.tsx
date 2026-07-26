@@ -99,16 +99,6 @@ export default function GreensawanCaseStudy() {
       <section ref={heroRef} className="relative overflow-hidden" style={{ height: 580, backgroundColor: DARK }}>
         {/* Left — text pinned to bottom */}
         <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pb-14 w-[55%]">
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease }}
-            className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[1.8px] uppercase mb-5"
-            style={{ color: "#7ecece" }}
-          >
-            Case Study — AI Product Design
-          </motion.p>
-
           <div className="overflow-hidden mb-8">
             <motion.div
               initial={{ y: "100%" }}
@@ -208,10 +198,7 @@ export default function GreensawanCaseStudy() {
               transition={{ duration: 0.95, ease }}
               className="lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
             >
-              <div className="flex flex-col gap-3">
-                <SectionLabel>01 — Background</SectionLabel>
-                <div className="mt-1"><SectionH2>Green Swan AI</SectionH2></div>
-              </div>
+              <SectionH2>Green Swan AI</SectionH2>
 
               <div className="flex flex-col divide-y divide-[#343a3e]/10">
                 {[
@@ -317,10 +304,7 @@ export default function GreensawanCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>01 — Challenge</SectionLabel>
-              <div className="mt-1"><SectionH2>The Challenge</SectionH2></div>
-            </div>
+            <div className="mb-8"><SectionH2>The Challenge</SectionH2></div>
             <div className="max-w-3xl flex flex-col gap-4">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 GreenSwan AI needed to launch a new product in a fast-moving AI market. The tool had to help scientists create customizable research reports, but the experience needed to feel approachable for users who may not be familiar with AI software or template-based creation tools.
@@ -433,10 +417,7 @@ export default function GreensawanCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>02 — Research</SectionLabel>
-              <div className="mt-1"><SectionH2>My Approach</SectionH2></div>
-            </div>
+            <div className="mb-8"><SectionH2>My Approach</SectionH2></div>
             <div className="max-w-[700px] flex flex-col gap-5">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 My approach was to simplify a complex AI-enabled workflow into a product experience that felt familiar, structured, and easy to act on.
@@ -551,10 +532,7 @@ export default function GreensawanCaseStudy() {
               transition={{ duration: 0.85, ease }}
               className="lg:sticky lg:top-20 py-16 w-full lg:w-[40%] flex-shrink-0 flex flex-col gap-8"
             >
-              <div className="flex flex-col gap-3">
-                <SectionLabel>02 — Research</SectionLabel>
-                <div className="mt-1"><SectionH2>Strategic Insights</SectionH2></div>
-              </div>
+              <SectionH2>Strategic Insights</SectionH2>
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 Usability was the top priority, and time was extremely short. Looking at proven UX patterns in adjacent industries let me move quickly without reinventing the wheel.
               </p>
@@ -611,10 +589,7 @@ export default function GreensawanCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>03 — Ideation</SectionLabel>
-              <div className="mt-1"><SectionH2>Rapid UI Exploration</SectionH2></div>
-            </div>
+            <div className="mb-8"><SectionH2>Rapid UI Exploration</SectionH2></div>
             <div className="max-w-3xl flex flex-col gap-4">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 With only two months to define the product direction, I used a lean design process. Instead of spending time on separate wireframe rounds, I moved directly into structured UI exploration so the team could evaluate layout, hierarchy, interaction patterns, and brand expression at the same time.
@@ -679,10 +654,7 @@ export default function GreensawanCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>03 — Ideation</SectionLabel>
-              <div className="mt-1"><SectionH2>Designing for unfamiliar workflows</SectionH2></div>
-            </div>
+            <div className="mb-8"><SectionH2>Designing for unfamiliar workflows</SectionH2></div>
             <div className="max-w-3xl flex flex-col gap-4">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 Because AI-assisted report generation was a new workflow for many users, the interface needed to borrow from familiar patterns. I focused on reducing ambiguity: clear steps, recognizable templates, visible customization options, and a logical path from input to generated report.
@@ -747,10 +719,7 @@ export default function GreensawanCaseStudy() {
             transition={{ duration: 0.8, ease }}
             className="mb-10"
           >
-            <div className="flex flex-col gap-3 mb-8">
-              <SectionLabel>04 — Production</SectionLabel>
-              <div className="mt-1"><SectionH2>Prototype & Outcome</SectionH2></div>
-            </div>
+            <div className="mb-8"><SectionH2>Prototype & Outcome</SectionH2></div>
             <div className="max-w-[638px] flex flex-col gap-4">
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)]">
                 The final prototype demonstrated how GreenSwan's AI research report tool could guide users from setup to customization to generated output. It gave the client a tangible product direction for their new AI offering and helped communicate how the tool could feel usable, credible, and brand-aligned.
@@ -790,10 +759,7 @@ export default function GreensawanCaseStudy() {
               transition={{ duration: 0.8, ease }}
               className="mb-11"
             >
-              <div className="flex flex-col gap-3 mb-8">
-                <SectionLabel>05 — Delivery</SectionLabel>
-                <div className="mt-1"><SectionH2>What I delivered</SectionH2></div>
-              </div>
+              <div className="mb-8"><SectionH2>What I delivered</SectionH2></div>
               <p className="font-['Helvetica_Neue',sans-serif] font-medium text-[16px] leading-[1.4] text-[rgba(52,58,62,0.8)] max-w-2xl">
                 In two months, I delivered a full product design direction that gave the GreenSwan team a clear foundation for their AI research tool launch.
               </p>
