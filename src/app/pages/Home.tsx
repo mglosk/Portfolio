@@ -197,16 +197,18 @@ export default function Home() {
 
           {/* Greenswan */}
           <FadeIn delay={0.15}>
-            <div
-              className="overflow-hidden relative flex items-center justify-center"
+            <button
+              onClick={() => navigate("/work/greenswan-ai")}
+              className="overflow-hidden relative flex items-center justify-center w-full group focus-visible:outline-none"
               style={{ aspectRatio: "520/292.5", background: "#092626" }}
             >
               <img
                 src={imgGreenswan}
                 alt="Greenswan.ai"
-                className="w-1/2 h-1/2 object-contain"
+                className="w-1/2 h-1/2 object-contain transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
+              <div className="absolute inset-0 bg-[#092626]/0 group-hover:bg-[#092626]/20 transition-colors duration-500" />
+            </button>
           </FadeIn>
         </div>
       </section>
