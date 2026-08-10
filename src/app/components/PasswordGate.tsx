@@ -62,9 +62,9 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
           />
           <button
             type="submit"
-            className="mt-1 w-full rounded-lg bg-[#36413d] px-4 py-3 font-['Mulish',sans-serif] font-bold text-[16px] text-white transition hover:bg-[#36413d]/90"
+            className="w-full h-14 rounded-lg bg-[#ac4e76] font-['Mulish',sans-serif] font-bold text-[16px] uppercase text-white transition hover:bg-[#ac4e76]/90"
           >
-            Unlock site
+            Unlock
           </button>
         </form>
 
