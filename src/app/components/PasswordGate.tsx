@@ -36,35 +36,39 @@ export default function PasswordGate({ children }: { children: React.ReactNode }
   }
 
   return (
-    <div className="min-h-screen bg-[#0b0b0d] text-white flex items-center justify-center px-6 py-12">
-      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-sm">
-        <p className="text-sm uppercase tracking-[0.35em] text-white/60">Private portfolio</p>
-        <h1 className="mt-3 text-2xl font-semibold">Enter the password</h1>
-        <p className="mt-3 text-sm leading-6 text-white/70">
-          This site is password protected. Enter the password to continue.
+    <div className="min-h-screen bg-[#fcfbf4] flex items-center justify-center px-6 py-12">
+      <div
+        className="w-full max-w-[520px] rounded-2xl border border-[#ecece8] bg-white p-12 flex flex-col gap-6"
+        style={{ boxShadow: "0px 12px 16px rgba(0,0,0,0.05)" }}
+      >
+        <h1 className="font-['Mulish',sans-serif] font-bold text-[40px] leading-[1.1] text-[#36413d]">
+          Enter the password
+        </h1>
+        <p className="font-['Mulish',sans-serif] font-normal text-[18px] leading-[1.5] text-[#36413d] opacity-80">
+          This portfolio is password protected. Please enter the access code below to view the content.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <label className="font-['Mulish',sans-serif] font-bold text-[14px] uppercase tracking-wide text-[#36413d]">
+            Password
+          </label>
           <input
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            placeholder="Password"
+            placeholder="••••••••"
             autoComplete="current-password"
-            className="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-sm outline-none ring-0 placeholder:text-white/40 focus:border-white/40"
+            className="w-full h-14 rounded-lg border border-[#ecece8] bg-[#fcfbf4] px-4 font-['Mulish',sans-serif] text-[16px] text-[#36413d] placeholder:text-[#36413d]/50 outline-none focus:border-[#36413d]/40"
           />
           <button
             type="submit"
-            className="w-full rounded-xl bg-white px-4 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+            className="mt-1 w-full rounded-lg bg-[#36413d] px-4 py-3 font-['Mulish',sans-serif] font-bold text-[16px] text-white transition hover:bg-[#36413d]/90"
           >
             Unlock site
           </button>
         </form>
 
-        {error ? <p className="mt-4 text-sm text-red-400">{error}</p> : null}
-        <p className="mt-6 text-xs leading-5 text-white/45">
-          To change this password later, set the Vercel environment variable <span className="font-medium text-white/70">VITE_SITE_PASSWORD</span>.
-        </p>
+        {error ? <p className="font-['Mulish',sans-serif] text-[14px] text-red-500">{error}</p> : null}
       </div>
     </div>
   );
