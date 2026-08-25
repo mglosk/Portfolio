@@ -94,56 +94,65 @@ export default function GreensawanCaseStudy() {
     <div className="min-h-screen bg-[#f3f3f3]">
 
       {/* ══ HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#f3f3f3] flex items-end px-6 md:px-10 pt-20 pb-16 min-h-[560px]">
-        {/* Left — text */}
-        <div className="relative z-10 flex flex-col gap-8 w-full lg:w-[44%] flex-shrink-0">
-          <div className="flex flex-col gap-4">
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease }}
-              className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[2px] uppercase text-[#092626]"
-            >
-              AI Tooling
-            </motion.p>
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.85, delay: 0.2, ease }}
-                className="font-['Mulish',sans-serif] font-black text-[clamp(52px,6vw,80px)] uppercase leading-[0.95] text-[#092626]"
-              >
-                GreenSwan.ai
-              </motion.h1>
-            </div>
-          </div>
+      <section className="relative overflow-hidden bg-[#f3f3f3]" style={{ height: "clamp(480px, 56vw, 680px)" }}>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.7, ease }}
-            className="flex flex-wrap gap-3"
-          >
-            {["Research", "Wireframing", "Prototyping", "Design System"].map((tag, i) => (
-              <motion.span
-                key={tag}
+        {/* Left — bottom-anchored text */}
+        <div className="absolute bottom-0 left-0 z-10 flex flex-col justify-end px-10 pb-16 w-full lg:w-[42%]">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.75 + i * 0.07, ease }}
-                className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase border border-[#0e5f61] text-[#0e5f61] px-[18px] py-[10px]"
+                transition={{ duration: 0.6, delay: 0.1, ease }}
+                className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[2px] uppercase text-[#092626]"
               >
-                {tag}
-              </motion.span>
-            ))}
-          </motion.div>
+                AI Tooling
+              </motion.p>
+              <div className="overflow-hidden">
+                <motion.h1
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.85, delay: 0.2, ease }}
+                  className="font-['Mulish',sans-serif] font-black text-[72px] uppercase leading-[72px] text-[#092626]"
+                >
+                  GreenSwan.ai
+                </motion.h1>
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.7, ease }}
+              className="flex flex-wrap gap-4"
+            >
+              {["Research", "Wireframing", "Prototyping", "Design System"].map((tag, i) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.75 + i * 0.07, ease }}
+                  className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase border border-[#0e5f61] text-[#0e5f61] px-[18px] py-[10px]"
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        {/* Right — sphere, partially cropped */}
+        {/* Right — sphere bleeds off all edges */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.15, ease }}
-          className="hidden lg:block absolute right-[-8%] top-1/2 -translate-y-1/2 w-[58%]"
+          transition={{ duration: 1.1, delay: 0.1, ease }}
+          className="hidden lg:block absolute"
+          style={{
+            width: "70%",
+            right: "-12%",
+            top: "50%",
+            transform: "translateY(-50%)",
+          }}
         >
           <img
             src={imgHeroSphere}
