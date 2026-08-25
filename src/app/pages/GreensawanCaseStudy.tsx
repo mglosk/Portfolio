@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { useNavigate } from "react-router";
 
-import imgLogoSphere       from "@/imports/GreensawanCaseStudy-2/logo-sphere.png";
 import imgExpertIllust     from "@/imports/GreensawanCaseStudy-2/expert-illustration.png";
 import imgCloud            from "@/imports/GreensawanCaseStudy-2/cloud.png";
 import imgBenchmarkCanva   from "@/imports/GreensawanCaseStudy-2/benchmark-canva.png";
@@ -81,11 +80,6 @@ export default function GreensawanCaseStudy() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  /* Hero parallax */
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroSphereY = useTransform(heroScroll, [0, 1], ["0%", "14%"]);
-
   const phases = [
     { id: "work-background", n: "01", label: "Background" },
     { id: "work-research",   n: "02", label: "Research"   },
@@ -98,60 +92,6 @@ export default function GreensawanCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#f3f3f3]">
-
-      {/* ══ HERO ══════════════════════════════════════════════════════════ */}
-      <section ref={heroRef} className="relative overflow-hidden" style={{ minHeight: 560, backgroundColor: DARK }}>
-
-        {/* Left — text */}
-        <div className="absolute left-0 bottom-0 z-10 flex flex-col justify-end px-6 md:px-10 pb-14 w-full lg:w-[52%]">
-          <div className="overflow-hidden mb-7">
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease }}
-            >
-              <p className="font-['Mulish',sans-serif] font-black text-[clamp(48px,6vw,80px)] uppercase leading-none text-white tracking-[-0.01em]">
-                Greenswan<span style={{ color: "#4a8f8f" }}>.ai</span>
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.65, ease }}
-            className="flex flex-wrap gap-2.5 mb-12"
-          >
-            {["Product Design", "UI Design", "Prototyping"].map((tag, i) => (
-              <motion.span
-                key={tag}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + i * 0.09, ease }}
-                className="font-['Mulish',sans-serif] font-medium text-[11px] tracking-[2.4px] uppercase border border-[#7ecece] text-[#7ecece] px-4 py-2"
-              >
-                {tag}
-              </motion.span>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Right — GreenSwan sphere */}
-        <motion.div
-          className="hidden lg:flex absolute right-[-6%] top-0 h-full w-[54%] items-center justify-center"
-          style={{ y: heroSphereY }}
-        >
-          <motion.img
-            src={imgLogoSphere}
-            alt="GreenSwan AI logo"
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, delay: 0.2, ease }}
-            className="w-[88%] object-contain"
-            style={{ filter: "drop-shadow(0 0 80px rgba(14,95,97,0.5))" }}
-          />
-        </motion.div>
-      </section>
 
       {/* ══ PROCESS BAR ═══════════════════════════════════════════════════ */}
       <div className="sticky top-20 z-30 overflow-x-auto" style={{ backgroundColor: "#343a3e" }}>
