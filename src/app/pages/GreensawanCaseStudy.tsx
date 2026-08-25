@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router";
 
+import imgHeroSphere       from "@/imports/GreensawanCaseStudy-2/hero-sphere.png";
 import imgExpertIllust     from "@/imports/GreensawanCaseStudy-2/expert-illustration.png";
 import imgCloud            from "@/imports/GreensawanCaseStudy-2/cloud.png";
 import imgBenchmarkCanva   from "@/imports/GreensawanCaseStudy-2/benchmark-canva.png";
@@ -92,6 +93,66 @@ export default function GreensawanCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#f3f3f3]">
+
+      {/* ══ HERO ══════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-[#f3f3f3] flex items-end px-6 md:px-10 pt-20 pb-16 min-h-[560px]">
+        {/* Left — text */}
+        <div className="relative z-10 flex flex-col gap-8 w-full lg:w-[44%] flex-shrink-0">
+          <div className="flex flex-col gap-4">
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease }}
+              className="font-['Mulish',sans-serif] font-bold text-[12px] tracking-[2px] uppercase text-[#092626]"
+            >
+              AI Tooling
+            </motion.p>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.85, delay: 0.2, ease }}
+                className="font-['Mulish',sans-serif] font-black text-[clamp(52px,6vw,80px)] uppercase leading-[0.95] text-[#092626]"
+              >
+                GreenSwan.ai
+              </motion.h1>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7, ease }}
+            className="flex flex-wrap gap-3"
+          >
+            {["Research", "Wireframing", "Prototyping", "Design System"].map((tag, i) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.75 + i * 0.07, ease }}
+                className="font-['Mulish',sans-serif] font-normal text-[12px] tracking-[2.4px] uppercase border border-[#0e5f61] text-[#0e5f61] px-[18px] py-[10px]"
+              >
+                {tag}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Right — sphere, partially cropped */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.15, ease }}
+          className="hidden lg:block absolute right-[-8%] top-1/2 -translate-y-1/2 w-[58%]"
+        >
+          <img
+            src={imgHeroSphere}
+            alt="GreenSwan AI"
+            className="w-full object-contain"
+          />
+        </motion.div>
+      </section>
 
       {/* ══ PROCESS BAR ═══════════════════════════════════════════════════ */}
       <div className="sticky top-20 z-30 overflow-x-auto" style={{ backgroundColor: "#343a3e" }}>
