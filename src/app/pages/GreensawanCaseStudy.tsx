@@ -11,7 +11,6 @@ import imgBenchmarkGuided  from "@/imports/GreensawanCaseStudy-2/benchmark-guide
 import imgUiExp1           from "@/imports/GreensawanCaseStudy-2/ui-exp-1.png";
 import imgUiExp2           from "@/imports/GreensawanCaseStudy-2/ui-exp-2.png";
 import imgUiExp3           from "@/imports/GreensawanCaseStudy-2/ui-exp-3.png";
-import imgHeroUiGif        from "@/imports/GreensawanCaseStudy-2/hero-ui.gif";
 import imgJourney1         from "@/imports/GreensawanCaseStudy-2/journey-1.png";
 import imgJourney2         from "@/imports/GreensawanCaseStudy-2/journey-2.png";
 import imgJourney3         from "@/imports/GreensawanCaseStudy-2/journey-3.png";
@@ -520,21 +519,6 @@ export default function GreensawanCaseStudy() {
               With only two months to define the product direction, I used a lean design process. Instead of separate wireframe rounds, I moved directly into structured UI exploration so the team could evaluate layout, hierarchy, interaction patterns, and brand expression simultaneously.
             </p>
           </div>
-
-          {/* Animated GIF — auto-plays as a regular img */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.95, ease }}
-            className="mb-8 overflow-hidden"
-          >
-            <img
-              src={imgHeroUiGif}
-              alt="GreenSwan AI product UI — animated walkthrough"
-              className="w-full object-cover"
-            />
-          </motion.div>
 
           {/* Static exploration screens */}
           <motion.div
