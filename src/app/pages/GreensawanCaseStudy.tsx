@@ -205,65 +205,8 @@ export default function GreensawanCaseStudy() {
         </div>
       </div>
 
-      {/* ══ 01 — BACKGROUND ═══════════════════════════════════════════════ */}
-      <section id="work-background" className="py-16 bg-[#f3f3f3] border-b border-[#343a3e]/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
-
-            {/* Meta */}
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.9, ease }}
-              className="lg:w-[38%] flex-shrink-0 flex flex-col gap-8"
-            >
-              <SectionH2>Green Swan AI</SectionH2>
-
-              <div className="flex flex-col divide-y divide-[#343a3e]/10">
-                {[
-                  { label: "Company", value: "Green Swan AI" },
-                  { label: "Role",    value: "Product Design" },
-                  { label: "Length",  value: "2 months (2024)" },
-                  { label: "Team",    value: "Freelance" },
-                ].map(({ label, value }) => (
-                  <div key={label} className="flex gap-8 py-4">
-                    <p className="font-['Helvetica_Neue',sans-serif] text-[13px] font-medium text-[rgba(52,58,62,0.5)] w-24 flex-shrink-0">{label}</p>
-                    <p className="font-['Helvetica_Neue',sans-serif] text-[15px] font-medium text-[rgba(52,58,62,0.8)]">{value}</p>
-                  </div>
-                ))}
-                <div className="flex gap-8 py-4 items-start">
-                  <p className="font-['Helvetica_Neue',sans-serif] text-[13px] font-medium text-[rgba(52,58,62,0.5)] w-24 flex-shrink-0 pt-1">Skills</p>
-                  <div className="flex flex-wrap gap-2">
-                    {["Prototyping", "Product design", "UI design", "Design system"].map((s) => (
-                      <span key={s} className="font-['Mulish',sans-serif] font-extrabold text-[10px] uppercase tracking-wider text-white px-3 py-1.5 rounded-full" style={{ backgroundColor: TEAL }}>{s}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Sphere visual */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.9, ease, delay: 0.1 }}
-              className="flex-1 flex items-center justify-center py-8"
-            >
-              <img
-                src={imgLogoSphere}
-                alt="GreenSwan AI — brand identity"
-                className="w-full max-w-sm object-contain"
-                style={{ filter: "drop-shadow(0 8px 48px rgba(14,95,97,0.25))" }}
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* ══ INTRODUCTION ══════════════════════════════════════════════════ */}
-      <section className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
+      <section id="work-background" className="bg-[#f3f3f3] border-b border-[#343a3e]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="flex gap-16 items-start">
 
