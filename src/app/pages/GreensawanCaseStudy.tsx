@@ -433,26 +433,24 @@ export default function GreensawanCaseStudy() {
               </div>
             </motion.div>
 
-            {/* Right — dark panel with benchmark screens */}
+            {/* Right — benchmark image grid matching Figma */}
             <motion.div
               variants={cardContainer}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-20px" }}
-              className="hidden lg:flex flex-1 py-16 flex-col gap-3"
+              className="hidden lg:flex flex-1 py-16 flex-col gap-8"
             >
-              <motion.div variants={cardItem}>
-                <p className="font-['Mulish',sans-serif] text-[10px] font-medium uppercase tracking-[2.5px] text-[rgba(52,58,62,0.45)] mb-3">Template selection</p>
-                <div className="rounded overflow-hidden bg-[#1a2a2a] p-4 flex gap-3">
-                  <img src={imgBenchmarkCanva} alt="Canva template selection" className="flex-1 object-cover rounded" />
-                  <img src={imgBenchmarkScreen} alt="Adobe Express benchmark" className="flex-1 object-cover rounded" />
-                </div>
+              {/* Row 1: two screenshots side by side */}
+              <motion.div variants={cardItem} className="flex gap-4 items-start">
+                <img src={imgBenchmarkCanva} alt="Canva template selection" className="flex-1 min-w-0 object-cover" />
+                <img src={imgBenchmarkScreen} alt="Adobe Express benchmark" className="flex-1 min-w-0 object-cover" />
               </motion.div>
-              <motion.div variants={cardItem}>
-                <p className="font-['Mulish',sans-serif] text-[10px] font-medium uppercase tracking-[2.5px] text-[rgba(52,58,62,0.45)] mb-3">Guided creation</p>
-                <div className="rounded overflow-hidden bg-[#1a2a2a] p-4">
-                  <img src={imgBenchmarkGuided} alt="Guided creation flow patterns" className="w-full object-cover rounded" />
-                </div>
+
+              {/* Row 2: label + full-width guided creation screenshot */}
+              <motion.div variants={cardItem} className="flex flex-col gap-3">
+                <p className="font-['Mulish',sans-serif] text-[11px] font-medium uppercase tracking-[2.2px] text-[rgba(52,58,62,0.5)]">Guided creation</p>
+                <img src={imgBenchmarkGuided} alt="Guided creation flow patterns" className="w-full object-cover" />
               </motion.div>
             </motion.div>
           </div>
